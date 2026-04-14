@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-id="th-modified">Ultimate Bookkeeper Guide — Philippines Edition by @mgsolayao</title>
+<style>
+:root{--teal:#00838F;--teal-dark:#006670;--teal-lt:#E6F4F5;--pink:#C4006E;--pink-lt:#FCE8F3;--qb:#2CA01C;--qb-lt:#E8F5E3;--xero:#13B5EA;--xero-dark:#0D8AB5;--xero-lt:#E3F6FD;--navy:#1A1A2E;--text:#2D2D2D;--subtext:#555;--border:#E2E2E2;--bg:#F7F8FA;--white:#fff;--sidebar-w:240px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);font-size:14px}
+.top-bar{position:sticky;top:0;z-index:200;background:var(--white);border-bottom:3px solid var(--teal);display:flex;align-items:center;padding:0 28px;height:60px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:36px;height:36px;border-radius:6px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900}
+.logo-text .l1{font-size:15px;font-weight:700;color:var(--navy)}
+.logo-text .l2{font-size:11px;color:var(--pink);font-weight:600}
+.top-bar-title{margin-left:20px;padding-left:20px;border-left:1px solid var(--border);font-size:13px;color:var(--subtext);font-weight:500}
+.hamburger{display:none;margin-left:auto;background:none;border:none;font-size:22px;cursor:pointer;color:var(--navy)}
+.layout{display:flex;min-height:calc(100vh - 60px)}
+.sidebar{width:var(--sidebar-w);flex-shrink:0;background:var(--white);border-right:1px solid var(--border);padding:20px 0;position:sticky;top:60px;height:calc(100vh - 60px);overflow-y:auto}
+.sidebar-label{font-size:10px;font-weight:700;color:var(--subtext);text-transform:uppercase;letter-spacing:1px;padding:12px 20px 4px}
+.sidebar-link{display:flex;align-items:center;gap:8px;padding:7px 20px;text-decoration:none;color:var(--text);font-size:12px;font-weight:500;border-left:3px solid transparent;transition:background .15s,border-color .15s,color .15s;cursor:pointer}
+.sidebar-link:hover{background:var(--bg);color:var(--teal)}
+.sidebar-link.active{border-left-color:var(--pink);background:var(--pink-lt);color:var(--pink);font-weight:600}
+.sidebar-link .si{font-size:13px;width:17px;text-align:center}
+.sidebar-divider{height:1px;background:var(--border);margin:8px 16px}
+.main{flex:1;padding:32px 36px;max-width:980px}
+.page-header{margin-bottom:28px}
+.page-header h1{font-size:26px;font-weight:700;color:var(--navy);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.page-header .underline{width:48px;height:3px;background:var(--pink);border-radius:2px;margin-bottom:10px}
+.page-header .subtitle{font-size:14px;color:var(--subtext)}
+.section{margin-bottom:44px;scroll-margin-top:80px}
+.section-title{font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.section-title.qb-color{color:var(--qb)}
+.section-title.xero-color{color:var(--xero-dark)}
+.section-title.pink-color{color:var(--pink)}
+.phase-banner{display:flex;align-items:center;gap:16px;background:var(--white);border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:8px;padding:16px 20px;margin-bottom:14px}
+.phase-banner.pink-left{border-left-color:var(--pink)}
+.phase-banner.qb-left{border-left-color:var(--qb)}
+.phase-banner.xero-left{border-left-color:var(--xero)}
+.phase-num{width:40px;height:40px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
+.phase-banner.pink-left .phase-num{background:var(--pink)}
+.phase-banner.qb-left .phase-num{background:var(--qb)}
+.phase-banner.xero-left .phase-num{background:var(--xero)}
+.phase-info h3{font-size:15px;font-weight:700;color:var(--navy)}
+.phase-info p{font-size:12px;color:var(--subtext);margin-top:2px}
+.step-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin-bottom:12px}
+.step-card h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.step-card p{font-size:13px;color:var(--subtext);line-height:1.5;margin-bottom:10px}
+.step-card ul{list-style:none;margin:0;padding:0}
+.step-card ul li{padding:5px 0;font-size:13px;border-bottom:1px solid var(--border)}
+.step-card ul li:last-child{border-bottom:none}
+.step-card a{color:var(--pink);font-weight:600;text-decoration:none}
+.step-card a:hover{color:var(--teal);text-decoration:underline}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
+.card-grid-2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;transition:box-shadow .2s;border-top:3px solid var(--teal)}
+.card.qb-top{border-top-color:var(--qb)}
+.card.xero-top{border-top-color:var(--xero)}
+.card.pink-top{border-top-color:var(--pink)}
+.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.09)}
+.card-icon{font-size:24px;margin-bottom:8px}
+.card-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.card-desc{font-size:13px;color:var(--subtext);flex:1;line-height:1.5}
+.data-table{width:100%;border-collapse:collapse;border-radius:8px;overflow:hidden;border:1px solid var(--border);margin-bottom:16px}
+.data-table th{background:var(--navy);color:#fff;padding:10px 14px;font-size:11px;font-weight:700;text-align:left;text-transform:uppercase;letter-spacing:.5px}
+.data-table td{padding:10px 14px;font-size:13px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr:hover td{background:var(--bg)}
+.data-table a{color:var(--pink);font-weight:600;text-decoration:none}
+.compare-table{width:100%;border-collapse:collapse;border-radius:8px;overflow:hidden;border:1px solid var(--border);margin-bottom:16px}
+.compare-table th{padding:10px 14px;font-size:11px;font-weight:700;text-align:left;text-transform:uppercase;letter-spacing:.5px}
+.compare-table th:first-child{background:var(--navy);color:#fff}
+.compare-table th.xero-col{background:var(--xero);color:#fff}
+.compare-table th.qb-col{background:var(--qb);color:#fff}
+.compare-table td{padding:10px 14px;font-size:13px;border-bottom:1px solid var(--border);vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table tr:hover td{background:var(--bg)}
+.tip-card{border-radius:8px;padding:14px 18px;margin:10px 0;border-left:4px solid var(--teal);border:1px solid var(--teal);background:var(--teal-lt)}
+.tip-card.qb-tip{border-color:var(--qb);border-left-color:var(--qb);background:var(--qb-lt)}
+.tip-card.xero-tip{border-color:var(--xero);border-left-color:var(--xero);background:var(--xero-lt)}
+.tip-card.pink-tip{border-color:var(--pink);border-left-color:var(--pink);background:var(--pink-lt)}
+.tip-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;color:var(--teal-dark)}
+.tip-card.qb-tip .tip-label{color:var(--qb)}
+.tip-card.xero-tip .tip-label{color:var(--xero-dark)}
+.tip-card.pink-tip .tip-label{color:var(--pink)}
+.tip-card p{font-size:13px;color:#1A4031;line-height:1.5}
+.tip-card.pink-tip p{color:#8B004E}
+.tip-card.xero-tip p{color:#0D3B52}
+.pink-box{background:var(--pink-lt);border:1px solid var(--pink);border-radius:8px;padding:14px 18px;margin:16px 0;font-size:13px;color:#8B004E;line-height:1.5}
+.pink-box strong{color:var(--pink)}
+.info-box{background:var(--teal-lt);border:1px solid var(--teal);border-radius:8px;padding:14px 18px;margin:16px 0;font-size:13px;color:var(--teal-dark);line-height:1.5}
+.callout{border-radius:8px;overflow:hidden;border:1px solid var(--border);margin:16px 0}
+.callout-head{padding:10px 16px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px}
+.callout-body{padding:12px 16px}
+.callout-body li{padding:5px 0;font-size:13px;color:var(--subtext);border-bottom:1px solid rgba(0,0,0,.05);list-style:none}
+.callout-body li:last-child{border-bottom:none}
+.callout-body li::before{content:"✓  ";font-weight:700;color:var(--teal)}
+.callout-body.qb-check li::before{color:var(--qb)}
+.callout-body.xero-check li::before{color:var(--xero)}
+.callout-body.pink-check li::before{color:var(--pink)}
+.callout-body a{color:var(--pink);font-weight:600;text-decoration:none}
+.callout-body a:hover{text-decoration:underline}
+.video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:14px 0}
+.video-card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:box-shadow .2s;text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.video-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.1);border-color:var(--teal)}
+.video-thumb{background:var(--navy);height:100px;display:flex;align-items:center;justify-content:center;font-size:36px;position:relative}
+.video-thumb .play-btn{position:absolute;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--navy)}
+.video-thumb.qb-bg{background:linear-gradient(135deg,#1A4731 0%,#2CA01C 100%)}
+.video-thumb.xero-bg{background:linear-gradient(135deg,#0D3B52 0%,#13B5EA 100%)}
+.video-thumb.dark-bg{background:linear-gradient(135deg,#1A1A2E 0%,#3A3A6E 100%)}
+.video-thumb.blue-bg{background:linear-gradient(135deg,#0D47A1 0%,#1976D2 100%)}
+.video-thumb.teal-bg{background:linear-gradient(135deg,#004D40 0%,#00838F 100%)}
+.video-thumb.pink-bg{background:linear-gradient(135deg,#8B004E 0%,#C4006E 100%)}
+.video-info{padding:10px 12px;flex:1;display:flex;flex-direction:column}
+.video-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--teal);margin-bottom:4px}
+.video-title{font-size:12px;font-weight:700;color:var(--navy);margin-bottom:3px;line-height:1.4}
+.video-meta{font-size:11px;color:var(--subtext);margin-bottom:6px}
+.video-link{font-size:11px;font-weight:700;color:var(--pink);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:auto}
+.shortcut-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0}
+.shortcut-row{display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--border);border-radius:6px;padding:7px 12px}
+.shortcut-key{background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;font-family:monospace;white-space:nowrap}
+.shortcut-desc{font-size:12px;color:var(--subtext)}
+.badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap}
+.badge-teal{background:var(--teal-lt);color:var(--teal-dark)}
+.badge-pink{background:var(--pink-lt);color:var(--pink)}
+.badge-qb{background:var(--qb-lt);color:var(--qb)}
+.badge-xero{background:var(--xero-lt);color:var(--xero-dark)}
+.section-hero{background:linear-gradient(135deg,var(--navy) 0%,#2D2D5E 100%);border-radius:12px;padding:28px 32px;margin-bottom:28px;color:#fff}
+.section-hero h2{font-size:20px;font-weight:700;margin-bottom:8px}
+.section-hero p{font-size:13px;opacity:.85;line-height:1.6}
+.tool-divider{text-align:center;padding:20px 0;margin:10px 0;font-size:22px;color:var(--border);border-top:2px dashed var(--border)}
+/* ── QUIZ STYLES ────────────── */
+.quiz-box{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:16px 0}
+.quiz-box h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.quiz-box .quiz-subtitle{font-size:12px;color:var(--subtext);margin-bottom:16px}
+.quiz-q{display:none;margin-bottom:16px}
+.quiz-q.active{display:block}
+.quiz-q .q-text{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:10px;line-height:1.5}
+.quiz-q .q-num{display:inline-block;background:var(--pink);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;margin-bottom:8px}
+.quiz-options{display:grid;gap:8px}
+.quiz-btn{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-align:left;font-size:12px;color:var(--text);cursor:pointer;transition:background .15s,border-color .15s}
+.quiz-btn:hover{border-color:var(--teal);background:var(--teal-lt)}
+.quiz-btn.correct{background:#E8F5E3;border-color:var(--qb);color:#1A4731;font-weight:600}
+.quiz-btn.wrong{background:var(--pink-lt);border-color:var(--pink);color:#8B004E}
+.quiz-btn:disabled{cursor:not-allowed}
+.quiz-feedback{margin-top:10px;font-size:13px;line-height:1.5;padding:10px 14px;border-radius:8px;display:none}
+.quiz-feedback.show{display:block}
+.quiz-feedback.correct{background:#E8F5E3;color:#1A4731;border:1px solid var(--qb)}
+.quiz-feedback.wrong{background:var(--pink-lt);color:#8B004E;border:1px solid var(--pink)}
+.quiz-nav{display:flex;align-items:center;justify-content:space-between;margin-top:12px;gap:10px}
+.quiz-nav-btn{background:var(--teal);color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:12px;font-weight:700;cursor:pointer;transition:background .15s}
+.quiz-nav-btn:hover{background:var(--teal-dark)}
+.quiz-nav-btn:disabled{background:var(--border);color:var(--subtext);cursor:not-allowed}
+.quiz-score{font-size:12px;color:var(--subtext)}
+.quiz-result{text-align:center;padding:20px;display:none}
+.quiz-result.show{display:block}
+.quiz-result .score-big{font-size:40px;font-weight:900;color:var(--pink);margin-bottom:8px}
+.quiz-result p{font-size:13px;color:var(--subtext);line-height:1.5}
+.quiz-result .restart-btn{margin-top:12px;background:var(--pink);color:#fff;border:none;border-radius:8px;padding:10px 24px;font-size:13px;font-weight:700;cursor:pointer}
+.resource-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:12px 0}
+.resource-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:14px 16px;text-decoration:none;color:inherit;transition:box-shadow .2s,border-color .2s;display:flex;gap:12px;align-items:flex-start}
+.resource-card:hover{box-shadow:0 3px 12px rgba(0,0,0,.09);border-color:var(--teal)}
+.resource-icon{font-size:24px;flex-shrink:0}
+.resource-info .r-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.resource-info .r-desc{font-size:11px;color:var(--subtext);line-height:1.4}
+.resource-info .r-badge{display:inline-block;font-size:10px;font-weight:700;padding:1px 7px;border-radius:20px;margin-top:4px}
+.footer{text-align:center;padding:32px 20px;color:var(--subtext);font-size:13px;border-top:1px solid var(--border);margin-top:20px}
+.footer a{color:var(--pink);font-weight:600;text-decoration:none}
+@media(max-width:768px){
+  .sidebar{position:fixed;top:60px;left:-260px;height:calc(100vh - 60px);z-index:100;transition:left .3s;width:var(--sidebar-w)}
+  .sidebar.open{left:0;box-shadow:4px 0 20px rgba(0,0,0,.2)}
+  .hamburger{display:block}
+  .main{padding:20px 16px}
+  .card-grid,.resource-grid{grid-template-columns:1fr}
+  .card-grid-2{grid-template-columns:1fr}
+  .video-grid{grid-template-columns:1fr}
+  .shortcut-grid{grid-template-columns:1fr}
+}
+</style>
+<meta property="og:title" content="Ultimate Bookkeeper Guide — Philippines Edition by @mgsolayao" data-id="th-modified" ><meta property="og:image" content="https://tiiny.host/assets/logo-purple-bg.png" data-id="th-modified" ><meta property="og:url" content="https://bookkeeper-roadmap.tiiny.site/" data-id="th-modified" ><meta property="og:type" content="website" data-id="th-modified" ><script defer data-domain="bookkeeper-roadmap.tiiny.site" src="https://analytics.tiiny.site/js/plausible.js"></script><script type="text/javascript" src="https://tiiny.host/ad-script.js"></script></head>
+<body>
+<div class="top-bar">
+  <a class="logo" href="#"><div class="logo-icon">📗</div><div class="logo-text"><div class="l1">Ultimate Bookkeeper Guide</div><div class="l2">by @mgsolayao 🇵🇭</div></div></a>
+  <div class="top-bar-title">Roadmap · QuickBooks · Xero · OLJ · Upwork · LinkedIn · Interview Prep</div>
+  <button class="hamburger" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+</div>
+<div class="layout">
+<nav class="sidebar">
+  <div class="sidebar-label">🗺️ Roadmap</div>
+  <a class="sidebar-link active" href="#overview"><span class="si">🏠</span> Overview</a>
+  <a class="sidebar-link" href="#why-ph"><span class="si">🇵🇭</span> Why Filipinos Win</a>
+  <a class="sidebar-link" href="#phase0"><span class="si">📚</span> Phase 0: Foundation</a>
+  <a class="sidebar-link" href="#quiz-acctg"><span class="si">📝</span> Accounting Quiz</a>
+  <a class="sidebar-link" href="#phase1"><span class="si">💼</span> Phase 1: Core Skills</a>
+  <a class="sidebar-link" href="#phase2"><span class="si">🛠️</span> Phase 2: Tools</a>
+  <a class="sidebar-link" href="#phase3"><span class="si">🚀</span> Phase 3: Launch</a>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-label">📗 QuickBooks</div>
+  <a class="sidebar-link" href="#qb-intro"><span class="si">🏠</span> What is QB?</a>
+  <a class="sidebar-link" href="#qb-versions"><span class="si">📦</span> QB Versions</a>
+  <a class="sidebar-link" href="#qb-setup"><span class="si">⚙️</span> QB Setup</a>
+  <a class="sidebar-link" href="#qb-coa"><span class="si">📊</span> Chart of Accounts</a>
+  <a class="sidebar-link" href="#qb-invoicing"><span class="si">🧾</span> Invoicing</a>
+  <a class="sidebar-link" href="#qb-expenses"><span class="si">💸</span> Bills & Expenses</a>
+  <a class="sidebar-link" href="#qb-banking"><span class="si">🏦</span> Bank Reconciliation</a>
+  <a class="sidebar-link" href="#qb-payroll"><span class="si">👥</span> Payroll</a>
+  <a class="sidebar-link" href="#qb-reports"><span class="si">📈</span> Reports</a>
+  <a class="sidebar-link" href="#qb-tax"><span class="si">🏛️</span> Tax Prep</a>
+  <a class="sidebar-link" href="#qb-integrations"><span class="si">🔗</span> Integrations</a>
+  <a class="sidebar-link" href="#qb-tips"><span class="si">💡</span> Tips & Shortcuts</a>
+  <a class="sidebar-link" href="#quiz-qb"><span class="si">📝</span> QB Quiz</a>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-label">🔵 Xero</div>
+  <a class="sidebar-link" href="#xero-intro"><span class="si">🏠</span> What is Xero?</a>
+  <a class="sidebar-link" href="#xero-vs-qb"><span class="si">⚖️</span> Xero vs QB</a>
+  <a class="sidebar-link" href="#xero-setup"><span class="si">⚙️</span> Xero Setup</a>
+  <a class="sidebar-link" href="#xero-coa"><span class="si">📊</span> Chart of Accounts</a>
+  <a class="sidebar-link" href="#xero-invoicing"><span class="si">🧾</span> Invoicing</a>
+  <a class="sidebar-link" href="#xero-expenses"><span class="si">💸</span> Bills & Expenses</a>
+  <a class="sidebar-link" href="#xero-banking"><span class="si">🏦</span> Bank Reconciliation</a>
+  <a class="sidebar-link" href="#xero-payroll"><span class="si">👥</span> Payroll</a>
+  <a class="sidebar-link" href="#xero-reports"><span class="si">📈</span> Reports</a>
+  <a class="sidebar-link" href="#xero-projects"><span class="si">📁</span> Projects & Tracking</a>
+  <a class="sidebar-link" href="#xero-integrations"><span class="si">🔗</span> Integrations</a>
+  <a class="sidebar-link" href="#xero-tips"><span class="si">💡</span> Tips & Shortcuts</a>
+  <a class="sidebar-link" href="#quiz-xero"><span class="si">📝</span> Xero Quiz</a>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-label">💼 Getting Jobs</div>
+  <a class="sidebar-link" href="#olj"><span class="si">🌐</span> OLJ.ph Guide</a>
+  <a class="sidebar-link" href="#upwork"><span class="si">🟢</span> Upwork Guide</a>
+  <a class="sidebar-link" href="#linkedin"><span class="si">🔷</span> LinkedIn Guide</a>
+  <a class="sidebar-link" href="#interview"><span class="si">🎤</span> Interview Q&A</a>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-label">⭐ Pro Tips</div>
+  <a class="sidebar-link" href="#client-comm"><span class="si">💬</span> Client Communication</a>
+  <a class="sidebar-link" href="#security"><span class="si">🔐</span> Security</a>
+  <a class="sidebar-link" href="#pricing"><span class="si">💰</span> Pricing & Rates</a>
+  <a class="sidebar-link" href="#red-flags"><span class="si">🚩</span> Red Flags</a>
+  <a class="sidebar-link" href="#time-mgmt"><span class="si">⏰</span> Time Management</a>
+  <div class="sidebar-divider"></div>
+  <a class="sidebar-link" href="#tech-stack"><span class="si">🖥️</span> Tech Stack</a>
+  <a class="sidebar-link" href="#salary"><span class="si">💵</span> Salary Guide</a>
+  <a class="sidebar-link" href="#videos"><span class="si">🎬</span> Videos & Certs</a>
+</nav>
+<main class="main">
+<div class="page-header">
+  <h1>📗 Ultimate Bookkeeper & Accountant Guide</h1>
+  <div class="underline"></div>
+  <p class="subtitle">Complete guide for aspiring remote bookkeepers in the Philippines — Roadmap + QuickBooks + Xero + Job Hunting + Pro Tips. Made with 🤍 by @mgsolayao</p>
+</div>
+<div class="pink-box"><strong>📌 How to use this guide:</strong> Use the sidebar to jump to any section. Start with the Roadmap if you're a beginner, then work through QuickBooks and Xero. When ready, go to the Job Hunting section. Take the quizzes after each section to test your knowledge!</div>
+
+<!-- ═══ ROADMAP ═══ -->
+<section class="section" id="overview">
+  <div class="section-title">🏠 Overview</div>
+  <div class="section-hero"><h2>🇵🇭 Your Roadmap to Becoming a Remote US Bookkeeper</h2><p>This guide covers everything — from zero accounting knowledge to landing a $1,000–$3,000/month remote bookkeeping job. Follow the phases, learn QuickBooks and Xero, then apply on OLJ, Upwork, and LinkedIn. You got this!</p></div>
+  <div class="card-grid">
+    <div class="card pink-top"><div class="card-icon">📚</div><div class="card-title">Phase 0: Foundation</div><div class="card-desc">Learn accounting basics, debits & credits, financial statements. Takes 2–4 weeks.</div></div>
+    <div class="card"><div class="card-icon">💼</div><div class="card-title">Phase 1: Core Skills</div><div class="card-desc">Master QuickBooks Online and Xero. Reconciliation, invoicing, reports. 1–3 months.</div></div>
+    <div class="card"><div class="card-icon">🛠️</div><div class="card-title">Phase 2: Tools & Polish</div><div class="card-desc">Get certified, build a portfolio, set up profiles on OLJ, Upwork & LinkedIn.</div></div>
+    <div class="card pink-top"><div class="card-icon">🚀</div><div class="card-title">Phase 3: Launch</div><div class="card-desc">Apply, interview, land your first client or job, then scale your rates.</div></div>
+    <div class="card"><div class="card-icon">📗</div><div class="card-title">QuickBooks Guide</div><div class="card-desc">Full QB tutorial — setup, invoicing, reconciliation, payroll, tax prep, integrations.</div></div>
+    <div class="card"><div class="card-icon">🔵</div><div class="card-title">Xero Guide</div><div class="card-desc">Full Xero tutorial — all functions from setup to advanced features. Know both and earn more!</div></div>
+  </div>
+</section>
+
+<section class="section" id="why-ph">
+  <div class="section-title">🇵🇭 Why Filipinos Win in Remote Bookkeeping</div>
+  <div class="card-grid">
+    <div class="card"><div class="card-icon">🗣️</div><div class="card-title">English Proficiency</div><div class="card-desc">Filipinos rank among the best non-native English speakers globally. US clients feel comfortable communicating with you.</div></div>
+    <div class="card"><div class="card-icon">🎓</div><div class="card-title">Strong Accounting Education</div><div class="card-desc">Philippine universities produce excellent accounting graduates. US GAAP is similar to what you learn in school.</div></div>
+    <div class="card"><div class="card-icon">⏰</div><div class="card-title">Time Zone Advantage</div><div class="card-desc">Philippine time overlaps with US business hours (especially West Coast). Real-time work is very possible.</div></div>
+    <div class="card"><div class="card-icon">💰</div><div class="card-title">Cost-Effective Rates</div><div class="card-desc">A $15–$25/hr rate feels huge in PH (₱850–₱1,400/hr) but is affordable for US clients. Win-win!</div></div>
+    <div class="card"><div class="card-icon">🤝</div><div class="card-title">Work Ethic & Reliability</div><div class="card-desc">Filipino workers are known for commitment, attention to detail, and loyalty. US clients keep PH bookkeepers for years.</div></div>
+    <div class="card"><div class="card-icon">📱</div><div class="card-title">Tech Savvy</div><div class="card-desc">Comfort with cloud tools and remote work culture. You fit right in with modern US businesses.</div></div>
+  </div>
+</section>
+
+<section class="section" id="phase0">
+  <div class="section-title">📚 Phase 0 — Build Your Foundation (Weeks 1–4)</div>
+  <div class="phase-banner pink-left"><div class="phase-num">0</div><div class="phase-info"><h3>Accounting Fundamentals</h3><p>You must understand these before touching any software</p></div></div>
+  <div class="step-card"><h4>📖 Core Topics to Learn First</h4>
+    <ul>
+      <li><strong>The Accounting Equation:</strong> Assets = Liabilities + Equity — the foundation of everything</li>
+      <li><strong>Debits & Credits:</strong> Debit = left side, Credit = right side. Assets increase with debit, decrease with credit</li>
+      <li><strong>Double-Entry Accounting:</strong> Every transaction has two sides that must balance</li>
+      <li><strong>Financial Statements:</strong> Profit & Loss (P&L), Balance Sheet, Cash Flow Statement</li>
+      <li><strong>Cash vs Accrual Basis:</strong> Cash = record when money moves. Accrual = record when earned/owed</li>
+      <li><strong>Accounts Receivable vs Accounts Payable:</strong> AR = money owed TO you. AP = money you OWE</li>
+      <li><strong>Chart of Accounts:</strong> The master list of all categories for transactions</li>
+    </ul>
+  </div>
+  <div class="step-card"><h4>🆓 Free Learning Resources</h4>
+    <div class="resource-grid">
+      <a class="resource-card" href="https://www.accountingcoach.com" target="_blank"><div class="resource-icon">📘</div><div class="resource-info"><div class="r-title">AccountingCoach.com</div><div class="r-desc">Free lessons, quizzes, and cheat sheets on every accounting topic. Great for self-study.</div><span class="r-badge badge-qb">100% Free</span></div></a>
+      <a class="resource-card" href="https://www.khanacademy.org/economics-finance-domain/core-finance/accounting-and-financial-statements" target="_blank"><div class="resource-icon">🎓</div><div class="resource-info"><div class="r-title">Khan Academy — Accounting</div><div class="r-desc">Free video lessons on financial statements, debits/credits, and accounting basics.</div><span class="r-badge badge-qb">100% Free</span></div></a>
+      <a class="resource-card" href="https://academy.hubspot.com/courses" target="_blank"><div class="resource-icon">🟠</div><div class="resource-info"><div class="r-title">HubSpot Academy</div><div class="r-desc">Free courses on business, marketing, and finance fundamentals. All with certificates.</div><span class="r-badge badge-qb">100% Free</span></div></a>
+      <a class="resource-card" href="https://www.myaccountingcourse.com" target="_blank"><div class="resource-icon">📝</div><div class="resource-info"><div class="r-title">MyAccountingCourse.com</div><div class="r-desc">Free textbook-style lessons with exercises. Covers everything from basics to advanced.</div><span class="r-badge badge-qb">100% Free</span></div></a>
+      <a class="resource-card" href="https://www.youtube.com/results?search_query=accounting+basics+debits+credits+beginners" target="_blank"><div class="resource-icon">▶️</div><div class="resource-info"><div class="r-title">YouTube — Accounting Basics</div><div class="r-desc">Search "Accounting Stuff" channel for the best beginner-friendly accounting videos.</div><span class="r-badge badge-teal">Video</span></div></a>
+      <a class="resource-card" href="https://corporatefinanceinstitute.com/resources/accounting/" target="_blank"><div class="resource-icon">🏦</div><div class="resource-info"><div class="r-title">Corporate Finance Institute</div><div class="r-desc">Free articles and guides on accounting, bookkeeping, and financial analysis.</div><span class="r-badge badge-qb">Free Articles</span></div></a>
+    </div>
+  </div>
+  <div class="tip-card pink-tip"><div class="tip-label">💡 Study Tip</div><p>Watch <a href="https://www.youtube.com/@AccountingStuff" target="_blank">Accounting Stuff on YouTube</a> — the "Debits and Credits" and "Accounting Basics" series are perfect for beginners. Then practice with quizzes on AccountingCoach.com. Take the quiz below to test what you've learned!</p></div>
+</section>
+
+<!-- ACCOUNTING QUIZ -->
+<section class="section" id="quiz-acctg">
+  <div class="section-title pink-color">📝 Accounting Basics Quiz</div>
+  <div class="quiz-box" id="quizAcctg">
+    <h4>🧠 Test Your Accounting Knowledge!</h4>
+    <p class="quiz-subtitle">10 questions · Take this after studying Phase 0 basics</p>
+    <div class="quiz-q active" data-correct="b">
+      <span class="q-num">Q1 of 10</span>
+      <p class="q-text">What is the fundamental accounting equation?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','a')">A. Assets = Liabilities - Equity</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','b')">B. Assets = Liabilities + Equity</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','c')">C. Revenue - Expenses = Assets</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','d')">D. Equity = Assets + Liabilities</button>
+      </div>
+      <div class="quiz-feedback" id="quizAcctg-f0"></div>
+    </div>
+    <div class="quiz-q" data-correct="a">
+      <span class="q-num">Q2 of 10</span>
+      <p class="q-text">What happens when you DEBIT an asset account?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','a')">A. The balance increases</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','b')">B. The balance decreases</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','c')">C. Nothing changes</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','d')">D. It creates a liability</button>
+      </div>
+      <div class="quiz-feedback" id="quizAcctg-f1"></div>
+    </div>
+    <div class="quiz-q" data-correct="b">
+      <span class="q-num">Q3 of 10</span>
+      <p class="q-text">Accounts Receivable (AR) represents:</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','a')">A. Money the business OWES to suppliers</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','b')">B. Money OWED TO the business by customers</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','c')">C. Cash in the bank account</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','d')">D. Employee salaries payable</button>
+      </div>
+      <div class="quiz-feedback" id="quizAcctg-f2"></div>
+    </div>
+    <div class="quiz-q" data-correct="c">
+      <span class="q-num">Q4 of 10</span>
+      <p class="q-text">Which financial statement shows Revenue minus Expenses?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','a')">A. Balance Sheet</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','b')">B. Cash Flow Statement</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','c')">C. Profit & Loss Statement (P&L)</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','d')">D. Trial Balance</button>
+      </div>
+      <div class="quiz-feedback" id="quizAcctg-f3"></div>
+    </div>
+    <div class="quiz-q" data-correct="a">
+      <span class="q-num">Q5 of 10</span>
+      <p class="q-text">Under CASH BASIS accounting, you record revenue when:</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','a')">A. Cash is actually received</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','b')">B. The service is delivered</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','c')">C. The invoice is created</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','d')">D. The customer places an order</button>
+      </div>
+      <div class="quiz-feedback" id="quizAcctg-f4"></div>
+    </div>
+    <div class="quiz-q" data-correct="d">
+      <span class="q-num">Q6 of 10</span>
+      <p class="q-text">The Balance Sheet shows:</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','a')">A. Revenue and expenses for the month</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','b')">B. How cash moves in and out of the business</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','c')">C. A list of all transactions</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','d')">D. Assets, Liabilities, and Equity at a specific date</button>
+      </div>
+      <div class="quiz-feedback" id="quizAcctg-f5"></div>
+    </div>
+    <div class="quiz-q" data-correct="b">
+      <span class="q-num">Q7 of 10</span>
+      <p class="q-text">In double-entry accounting, every transaction has:</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','a')">A. One entry — either debit or credit</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','b')">B. At least two entries — a debit AND a credit that must balance</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','c')">C. Three entries for every transaction</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','d')">D. It depends on the transaction type</button>
+      </div>
+      <div class="quiz-feedback" id="quizAcctg-f6"></div>
+    </div>
+    <div class="quiz-q" data-correct="c">
+      <span class="q-num">Q8 of 10</span>
+      <p class="q-text">Accounts Payable (AP) is classified as a:</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','a')">A. Asset</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','b')">B. Revenue</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','c')">C. Liability</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','d')">D. Equity</button>
+      </div>
+      <div class="quiz-feedback" id="quizAcctg-f7"></div>
+    </div>
+    <div class="quiz-q" data-correct="a">
+      <span class="q-num">Q9 of 10</span>
+      <p class="q-text">Retained Earnings is part of which section of the accounting equation?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','a')">A. Equity</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','b')">B. Liabilities</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','c')">C. Assets</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','d')">D. Revenue</button>
+      </div>
+      <div class="quiz-feedback" id="quizAcctg-f8"></div>
+    </div>
+    <div class="quiz-q" data-correct="d">
+      <span class="q-num">Q10 of 10</span>
+      <p class="q-text">The Chart of Accounts is best described as:</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','a')">A. A list of all customers</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','b')">B. The company's bank statement</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','c')">C. A report of monthly expenses</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizAcctg','d')">D. A master list of all accounts used to categorize transactions</button>
+      </div>
+      <div class="quiz-feedback" id="quizAcctg-f9"></div>
+    </div>
+    <div class="quiz-result" id="quizAcctg-result">
+      <div class="score-big" id="quizAcctg-score-display"></div>
+      <p id="quizAcctg-msg"></p>
+      <button class="restart-btn" onclick="restartQuiz('quizAcctg')">🔄 Try Again</button>
+    </div>
+    <div class="quiz-nav" id="quizAcctg-nav">
+      <button class="quiz-nav-btn" id="quizAcctg-prev" onclick="prevQ('quizAcctg')" disabled>← Prev</button>
+      <span class="quiz-score" id="quizAcctg-counter">Question 1 of 10</span>
+      <button class="quiz-nav-btn" id="quizAcctg-next" onclick="nextQ('quizAcctg')">Next →</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="phase1">
+  <div class="section-title">💼 Phase 1 — Core Skills (Months 1–3)</div>
+  <div class="phase-banner"><div class="phase-num">1</div><div class="phase-info"><h3>Master Your Tools</h3><p>Learn QuickBooks Online first, then Xero. Practice on demo companies.</p></div></div>
+  <div class="step-card"><h4>✅ Skills to Develop</h4>
+    <ul>
+      <li>Company setup and Chart of Accounts configuration</li>
+      <li>Creating invoices and receiving payments (Accounts Receivable)</li>
+      <li>Entering bills and paying vendors (Accounts Payable)</li>
+      <li><strong>Bank Reconciliation</strong> — the #1 skill clients look for</li>
+      <li>Running the Big 3 Reports: P&L, Balance Sheet, Cash Flow</li>
+      <li>Recording payroll journal entries (from Gusto or ADP)</li>
+      <li>Categorizing transactions from bank feeds</li>
+    </ul>
+  </div>
+  <div class="tip-card"><div class="tip-label">💡 Practice Tip</div><p>Sign up for a <strong>free QuickBooks ProAdvisor account</strong> at <a href="https://quickbooks.intuit.com/accountants/intuit-accountant-suite/?sc=oa_qboa_nav_link_qbo" target="_blank">quickbooks.intuit.com/accountants</a> — you get free access to QuickBooks Online and a sample company to practice on. No credit card needed!</p></div>
+</section>
+
+<section class="section" id="phase2">
+  <div class="section-title">🛠️ Phase 2 — Tools & Polish (Month 3–4)</div>
+  <div class="phase-banner"><div class="phase-num">2</div><div class="phase-info"><h3>Get Certified & Build a Portfolio</h3><p>Certifications + a portfolio = immediate credibility with clients</p></div></div>
+  <div class="step-card"><h4>🎓 Free Certifications to Get</h4>
+    <ul>
+      <li><a href="https://quickbooks.intuit.com/accountants/training-certification/" target="_blank">QuickBooks ProAdvisor Certification</a> — the gold standard for QB bookkeepers. 100% free.</li>
+      <li><a href="https://www.xero.com/ph/advisor-programme/" target="_blank">Xero Advisor Certification</a> — makes you an official Xero partner. 100% free.</li>
+      <li><a href="https://academy.hubspot.com/courses" target="_blank">HubSpot Academy Courses</a> — free business, marketing, and finance courses with certificates</li>
+      <li><a href="https://www.accountingcoach.com" target="_blank">AccountingCoach</a> — free lessons and practice quizzes for every accounting topic</li>
+    </ul>
+  </div>
+  <div class="step-card"><h4>📁 Build a Portfolio Without a Client</h4>
+    <ul>
+      <li>Create a fictional company in QuickBooks demo and set up everything</li>
+      <li>Record 3 months of sample transactions, reconcile, and run reports</li>
+      <li>Screenshot your work and put it in a Google Drive folder</li>
+      <li>Or: Help a relative's small business for free in exchange for a testimonial</li>
+      <li>Record a short Loom video walking through your QuickBooks setup</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="phase3">
+  <div class="section-title">🚀 Phase 3 — Launch Your Career</div>
+  <div class="phase-banner pink-left"><div class="phase-num">3</div><div class="phase-info"><h3>Apply, Interview, Land Your First Job</h3><p>Use OLJ, Upwork, and LinkedIn simultaneously</p></div></div>
+  <div class="step-card"><h4>📋 Launch Checklist</h4>
+    <ul>
+      <li>QB ProAdvisor Certification ✓</li>
+      <li>Xero Advisor Certification ✓</li>
+      <li>OLJ.ph profile optimized and active</li>
+      <li>Upwork profile with JSS protection strategy in place</li>
+      <li>LinkedIn profile with "Open to Work" on</li>
+      <li>Resume/CV tailored for US remote bookkeeping</li>
+      <li>Portfolio or sample work ready to share</li>
+      <li>Stable internet connection (at least 25 Mbps)</li>
+      <li>Quiet work setup with good lighting for video calls</li>
+      <li>Professional email set up (yourname@gmail.com)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ QB GUIDE ═══ -->
+<div class="tool-divider">📗 QuickBooks Full Guide 📗</div>
+
+<section class="section" id="qb-intro">
+  <div class="section-title qb-color">🏠 What is QuickBooks?</div>
+  <div class="card-grid">
+    <div class="card qb-top"><div class="card-icon">💼</div><div class="card-title">For Bookkeepers</div><div class="card-desc">Track income, expenses, and bank transactions for clients. The #1 accounting tool used by US businesses.</div></div>
+    <div class="card qb-top"><div class="card-icon">📊</div><div class="card-title">For Accountants</div><div class="card-desc">Prepare financial statements, manage payroll, and handle tax reporting — all in one platform.</div></div>
+    <div class="card qb-top"><div class="card-icon">🇵🇭</div><div class="card-title">For Remote PH Workers</div><div class="card-desc">Most US small businesses use QB. Knowing it fluently makes you highly hireable for remote jobs.</div></div>
+  </div>
+  <div class="tip-card qb-tip"><div class="tip-label">💡 Mary's Tip</div><p>When I was starting out, QuickBooks felt overwhelming. The secret? Focus on one module at a time. Learn invoicing first, then expenses, then reconciliation. Don't try to learn everything in one day!</p></div>
+</section>
+
+<section class="section" id="qb-versions">
+  <div class="section-title qb-color">📦 QuickBooks Versions — Which to Learn?</div>
+  <table class="data-table">
+    <thead><tr><th>Version</th><th>Best For</th><th>Price (USD/mo)</th><th>Learn This?</th></tr></thead>
+    <tbody>
+      <tr><td><strong>QuickBooks Online (QBO)</strong></td><td>Remote bookkeepers — cloud-based, access anywhere</td><td>$35–$235</td><td><span class="badge badge-qb">✅ Learn First</span></td></tr>
+      <tr><td><strong>QBO Simple Start</strong></td><td>Freelancers & very small businesses</td><td>$35</td><td><span class="badge badge-teal">Optional</span></td></tr>
+      <tr><td><strong>QBO Essentials</strong></td><td>Small businesses with bills & 3 users</td><td>$65</td><td><span class="badge badge-qb">✅ Common</span></td></tr>
+      <tr><td><strong>QBO Plus</strong></td><td>Growing businesses with inventory & projects</td><td>$99</td><td><span class="badge badge-qb">✅ Most Popular</span></td></tr>
+    </tbody>
+  </table>
+  <div class="tip-card qb-tip"><div class="tip-label">💡 Get Free QBO Access</div><p>As an accountant or bookkeeper, you can get <strong>free QuickBooks Online access</strong> through the ProAdvisor programme. Sign up at <a href="https://quickbooks.intuit.com/accountants/products-solutions/accounting/online/?sc=oa_qboa_nav_link_qbo" target="_blank">QuickBooks Accountant Hub</a> — no credit card needed. Practice on a real QBO environment for free!</p></div>
+  <div class="step-card"><h4>🎬 Watch This First</h4>
+    <ul>
+      <li><a href="https://www.youtube.com/@HectorGarciaCPA" target="_blank">Hector Garcia CPA — #1 QuickBooks YouTube Channel (500K+ subscribers, US CPA)</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=quickbooks+online+tutorial+beginners+2024" target="_blank">Search YouTube: "QuickBooks Online Tutorial for Beginners 2024"</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=quickbooks+online+full+course+simon+sez+it" target="_blank">Search YouTube: "QuickBooks Online Full Course — Simon Sez IT"</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="qb-setup">
+  <div class="section-title qb-color">⚙️ QuickBooks Company Setup</div>
+  <div class="phase-banner qb-left"><div class="phase-num">1</div><div class="phase-info"><h3>Create Your Company File</h3><p>The first thing to do when starting a new client in QuickBooks</p></div></div>
+  <div class="step-card"><h4>📋 First-Time Setup Checklist</h4>
+    <ul>
+      <li>Company name, address, and contact info</li>
+      <li>Business type and industry (affects default Chart of Accounts)</li>
+      <li>Fiscal year start date (most US businesses: January)</li>
+      <li>Currency (set to USD for US clients)</li>
+      <li>Connect bank accounts via Banking → Connect Account</li>
+      <li>Set up invoice branding with client's logo</li>
+      <li>Invite yourself as Accountant user</li>
+    </ul>
+  </div>
+  <div class="phase-banner qb-left"><div class="phase-num">2</div><div class="phase-info"><h3>User Roles in QBO</h3><p>Control who can see and edit what in your client's books</p></div></div>
+  <div class="step-card"><h4>👤 User Permission Levels</h4>
+    <ul>
+      <li><strong>Master Admin</strong> — full access, usually the business owner</li>
+      <li><strong>Accountant</strong> — special access with Accountant Toolbox (request this for yourself!)</li>
+      <li><strong>Standard User</strong> — limited access for staff</li>
+      <li><strong>Reports Only</strong> — view reports only, no editing</li>
+    </ul>
+  </div>
+  <div class="tip-card qb-tip"><div class="tip-label">💡 Always Request Accountant Access</div><p>Accountant access gives you the Accountant Toolbox — with Reclassify Transactions, Write Off Invoices, and Cleanup tools that regular users don't have! Always ask your client to add you as an <strong>Accountant user</strong>, not Standard.</p></div>
+</section>
+
+<section class="section" id="qb-coa">
+  <div class="section-title qb-color">📊 Chart of Accounts</div>
+  <p style="font-size:13px;color:var(--subtext);margin-bottom:14px;line-height:1.6;">The Chart of Accounts (COA) is the backbone of QuickBooks — a list of every account used to categorize transactions. Think of it as the filing system for all financial data.</p>
+  <table class="data-table">
+    <thead><tr><th>Account Type</th><th>What It Tracks</th><th>Examples</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-qb">Asset</span></td><td>What the business owns</td><td>Cash, Bank Accounts, Accounts Receivable, Equipment</td></tr>
+      <tr><td><span class="badge badge-pink">Liability</span></td><td>What the business owes</td><td>Accounts Payable, Credit Cards, Loans Payable</td></tr>
+      <tr><td><span class="badge badge-teal">Equity</span></td><td>Owner's stake in the business</td><td>Owner's Capital, Retained Earnings</td></tr>
+      <tr><td><span class="badge badge-qb">Income</span></td><td>Money coming in</td><td>Sales, Service Revenue, Consulting Income</td></tr>
+      <tr><td><span class="badge badge-pink">Expense</span></td><td>Money going out</td><td>Rent, Payroll, Utilities, Software Subscriptions</td></tr>
+      <tr><td><span class="badge badge-teal">Cost of Goods Sold</span></td><td>Direct costs of products sold</td><td>Inventory Purchases, Manufacturing Costs</td></tr>
+    </tbody>
+  </table>
+  <div class="tip-card qb-tip"><div class="tip-label">💡 Pro Tip</div><p>Don't add too many accounts! Keep the COA clean and simple. Use sub-accounts for details. A messy COA = messy financials. When in doubt, ask what categories the CPA needs for the tax return.</p></div>
+  <div class="step-card"><h4>🎬 Learn Chart of Accounts</h4>
+    <ul>
+      <li><a href="https://www.youtube.com/results?search_query=chart+of+accounts+quickbooks+online+tutorial" target="_blank">Search YouTube: "Chart of Accounts in QuickBooks Online — Tutorial"</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=hector+garcia+chart+of+accounts+quickbooks" target="_blank">Search YouTube: "Chart of Accounts — Hector Garcia CPA"</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="qb-invoicing">
+  <div class="section-title qb-color">🧾 Invoicing & Accounts Receivable</div>
+  <div class="phase-banner qb-left"><div class="phase-num">1</div><div class="phase-info"><h3>Creating an Invoice</h3><p>How to bill customers and track who owes money</p></div></div>
+  <div class="step-card"><h4>📝 How to Create an Invoice</h4>
+    <p>Go to <strong>Sales → Invoices → New Invoice</strong></p>
+    <ul>
+      <li>Select the customer name (or add new)</li>
+      <li>Set the invoice date and due date (Net 30 = due in 30 days)</li>
+      <li>Add line items: product/service, quantity, rate</li>
+      <li>Apply any discounts or taxes</li>
+      <li>Click <strong>Save and Send</strong> to email directly to customer</li>
+      <li>Set up <strong>Recurring Invoices</strong> for monthly retainer clients</li>
+    </ul>
+  </div>
+  <div class="phase-banner qb-left"><div class="phase-num">2</div><div class="phase-info"><h3>Recording a Payment</h3><p>When the customer pays, always record the payment in QB</p></div></div>
+  <div class="step-card"><h4>💰 Receiving Payments Step by Step</h4>
+    <ul>
+      <li>Go to <strong>Sales → Receive Payment</strong></li>
+      <li>Select the customer and the invoice being paid</li>
+      <li>Enter the payment amount and method (check, bank transfer, etc.)</li>
+      <li>Deposit to "Undeposited Funds" if batching multiple payments to one deposit</li>
+      <li>Match the bank deposit to your bank feed!</li>
+    </ul>
+  </div>
+  <div class="tip-card qb-tip"><div class="tip-label">💡 Undeposited Funds Explained</div><p>"Undeposited Funds" is a temporary holding account. Think of it as a physical cash drawer — money sits there until you make the actual bank deposit. Always clear it by creating a Bank Deposit transaction after receiving payments.</p></div>
+  <div class="step-card"><h4>🎬 Invoicing Tutorials</h4>
+    <ul>
+      <li><a href="https://www.youtube.com/results?search_query=how+to+create+invoices+quickbooks+online" target="_blank">Search YouTube: "How to Create Invoices in QuickBooks Online"</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=accounts+receivable+quickbooks+online+tutorial" target="_blank">Search YouTube: "Accounts Receivable in QuickBooks Online"</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="qb-expenses">
+  <div class="section-title qb-color">💸 Bills, Expenses & Accounts Payable</div>
+  <table class="data-table">
+    <thead><tr><th>Transaction Type</th><th>When to Use</th><th>Where in QB</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Expense</strong></td><td>Paid immediately (debit card, cash, credit card same day)</td><td>Expenses → Expenses → New Expense</td></tr>
+      <tr><td><strong>Bill</strong></td><td>Will pay later — creates Accounts Payable</td><td>Expenses → Bills → Add Bill</td></tr>
+      <tr><td><strong>Pay Bill</strong></td><td>When you actually pay a previously entered bill</td><td>Expenses → Bills → Pay Bills</td></tr>
+      <tr><td><strong>Check</strong></td><td>Payment by physical check from bank account</td><td>Expenses → Checks → Write Check</td></tr>
+      <tr><td><strong>Purchase Order</strong></td><td>Pre-order before receiving goods (QBO Plus only)</td><td>Expenses → Purchase Orders</td></tr>
+      <tr><td><strong>Vendor Credit</strong></td><td>Supplier refund or return credit</td><td>Expenses → Vendors → Vendor Credit</td></tr>
+    </tbody>
+  </table>
+  <div class="tip-card qb-tip"><div class="tip-label">💡 Common Mistake to Avoid</div><p><strong>Don't use "Expense" when you should use "Bill."</strong> If your client pays something monthly (like rent or software) and you have the invoice, enter it as a Bill first, then Pay Bill. This keeps Accounts Payable accurate and helps track what's owed at any point in time.</p></div>
+  <div class="step-card"><h4>📋 Step-by-Step: Enter a Bill and Pay It</h4>
+    <ul>
+      <li><strong>Step 1:</strong> Expenses → Bills → Add Bill → enter vendor, amount, due date, category</li>
+      <li><strong>Step 2:</strong> Save the bill (it now shows in Accounts Payable)</li>
+      <li><strong>Step 3:</strong> When due, go to Expenses → Pay Bills</li>
+      <li><strong>Step 4:</strong> Check the bill, select payment account and date → Save</li>
+    </ul>
+  </div>
+  <div class="step-card"><h4>🎬 Bills & Expenses Tutorials</h4>
+    <ul>
+      <li><a href="https://www.youtube.com/results?search_query=how+to+enter+bills+pay+bills+quickbooks+online" target="_blank">Search YouTube: "How to Enter Bills and Pay Bills in QuickBooks Online"</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=expense+vs+bill+vs+check+quickbooks+online" target="_blank">Search YouTube: "Expense vs Bill vs Check — What's the Difference? QuickBooks"</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="qb-banking">
+  <div class="section-title qb-color">🏦 Banking & Bank Reconciliation</div>
+  <div class="phase-banner qb-left"><div class="phase-num">1</div><div class="phase-info"><h3>Bank Feeds (Auto-Import)</h3><p>Connect your client's bank to automatically pull transactions</p></div></div>
+  <div class="step-card"><h4>🔄 How Bank Feeds Work</h4>
+    <ul>
+      <li>Go to <strong>Banking → Connect Account</strong></li>
+      <li>Search for the bank, log in with client's credentials</li>
+      <li>QB imports transactions automatically every day</li>
+      <li>Review each transaction: categorize, match to existing entry, or add new</li>
+      <li>Green = matched ✅, Blue = needs review, Red = needs attention</li>
+      <li>Set up <strong>Bank Rules</strong> to auto-categorize recurring transactions</li>
+    </ul>
+  </div>
+  <div class="phase-banner qb-left"><div class="phase-num">2</div><div class="phase-info"><h3>Bank Reconciliation</h3><p>The most important monthly task — confirm QB matches the real bank</p></div></div>
+  <div class="step-card"><h4>✅ How to Reconcile Step by Step</h4>
+    <p>Do this every month, using the official bank statement as your reference.</p>
+    <ul>
+      <li>Go to <strong>Accounting → Reconcile</strong></li>
+      <li>Select the account (e.g., Checking)</li>
+      <li>Enter the ending balance from the bank statement</li>
+      <li>Enter the statement ending date</li>
+      <li>Check off each transaction that appears on the statement</li>
+      <li>Difference must be <strong>$0.00</strong> before you can finish</li>
+      <li>If not $0 — find the discrepancy (duplicates, missing entries) before closing!</li>
+    </ul>
+  </div>
+  <div class="tip-card qb-tip"><div class="tip-label">💡 Reconciliation — The #1 Skill</div><p>Reconciliation is the skill clients look for most in a remote bookkeeper. Master this and you're ahead of most applicants. Reconcile monthly — don't let it pile up to 6 months!</p></div>
+  <div class="step-card"><h4>🎬 Bank Reconciliation Tutorials</h4>
+    <ul>
+      <li><a href="https://www.youtube.com/results?search_query=how+to+reconcile+bank+account+quickbooks+online" target="_blank">Search YouTube: "How to Reconcile in QuickBooks Online — Step by Step"</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=bank+feeds+quickbooks+online+tutorial" target="_blank">Search YouTube: "Bank Feeds in QuickBooks Online — Full Tutorial"</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=quickbooks+reconciliation+wont+balance+fix" target="_blank">Search YouTube: "What to Do When QuickBooks Reconciliation Won't Balance"</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="qb-payroll">
+  <div class="section-title qb-color">👥 Payroll in QuickBooks</div>
+  <div class="info-box"><strong>📌 Note for PH Remote Workers:</strong> Most US clients handle payroll themselves or use a service like Gusto. As a bookkeeper, you mainly need to know how to <strong>record payroll journal entries</strong> in QB and reconcile payroll accounts — you usually won't run the actual payroll.</div>
+  <div class="step-card"><h4>📋 Payroll Knowledge You Need</h4>
+    <ul>
+      <li><strong>Payroll Liabilities</strong> — taxes withheld from employees (Federal, State, FICA/Social Security, Medicare)</li>
+      <li><strong>Payroll Expenses</strong> — gross wages, employer payroll taxes</li>
+      <li><strong>W-2s</strong> — year-end tax documents for US employees</li>
+      <li><strong>Recording Payroll Journal Entries</strong> — if using Gusto or ADP, you import entries to QB</li>
+      <li><strong>1099 Contractors</strong> — different from employees; no payroll taxes withheld</li>
+    </ul>
+  </div>
+  <div class="step-card"><h4>📝 Sample Payroll Journal Entry</h4>
+    <ul>
+      <li><strong>Debit:</strong> Wages Expense (gross wages amount)</li>
+      <li><strong>Credit:</strong> Federal Tax Payable (withheld from employee)</li>
+      <li><strong>Credit:</strong> State Tax Payable (withheld)</li>
+      <li><strong>Credit:</strong> Social Security Payable (employee + employer share)</li>
+      <li><strong>Credit:</strong> Medicare Payable (employee + employer share)</li>
+      <li><strong>Credit:</strong> Bank / Checking Account (net pay disbursed)</li>
+    </ul>
+  </div>
+  <div class="tip-card qb-tip"><div class="tip-label">💡 Gusto + QB is Most Common</div><p>Learn how to record a Gusto payroll journal entry in QBO — this is what most US small businesses use. This skill alone can land you higher-paying clients!</p></div>
+  <div class="step-card"><h4>🎬 Payroll Tutorials</h4>
+    <ul>
+      <li><a href="https://www.youtube.com/results?search_query=payroll+journal+entry+quickbooks+online" target="_blank">Search YouTube: "How to Record Payroll in QuickBooks Online — Journal Entry"</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=gusto+quickbooks+online+integration+setup" target="_blank">Search YouTube: "Gusto + QuickBooks Online Integration Tutorial"</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="qb-reports">
+  <div class="section-title qb-color">📈 QuickBooks Reports</div>
+  <table class="data-table">
+    <thead><tr><th>Report</th><th>What It Shows</th><th>How Often to Run</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Profit & Loss (P&L)</strong></td><td>Income minus expenses = net profit or loss</td><td><span class="badge badge-qb">Monthly</span></td></tr>
+      <tr><td><strong>Balance Sheet</strong></td><td>Assets, liabilities, and equity at a point in time</td><td><span class="badge badge-qb">Monthly</span></td></tr>
+      <tr><td><strong>Cash Flow Statement</strong></td><td>How cash moves in and out of the business</td><td><span class="badge badge-teal">Monthly/Qtrly</span></td></tr>
+      <tr><td><strong>A/R Aging Summary</strong></td><td>Who owes money and how long it's been overdue</td><td><span class="badge badge-qb">Weekly</span></td></tr>
+      <tr><td><strong>A/P Aging Summary</strong></td><td>What bills are outstanding and overdue</td><td><span class="badge badge-qb">Weekly</span></td></tr>
+      <tr><td><strong>Trial Balance</strong></td><td>All account balances — check if books are balanced</td><td><span class="badge badge-teal">Monthly</span></td></tr>
+      <tr><td><strong>General Ledger</strong></td><td>Every individual transaction for every account</td><td><span class="badge badge-teal">As needed</span></td></tr>
+    </tbody>
+  </table>
+  <div class="tip-card qb-tip"><div class="tip-label">💡 Which Report for What Question</div><p>"How is my business doing?" → P&L. "What do I owe?" → A/P Aging. "Who hasn't paid me?" → A/R Aging. Knowing which report answers which question separates a good bookkeeper from a great one!</p></div>
+  <div class="step-card"><h4>🎬 Reports Tutorials</h4>
+    <ul>
+      <li><a href="https://www.youtube.com/results?search_query=how+to+read+profit+loss+balance+sheet+beginners" target="_blank">Search YouTube: "How to Read a P&L and Balance Sheet — for Beginners"</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=quickbooks+online+reports+overview+tutorial" target="_blank">Search YouTube: "QuickBooks Online Reports — Full Overview"</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="qb-tax">
+  <div class="section-title qb-color">🏛️ Tax Prep & Year-End in QB</div>
+  <div class="step-card"><h4>📋 Year-End Checklist</h4>
+    <p>At the end of each year, go through this checklist before the CPA files taxes:</p>
+    <ul>
+      <li>Reconcile all bank and credit card accounts for the full year</li>
+      <li>Review and categorize all uncategorized transactions</li>
+      <li>Check Accounts Receivable — write off any uncollectible invoices</li>
+      <li>Check Accounts Payable — clear any old open bills</li>
+      <li>Run a Trial Balance and look for anything unusual</li>
+      <li>Review fixed assets and record depreciation entries</li>
+      <li>Ensure 1099 vendors are properly tracked</li>
+      <li>Run the 1099 Summary Report</li>
+      <li>Export P&L, Balance Sheet, and General Ledger for the CPA</li>
+      <li>Set a <strong>Closing Date</strong> in QB to protect prior-period data</li>
+    </ul>
+  </div>
+  <div class="tip-card qb-tip"><div class="tip-label">💡 1099 Tip — Important for US Clients</div><p>In the US, businesses must send a <strong>1099 form</strong> to any contractor they paid $600+ in a year. In QBO, mark vendors as "1099 eligible." At year end, run the 1099 report to see who needs a form. This is a very common remote bookkeeper task!</p></div>
+  <div class="step-card"><h4>🎬 Tax Prep Tutorials</h4>
+    <ul>
+      <li><a href="https://www.youtube.com/results?search_query=year+end+bookkeeping+checklist+quickbooks+online" target="_blank">Search YouTube: "Year-End Bookkeeping Checklist in QuickBooks Online"</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=how+to+run+1099+quickbooks+online" target="_blank">Search YouTube: "How to Run 1099s in QuickBooks Online"</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="qb-integrations">
+  <div class="section-title qb-color">🔗 QuickBooks Integrations</div>
+  <div class="card-grid">
+    <div class="card qb-top"><div class="card-icon">💰</div><div class="card-title">Gusto</div><div class="card-desc">Payroll management. Auto-syncs payroll journal entries to QBO. Most popular with US small businesses.</div></div>
+    <div class="card qb-top"><div class="card-icon">🧾</div><div class="card-title">Dext / Receipt Bank</div><div class="card-desc">Scan receipts and auto-push expense data to QBO. Saves hours of manual data entry each month.</div></div>
+    <div class="card qb-top"><div class="card-icon">⏱️</div><div class="card-title">QuickBooks Time (TSheets)</div><div class="card-desc">Time tracking for employees, syncs directly to QB payroll and project tracking.</div></div>
+    <div class="card qb-top"><div class="card-icon">🛒</div><div class="card-title">Shopify / Amazon</div><div class="card-desc">E-commerce sales auto-import into QBO. Popular for product-based business clients.</div></div>
+    <div class="card qb-top"><div class="card-icon">📧</div><div class="card-title">HubSpot / Salesforce</div><div class="card-desc">CRM integration — syncs customers and invoices between sales and accounting.</div></div>
+    <div class="card qb-top"><div class="card-icon">📊</div><div class="card-title">Google Sheets / Excel</div><div class="card-desc">Export any QB report to spreadsheet for deeper analysis or client presentations.</div></div>
+  </div>
+</section>
+
+<section class="section" id="qb-tips">
+  <div class="section-title qb-color">💡 QB Tips, Tricks & Shortcuts</div>
+  <div class="callout">
+    <div class="callout-head" style="background:var(--qb-lt);color:var(--qb);">⭐ Top QuickBooks Pro Tips</div>
+    <ul class="callout-body qb-check">
+      <li>Use <strong>Bank Rules</strong> to auto-categorize recurring transactions — huge time saver!</li>
+      <li>The <strong>Accountant Toolbox</strong> has "Reclassify Transactions" — change categories in bulk</li>
+      <li>Use <strong>Tags</strong> to track profitability by project, location, or team member</li>
+      <li>Set up <strong>Recurring Invoices</strong> for clients who bill the same amount monthly</li>
+      <li>Use the <strong>Audit Log</strong> (Settings → Audit Log) to see who changed what</li>
+      <li>Attach receipts and bills directly to transactions — keeps everything organized</li>
+      <li>Enable <strong>Two-Factor Authentication</strong> on every QBO account you manage</li>
+      <li>Use <strong>Classes</strong> (QBO Plus) to track P&L by department or location</li>
+      <li>Set a <strong>Closing Date</strong> after year-end to protect prior-period data</li>
+    </ul>
+  </div>
+  <div class="shortcut-grid">
+    <div class="shortcut-row"><span class="shortcut-key">Ctrl + I</span><span class="shortcut-desc">Create Invoice</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">Ctrl + W</span><span class="shortcut-desc">Write Check</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">Ctrl + E</span><span class="shortcut-desc">Edit selected transaction</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">Ctrl + D</span><span class="shortcut-desc">Delete transaction</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">Ctrl + F</span><span class="shortcut-desc">Find / Search transactions</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">Ctrl + M</span><span class="shortcut-desc">Memorize transaction</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">Ctrl + A</span><span class="shortcut-desc">Chart of Accounts</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">Ctrl + R</span><span class="shortcut-desc">Open Register</span></div>
+  </div>
+  <div class="callout" style="margin-top:16px;">
+    <div class="callout-head" style="background:var(--qb-lt);color:var(--qb);">🎓 QB Certification & Free Access</div>
+    <ul class="callout-body qb-check">
+      <li><a href="https://quickbooks.intuit.com/accountants/training-certification/" target="_blank">QuickBooks ProAdvisor Certification — Free at intuit.com (gold standard!)</a></li>
+      <li><a href="https://quickbooks.intuit.com/accountants/products-solutions/accounting/online/?sc=oa_qboa_nav_link_qbo" target="_blank">Free QuickBooks Online Access for Accountants — QuickBooks Accountant Hub</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- QB QUIZ -->
+<section class="section" id="quiz-qb">
+  <div class="section-title qb-color">📝 QuickBooks Basics Quiz</div>
+  <div class="quiz-box" id="quizQB" style="border-top:3px solid var(--qb)">
+    <h4>🧠 Test Your QuickBooks Knowledge!</h4>
+    <p class="quiz-subtitle">8 questions · Take this after studying the QB sections above</p>
+    <div class="quiz-q active" data-correct="b">
+      <span class="q-num" style="background:var(--qb)">Q1 of 8</span>
+      <p class="q-text">What is the best QuickBooks version for remote PH bookkeepers working with US clients?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','a')">A. QuickBooks Desktop</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','b')">B. QuickBooks Online (QBO)</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','c')">C. QuickBooks Self-Employed</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','d')">D. QuickBooks Enterprise</button>
+      </div>
+      <div class="quiz-feedback" id="quizQB-f0"></div>
+    </div>
+    <div class="quiz-q" data-correct="c">
+      <span class="q-num" style="background:var(--qb)">Q2 of 8</span>
+      <p class="q-text">When should you use a "Bill" instead of an "Expense" in QuickBooks?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','a')">A. When you pay with a debit card immediately</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','b')">B. For any transaction under $100</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','c')">C. When you will pay the vendor later (creates Accounts Payable)</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','d')">D. When the transaction is a refund</button>
+      </div>
+      <div class="quiz-feedback" id="quizQB-f1"></div>
+    </div>
+    <div class="quiz-q" data-correct="a">
+      <span class="q-num" style="background:var(--qb)">Q3 of 8</span>
+      <p class="q-text">What does "Undeposited Funds" represent in QuickBooks?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','a')">A. Payments received but not yet deposited to the bank as a single deposit</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','b')">B. Money owed by customers</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','c')">C. Bounced checks from customers</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','d')">D. Petty cash fund</button>
+      </div>
+      <div class="quiz-feedback" id="quizQB-f2"></div>
+    </div>
+    <div class="quiz-q" data-correct="d">
+      <span class="q-num" style="background:var(--qb)">Q4 of 8</span>
+      <p class="q-text">What should the "Difference" show at the end of a successful bank reconciliation?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','a')">A. The total of all deposits</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','b')">B. The bank statement balance</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','c')">C. Any amount — it will auto-adjust</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','d')">D. $0.00</button>
+      </div>
+      <div class="quiz-feedback" id="quizQB-f3"></div>
+    </div>
+    <div class="quiz-q" data-correct="b">
+      <span class="q-num" style="background:var(--qb)">Q5 of 8</span>
+      <p class="q-text">What user role should you request when a client adds you to their QuickBooks?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','a')">A. Standard User</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','b')">B. Accountant User</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','c')">C. Reports Only</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','d')">D. Master Admin</button>
+      </div>
+      <div class="quiz-feedback" id="quizQB-f4"></div>
+    </div>
+    <div class="quiz-q" data-correct="c">
+      <span class="q-num" style="background:var(--qb)">Q6 of 8</span>
+      <p class="q-text">Which QB report shows which customers have unpaid invoices and for how long?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','a')">A. Profit & Loss Statement</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','b')">B. Trial Balance</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','c')">C. Accounts Receivable (A/R) Aging Summary</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','d')">D. Balance Sheet</button>
+      </div>
+      <div class="quiz-feedback" id="quizQB-f5"></div>
+    </div>
+    <div class="quiz-q" data-correct="a">
+      <span class="q-num" style="background:var(--qb)">Q7 of 8</span>
+      <p class="q-text">What is a "Bank Rule" in QuickBooks used for?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','a')">A. Automatically categorize recurring transactions from the bank feed</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','b')">B. Restrict which bank accounts clients can connect</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','c')">C. Set limits on how much can be withdrawn</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','d')">D. Calculate bank fees automatically</button>
+      </div>
+      <div class="quiz-feedback" id="quizQB-f6"></div>
+    </div>
+    <div class="quiz-q" data-correct="d">
+      <span class="q-num" style="background:var(--qb)">Q8 of 8</span>
+      <p class="q-text">In the US, businesses must send a 1099 form to contractors paid over __ in a year:</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','a')">A. $100</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','b')">B. $1,000</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','c')">C. $500</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizQB','d')">D. $600</button>
+      </div>
+      <div class="quiz-feedback" id="quizQB-f7"></div>
+    </div>
+    <div class="quiz-result" id="quizQB-result">
+      <div class="score-big" id="quizQB-score-display"></div>
+      <p id="quizQB-msg"></p>
+      <button class="restart-btn" onclick="restartQuiz('quizQB')" style="background:var(--qb)">🔄 Try Again</button>
+    </div>
+    <div class="quiz-nav" id="quizQB-nav">
+      <button class="quiz-nav-btn" id="quizQB-prev" onclick="prevQ('quizQB')" disabled style="background:var(--qb)">← Prev</button>
+      <span class="quiz-score" id="quizQB-counter">Question 1 of 8</span>
+      <button class="quiz-nav-btn" id="quizQB-next" onclick="nextQ('quizQB')" style="background:var(--qb)">Next →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ XERO GUIDE ═══ -->
+<div class="tool-divider">🔵 Xero Full Guide 🔵</div>
+
+<section class="section" id="xero-intro">
+  <div class="section-title xero-color">🏠 What is Xero?</div>
+  <div class="card-grid">
+    <div class="card xero-top"><div class="card-icon">☁️</div><div class="card-title">100% Cloud-Based</div><div class="card-desc">No desktop install needed. Access any client's books from your laptop in the Philippines, anytime.</div></div>
+    <div class="card xero-top"><div class="card-icon">🌏</div><div class="card-title">Popular Globally</div><div class="card-desc">Huge in Australia, NZ, UK, and growing in the US. Knowing Xero opens doors to international clients.</div></div>
+    <div class="card xero-top"><div class="card-icon">🎨</div><div class="card-title">Clean & Modern UI</div><div class="card-desc">Many bookkeepers say Xero is easier to navigate than QuickBooks. Great for beginners!</div></div>
+  </div>
+  <div class="tip-card xero-tip"><div class="tip-label">💡 Mary's Tip</div><p>If your clients are US-based, learn QuickBooks first. But if you want AU, UK, or NZ clients — Xero is your ticket. Learn both and you double your client pool and can charge higher rates!</p></div>
+  <div class="info-box"><strong>🆓 Get Free Xero Access:</strong> Sign up for the <a href="https://www.xero.com/ph/advisor-programme/" target="_blank"><strong>Xero Advisor Programme</strong></a> — as a certified Xero Advisor, you get free access to Xero to work on client files. This is also how you get certified. No cost. Sign up and start practicing!</div>
+</section>
+
+<section class="section" id="xero-vs-qb">
+  <div class="section-title xero-color">⚖️ Xero vs QuickBooks — Key Differences</div>
+  <table class="compare-table">
+    <thead><tr><th>Feature</th><th class="xero-col">🔵 Xero</th><th class="qb-col">🟢 QuickBooks Online</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Interface</strong></td><td>Cleaner, more modern UI</td><td>More features, slightly busier</td></tr>
+      <tr><td><strong>Users</strong></td><td>Unlimited users (all plans)</td><td>Limited by plan (1–25 users)</td></tr>
+      <tr><td><strong>Popular In</strong></td><td>Australia, NZ, UK, global</td><td>USA (dominant market)</td></tr>
+      <tr><td><strong>Payroll (US)</strong></td><td>Via Gusto integration</td><td>Built-in QuickBooks Payroll</td></tr>
+      <tr><td><strong>Bank Reconciliation</strong></td><td>Very intuitive, visual matching</td><td>Good, but slightly more complex UI</td></tr>
+      <tr><td><strong>Price Range (USD/mo)</strong></td><td>$20–$80</td><td>$35–$235</td></tr>
+      <tr><td><strong>Best For PH Bookkeepers</strong></td><td>AU/NZ/UK clients & multi-currency</td><td>US clients (larger market)</td></tr>
+    </tbody>
+  </table>
+  <div class="tip-card xero-tip"><div class="tip-label">💡 Bottom Line</div><p>Neither is "better" — they're just popular in different markets. <strong>Learn both and you double your client pool.</strong> Most tasks (invoicing, reconciliation, reports) work very similarly between the two.</p></div>
+</section>
+
+<section class="section" id="xero-setup">
+  <div class="section-title xero-color">⚙️ Setting Up a New Xero Organisation</div>
+  <div class="phase-banner xero-left"><div class="phase-num">1</div><div class="phase-info"><h3>Create the Organisation</h3><p>What to configure before doing any bookkeeping work</p></div></div>
+  <div class="step-card"><h4>📋 First-Time Setup Checklist</h4>
+    <ul>
+      <li>Go to <strong>Settings → General Settings → Organisation Details</strong></li>
+      <li>Add business name, address, contact info, and logo</li>
+      <li>Set financial year start and tax basis (cash or accrual)</li>
+      <li>Set currency (USD for US clients)</li>
+      <li>Set up chart of accounts</li>
+      <li>Connect bank accounts via Bank Feeds</li>
+      <li>Set invoice branding/templates with client's logo</li>
+      <li>Add users and set permission levels</li>
+    </ul>
+  </div>
+  <div class="phase-banner xero-left"><div class="phase-num">2</div><div class="phase-info"><h3>User Roles in Xero</h3><p>Control what each team member or bookkeeper can access</p></div></div>
+  <div class="step-card"><h4>👤 Xero User Permission Levels</h4>
+    <ul>
+      <li><strong>Adviser</strong> — full access including manual journals and Find & Recode. Always request this for yourself!</li>
+      <li><strong>Standard</strong> — all day-to-day tasks but can't change settings</li>
+      <li><strong>Invoice Only</strong> — can only create and approve invoices</li>
+      <li><strong>Read Only</strong> — view everything but can't make changes</li>
+      <li><strong>Payroll Admin</strong> — manages payroll only</li>
+    </ul>
+  </div>
+  <div class="tip-card xero-tip"><div class="tip-label">💡 Always Request Adviser Access</div><p>Ask your client to add you as an <strong>Adviser</strong> in Xero. This gives you access to Manual Journals, Find & Recode, and Accountant tools. Without Adviser access, you can't do proper bookkeeping cleanup work!</p></div>
+  <div class="step-card"><h4>🎬 Setup Tutorials</h4>
+    <ul>
+      <li><a href="https://www.youtube.com/results?search_query=xero+accounting+tutorial+beginners+setup" target="_blank">Search YouTube: "Xero Accounting Tutorial for Beginners — Full Walkthrough"</a></li>
+      <li><a href="https://www.youtube.com/@XeroAccountingSoftware" target="_blank">Xero Official YouTube Channel — @XeroAccountingSoftware (best source!)</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="xero-coa">
+  <div class="section-title xero-color">📊 Chart of Accounts in Xero</div>
+  <p style="font-size:13px;color:var(--subtext);margin-bottom:14px;line-height:1.6;">Xero calls it the <strong>Chart of Accounts</strong> just like QB. Xero organizes accounts using <strong>account types</strong> and <strong>tax rates</strong> together.</p>
+  <table class="data-table">
+    <thead><tr><th>Xero Account Type</th><th>What It Tracks</th><th>Examples</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-xero">Current Asset</span></td><td>Short-term assets</td><td>Bank, Cash, Accounts Receivable, Inventory</td></tr>
+      <tr><td><span class="badge badge-xero">Fixed Asset</span></td><td>Long-term assets</td><td>Equipment, Vehicles, Property</td></tr>
+      <tr><td><span class="badge badge-pink">Current Liability</span></td><td>Short-term debts</td><td>Accounts Payable, Credit Cards, Sales Tax Payable</td></tr>
+      <tr><td><span class="badge badge-pink">Non-Current Liability</span></td><td>Long-term debts</td><td>Bank Loans, Mortgages</td></tr>
+      <tr><td><span class="badge badge-teal">Revenue</span></td><td>Income earned</td><td>Sales Revenue, Service Income</td></tr>
+      <tr><td><span class="badge badge-teal">Direct Costs</span></td><td>Cost of goods sold</td><td>Purchases, Direct Labor</td></tr>
+      <tr><td><span class="badge badge-teal">Expense</span></td><td>Operating expenses</td><td>Rent, Utilities, Marketing, Software</td></tr>
+      <tr><td><span class="badge badge-teal">Equity</span></td><td>Owner's stake</td><td>Owner's Capital, Retained Earnings</td></tr>
+    </tbody>
+  </table>
+  <div class="tip-card xero-tip"><div class="tip-label">💡 Xero COA Tip</div><p>Xero gives you a default Chart of Accounts when you set up a new org. <strong>Always review and clean it up</strong> — remove accounts your client doesn't need and add industry-specific ones. A cleaner COA = cleaner reports = happier client.</p></div>
+  <div class="step-card"><h4>🎬 Chart of Accounts Tutorials</h4>
+    <ul>
+      <li><a href="https://www.youtube.com/results?search_query=xero+chart+of+accounts+setup+tutorial" target="_blank">Search YouTube: "Xero Chart of Accounts — How to Set It Up"</a></li>
+      <li><a href="https://www.youtube.com/@XeroAccountingSoftware" target="_blank">Xero Official YouTube Channel for more tutorials</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="xero-invoicing">
+  <div class="section-title xero-color">🧾 Invoicing & Accounts Receivable in Xero</div>
+  <div class="phase-banner xero-left"><div class="phase-num">1</div><div class="phase-info"><h3>Creating an Invoice</h3><p>Bill customers and track who still owes you</p></div></div>
+  <div class="step-card"><h4>📝 How to Create an Invoice</h4>
+    <p>Go to <strong>Accounts → Sales → New Invoice</strong> (or click the + New button)</p>
+    <ul>
+      <li>Select the customer (add new if first time)</li>
+      <li>Set date issued and due date</li>
+      <li>Add line items: Description, Qty, Unit Price, Account (category), Tax Rate</li>
+      <li>Add a reference number (for your records)</li>
+      <li>Click <strong>Approve</strong> to finalize, then <strong>Send</strong> to email the customer</li>
+      <li>Status: Draft → Awaiting Approval → Awaiting Payment → Paid</li>
+    </ul>
+  </div>
+  <div class="phase-banner xero-left"><div class="phase-num">2</div><div class="phase-info"><h3>Receiving Payment</h3><p>Record when customers pay their invoice</p></div></div>
+  <div class="step-card"><h4>💰 How to Apply a Payment</h4>
+    <ul>
+      <li>Open the invoice from <strong>Accounts → Sales → Awaiting Payment</strong></li>
+      <li>Click the <strong>green payment bar</strong> at the bottom of the invoice</li>
+      <li>Enter amount paid, date, and which bank account it went to</li>
+      <li>Invoice status changes to <strong>Paid ✅</strong></li>
+      <li>Match this payment to your bank feed during reconciliation</li>
+    </ul>
+  </div>
+  <div class="tip-card xero-tip"><div class="tip-label">💡 Repeating Invoices — Huge Time Saver!</div><p>Xero has <strong>Repeating Invoices</strong> — perfect for clients who charge the same amount each month (retainers, subscriptions). Set it once and Xero auto-generates the invoice on schedule. You don't need to create it manually each month!</p></div>
+  <div class="step-card"><h4>🎬 Invoicing Tutorials</h4>
+    <ul>
+      <li><a href="https://www.youtube.com/results?search_query=how+to+create+send+invoices+xero" target="_blank">Search YouTube: "How to Create and Send Invoices in Xero"</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=xero+accounts+receivable+tutorial" target="_blank">Search YouTube: "Xero Accounts Receivable — Full Tutorial"</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="xero-expenses">
+  <div class="section-title xero-color">💸 Bills & Expenses in Xero</div>
+  <table class="data-table">
+    <thead><tr><th>Transaction Type</th><th>When to Use</th><th>Where in Xero</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Bill</strong></td><td>You'll pay later — creates Accounts Payable</td><td>Accounts → Purchases → New Bill</td></tr>
+      <tr><td><strong>Spend Money</strong></td><td>Paid immediately from bank or cash</td><td>Bank Accounts → Spend Money</td></tr>
+      <tr><td><strong>Expense Claim</strong></td><td>Employee out-of-pocket expenses for reimbursement</td><td>Accounts → Expense Claims</td></tr>
+      <tr><td><strong>Purchase Order</strong></td><td>Pre-approval before receiving goods from supplier</td><td>Accounts → Purchases → New Purchase Order</td></tr>
+      <tr><td><strong>Credit Note</strong></td><td>Supplier refund or price adjustment</td><td>Accounts → Purchases → New Credit Note</td></tr>
+    </tbody>
+  </table>
+  <div class="tip-card xero-tip"><div class="tip-label">💡 Attach Receipts Easily</div><p>Xero generates a unique email address for each organisation. Your client can <strong>email receipts directly to Xero</strong> from their phone — they're automatically attached as draft bills. Less chasing clients for documentation = less stress for you!</p></div>
+  <div class="step-card"><h4>🎬 Bills & Expenses Tutorials</h4>
+    <ul>
+      <li><a href="https://www.youtube.com/results?search_query=how+to+enter+pay+bills+xero+tutorial" target="_blank">Search YouTube: "How to Enter and Pay Bills in Xero — Step by Step"</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=xero+expense+claims+tutorial" target="_blank">Search YouTube: "Xero Expense Claims Tutorial"</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="xero-banking">
+  <div class="section-title xero-color">🏦 Bank Reconciliation — Xero's Best Feature</div>
+  <div class="info-box"><strong>✨ Fun Fact:</strong> Xero's bank reconciliation is widely considered more intuitive than QuickBooks. It's visual, color-coded, and guides you through matching transactions step by step. Many bookkeepers prefer Xero's bank rec!</div>
+  <div class="phase-banner xero-left"><div class="phase-num">1</div><div class="phase-info"><h3>Connect Your Bank (Bank Feeds)</h3><p>Automatically import transactions from your client's bank</p></div></div>
+  <div class="step-card"><h4>🔄 Setting Up Bank Feeds</h4>
+    <ul>
+      <li>Go to <strong>Accounts → Bank Accounts → Add Bank Account</strong></li>
+      <li>Search for the bank and connect with client's credentials</li>
+      <li>Xero imports transactions automatically (usually daily)</li>
+      <li>You can also import manually via CSV if the bank doesn't connect directly</li>
+    </ul>
+  </div>
+  <div class="phase-banner xero-left"><div class="phase-num">2</div><div class="phase-info"><h3>Reconciling Transactions</h3><p>The most important daily and monthly task in Xero</p></div></div>
+  <div class="step-card"><h4>✅ How to Reconcile in Xero</h4>
+    <ul>
+      <li>Click <strong>Reconcile</strong> on any bank account — bank transactions show on left, existing transactions on right</li>
+      <li><strong>Match</strong> — bank transaction matches an existing invoice or bill → Click OK ✅</li>
+      <li><strong>Create</strong> — no existing match → enter category and click Create & OK</li>
+      <li><strong>Transfer</strong> — money moved between two bank accounts</li>
+      <li>Run the <strong>Bank Reconciliation Summary Report</strong> monthly to confirm everything balances</li>
+    </ul>
+  </div>
+  <div class="tip-card xero-tip"><div class="tip-label">💡 Bank Rules Save Hours!</div><p>Set up <strong>Bank Rules</strong> for recurring transactions. Go to <strong>Accounts → Bank Accounts → Manage Account → Bank Rules</strong>. Rules for Stripe fees, rent, software subscriptions — reconciliation becomes almost automatic!</p></div>
+  <div class="step-card"><h4>🎬 Bank Reconciliation Tutorials</h4>
+    <ul>
+      <li><a href="https://www.youtube.com/results?search_query=how+to+reconcile+xero+bank+reconciliation" target="_blank">Search YouTube: "How to Reconcile in Xero — Complete Walkthrough"</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=xero+bank+rules+tutorial+save+time" target="_blank">Search YouTube: "Xero Bank Rules — Save Hours Every Month"</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=xero+bank+feeds+setup+connect+bank" target="_blank">Search YouTube: "Xero Bank Feeds Setup — Connect Your Bank"</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="xero-payroll">
+  <div class="section-title xero-color">👥 Payroll in Xero</div>
+  <div class="info-box"><strong>📌 For PH Remote Bookkeepers:</strong> Xero has built-in payroll for Australia, NZ, and the UK. For <strong>US clients</strong>, Xero integrates with <strong>Gusto</strong> for payroll. You mainly need to know how to record payroll journal entries in Xero.</div>
+  <div class="step-card"><h4>📋 Payroll Knowledge You Need</h4>
+    <ul>
+      <li>How to record a <strong>Payroll Journal Entry</strong> in Xero (Debit: Wages Expense, Credit: Bank)</li>
+      <li>How to set up the <strong>Gusto + Xero integration</strong> for US clients</li>
+      <li>Understanding <strong>Payroll Liabilities</strong> — tax withholdings owed to the government</li>
+      <li>How to run <strong>Payroll Reports</strong> in Xero (Payroll Activity Summary)</li>
+      <li>For AU/NZ clients: Xero has full built-in payroll with STP (Single Touch Payroll) compliance</li>
+    </ul>
+  </div>
+  <div class="step-card"><h4>🔗 Gusto + Xero Integration Steps</h4>
+    <ul>
+      <li>In Gusto: Settings → Integrations → Connect Xero</li>
+      <li>Authorize the connection with your Xero login credentials</li>
+      <li>Map Gusto payroll categories to Xero accounts</li>
+      <li>After each payroll run, a journal entry auto-posts to Xero</li>
+      <li>Review the entry in Xero: Manual Journals section</li>
+      <li>Reconcile the bank payment against the payroll journal entry</li>
+    </ul>
+  </div>
+  <div class="step-card"><h4>🎬 Payroll Tutorials</h4>
+    <ul>
+      <li><a href="https://www.youtube.com/results?search_query=gusto+xero+integration+setup+tutorial" target="_blank">Search YouTube: "Gusto + Xero Integration — How to Set It Up"</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=xero+payroll+journal+entry+tutorial" target="_blank">Search YouTube: "How to Record Payroll Journal Entries in Xero"</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="xero-reports">
+  <div class="section-title xero-color">📈 Key Reports in Xero</div>
+  <table class="data-table">
+    <thead><tr><th>Report</th><th>What It Shows</th><th>Where to Find It</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Profit & Loss</strong></td><td>Income vs expenses = net profit/loss</td><td>Reports → Profit & Loss</td></tr>
+      <tr><td><strong>Balance Sheet</strong></td><td>Financial position at a given date</td><td>Reports → Balance Sheet</td></tr>
+      <tr><td><strong>Cash Summary</strong></td><td>Movement of cash in and out</td><td>Reports → Cash Summary</td></tr>
+      <tr><td><strong>Aged Receivables</strong></td><td>Who owes you and how long it's overdue</td><td>Reports → Aged Receivables</td></tr>
+      <tr><td><strong>Aged Payables</strong></td><td>What you owe suppliers and when it's due</td><td>Reports → Aged Payables</td></tr>
+      <tr><td><strong>Bank Reconciliation Summary</strong></td><td>Confirms Xero balance matches bank balance</td><td>Reports → Bank Reconciliation Summary</td></tr>
+      <tr><td><strong>Budget Manager</strong></td><td>Actual vs budgeted performance</td><td>Reports → Budget Manager</td></tr>
+      <tr><td><strong>General Ledger</strong></td><td>All transactions in every account</td><td>Reports → General Ledger</td></tr>
+    </tbody>
+  </table>
+  <div class="tip-card xero-tip"><div class="tip-label">💡 Publish Reports — Xero Exclusive!</div><p>Xero lets you <strong>publish reports</strong> — creating a read-only link you can share with clients. No need to export to PDF every month. Just click Publish and send the link. Clients can see real-time data anytime. They love this feature!</p></div>
+  <div class="step-card"><h4>🎬 Reports Tutorials</h4>
+    <ul>
+      <li><a href="https://www.youtube.com/results?search_query=xero+reports+overview+beginners+tutorial" target="_blank">Search YouTube: "Xero Reports — Complete Overview for Beginners"</a></li>
+      <li><a href="https://www.youtube.com/results?search_query=xero+profit+loss+report+how+to+read" target="_blank">Search YouTube: "How to Read a Profit & Loss Report in Xero"</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="xero-projects">
+  <div class="section-title xero-color">📁 Projects & Tracking Categories</div>
+  <div class="step-card"><h4>🏷️ Tracking Categories (Like Classes in QB)</h4>
+    <p>Xero's version of QuickBooks' "Classes" feature. Use to track profitability by department, location, or project.</p>
+    <ul>
+      <li>Go to <strong>Settings → General Settings → Tracking Categories</strong></li>
+      <li>Create up to 2 tracking categories (e.g., "Department" and "Location")</li>
+      <li>Add options under each (e.g., Department: Marketing, Sales, Operations)</li>
+      <li>When entering transactions, tag them to a category</li>
+      <li>Run P&L by tracking category to compare performance per department</li>
+    </ul>
+  </div>
+  <div class="step-card"><h4>📋 Xero Projects (Add-on Feature)</h4>
+    <ul>
+      <li>Create a project, set a budget and deadline</li>
+      <li>Log time entries and expenses to the project</li>
+      <li>Invoice the client directly from the project</li>
+      <li>See profitability per project in real time</li>
+      <li>Great for construction, consulting, agencies, and service businesses</li>
+    </ul>
+  </div>
+  <div class="tip-card xero-tip"><div class="tip-label">💡 Charge Extra for This!</div><p>Setting up Tracking Categories for clients with multiple locations is a premium service. Mention this as an upsell when onboarding clients — it's very valuable to business owners and worth charging extra for!</p></div>
+</section>
+
+<section class="section" id="xero-integrations">
+  <div class="section-title xero-color">🔗 Xero Integrations (App Marketplace)</div>
+  <div class="card-grid">
+    <div class="card xero-top"><div class="card-icon">💰</div><div class="card-title">Gusto</div><div class="card-desc">US payroll integration. Auto-syncs payroll journal entries directly into Xero after each run.</div></div>
+    <div class="card xero-top"><div class="card-icon">🧾</div><div class="card-title">Dext (Receipt Bank)</div><div class="card-desc">Scan and auto-upload receipts to Xero. Clients photograph receipts on their phone — done!</div></div>
+    <div class="card xero-top"><div class="card-icon">🛒</div><div class="card-title">Shopify</div><div class="card-desc">E-commerce orders auto-sync to Xero. Popular for product-based business clients.</div></div>
+    <div class="card xero-top"><div class="card-icon">⏱️</div><div class="card-title">Deputy / TSheets</div><div class="card-desc">Time and attendance tracking that syncs directly to Xero payroll.</div></div>
+    <div class="card xero-top"><div class="card-icon">💳</div><div class="card-title">Stripe / PayPal</div><div class="card-desc">Payment processors that sync transactions automatically to Xero bank feeds.</div></div>
+    <div class="card xero-top"><div class="card-icon">📊</div><div class="card-title">Fathom / Spotlight</div><div class="card-desc">Advanced reporting and dashboards on top of Xero data. Great for advisory services.</div></div>
+  </div>
+  <div class="tip-card xero-tip"><div class="tip-label">💡 Xero App Marketplace</div><p>Xero has 1,000+ apps at <a href="https://apps.xero.com" target="_blank">apps.xero.com</a>. When a client has a specific need, there's almost always a Xero app for it. Knowing how to find and set up integrations is a premium skill!</p></div>
+</section>
+
+<section class="section" id="xero-tips">
+  <div class="section-title xero-color">💡 Xero Tips, Tricks & Shortcuts</div>
+  <div class="callout">
+    <div class="callout-head" style="background:var(--xero-lt);color:var(--xero-dark);">⭐ Top Xero Pro Tips</div>
+    <ul class="callout-body xero-check">
+      <li>Use <strong>Bank Rules</strong> for recurring transactions — they auto-suggest categories and can auto-reconcile</li>
+      <li>Use <strong>Find & Recode</strong> (Adviser access) to bulk-fix miscategorized transactions</li>
+      <li><strong>Lock dates</strong> after closing a period — prevents changes to reconciled months</li>
+      <li>Use <strong>Repeating Bills & Invoices</strong> for all recurring monthly transactions</li>
+      <li><strong>Publish reports</strong> to share live links with clients — no more PDF attachments!</li>
+      <li>Set up <strong>2-step authentication</strong> on every Xero account you manage</li>
+      <li>Use <strong>Tracking Categories</strong> to give clients departmental P&Ls — premium value!</li>
+      <li>The <strong>History & Notes</strong> tab on every transaction shows a full audit trail</li>
+    </ul>
+  </div>
+  <div class="shortcut-grid">
+    <div class="shortcut-row"><span class="shortcut-key">G + D</span><span class="shortcut-desc">Go to Dashboard</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">G + I</span><span class="shortcut-desc">Go to Invoices</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">G + B</span><span class="shortcut-desc">Go to Bills</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">G + R</span><span class="shortcut-desc">Go to Reports</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">N + I</span><span class="shortcut-desc">New Invoice</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">N + B</span><span class="shortcut-desc">New Bill</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">/ + ?</span><span class="shortcut-desc">Open shortcut help</span></div>
+    <div class="shortcut-row"><span class="shortcut-key">Ctrl + S</span><span class="shortcut-desc">Save current form</span></div>
+  </div>
+  <div class="callout" style="margin-top:16px;">
+    <div class="callout-head" style="background:var(--xero-lt);color:var(--xero-dark);">🎓 Xero Certification (Free!)</div>
+    <ul class="callout-body xero-check">
+      <li><a href="https://www.xero.com/ph/advisor-programme/" target="_blank">Xero Advisor Certification — Free at xero.com/ph/advisor-programme (official partner certification + free Xero access!)</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- XERO QUIZ -->
+<section class="section" id="quiz-xero">
+  <div class="section-title xero-color">📝 Xero Basics Quiz</div>
+  <div class="quiz-box" id="quizXero" style="border-top:3px solid var(--xero)">
+    <h4>🧠 Test Your Xero Knowledge!</h4>
+    <p class="quiz-subtitle">7 questions · Take this after studying the Xero sections above</p>
+    <div class="quiz-q active" data-correct="c">
+      <span class="q-num" style="background:var(--xero)">Q1 of 7</span>
+      <p class="q-text">Xero is most popular in which markets?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','a')">A. USA and Canada</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','b')">B. Japan and South Korea</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','c')">C. Australia, New Zealand, United Kingdom, and globally</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','d')">D. India and the Philippines</button>
+      </div>
+      <div class="quiz-feedback" id="quizXero-f0"></div>
+    </div>
+    <div class="quiz-q" data-correct="b">
+      <span class="q-num" style="background:var(--xero)">Q2 of 7</span>
+      <p class="q-text">What user role should you request from a Xero client?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','a')">A. Standard User</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','b')">B. Adviser</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','c')">C. Invoice Only</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','d')">D. Read Only</button>
+      </div>
+      <div class="quiz-feedback" id="quizXero-f1"></div>
+    </div>
+    <div class="quiz-q" data-correct="a">
+      <span class="q-num" style="background:var(--xero)">Q3 of 7</span>
+      <p class="q-text">In Xero, what does "Spend Money" mean?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','a')">A. A payment made immediately from a bank account or cash</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','b')">B. A bill you will pay later</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','c')">C. An employee expense claim</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','d')">D. A purchase order</button>
+      </div>
+      <div class="quiz-feedback" id="quizXero-f2"></div>
+    </div>
+    <div class="quiz-q" data-correct="d">
+      <span class="q-num" style="background:var(--xero)">Q4 of 7</span>
+      <p class="q-text">What is a "Repeating Invoice" in Xero?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','a')">A. An invoice sent to multiple customers at once</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','b')">B. A duplicate invoice warning</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','c')">C. An invoice that must be re-approved each time</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','d')">D. An invoice that auto-generates on a schedule — great for monthly retainers</button>
+      </div>
+      <div class="quiz-feedback" id="quizXero-f3"></div>
+    </div>
+    <div class="quiz-q" data-correct="c">
+      <span class="q-num" style="background:var(--xero)">Q5 of 7</span>
+      <p class="q-text">What Xero feature is similar to QuickBooks' "Classes"?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','a')">A. Xero Projects</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','b')">B. Bank Rules</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','c')">C. Tracking Categories</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','d')">D. Smart Lists</button>
+      </div>
+      <div class="quiz-feedback" id="quizXero-f4"></div>
+    </div>
+    <div class="quiz-q" data-correct="b">
+      <span class="q-num" style="background:var(--xero)">Q6 of 7</span>
+      <p class="q-text">What is the "Find & Recode" feature in Xero used for?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','a')">A. Finding lost invoices</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','b')">B. Bulk-recategorizing miscoded transactions at once</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','c')">C. Searching for duplicate transactions</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','d')">D. Generating tax codes automatically</button>
+      </div>
+      <div class="quiz-feedback" id="quizXero-f5"></div>
+    </div>
+    <div class="quiz-q" data-correct="a">
+      <span class="q-num" style="background:var(--xero)">Q7 of 7</span>
+      <p class="q-text">Which Xero feature creates a shareable read-only link so clients can see their financials live?</p>
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','a')">A. Publish Reports</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','b')">B. Export to PDF</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','c')">C. Email Reports</button>
+        <button class="quiz-btn" onclick="answerQ(this,'quizXero','d')">D. Smart Lists</button>
+      </div>
+      <div class="quiz-feedback" id="quizXero-f6"></div>
+    </div>
+    <div class="quiz-result" id="quizXero-result">
+      <div class="score-big" id="quizXero-score-display"></div>
+      <p id="quizXero-msg"></p>
+      <button class="restart-btn" onclick="restartQuiz('quizXero')" style="background:var(--xero)">🔄 Try Again</button>
+    </div>
+    <div class="quiz-nav" id="quizXero-nav">
+      <button class="quiz-nav-btn" id="quizXero-prev" onclick="prevQ('quizXero')" disabled style="background:var(--xero)">← Prev</button>
+      <span class="quiz-score" id="quizXero-counter">Question 1 of 7</span>
+      <button class="quiz-nav-btn" id="quizXero-next" onclick="nextQ('quizXero')" style="background:var(--xero)">Next →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ JOB HUNTING ═══ -->
+<div class="tool-divider">💼 Getting Jobs — OLJ · Upwork · LinkedIn 💼</div>
+
+<section class="section" id="olj">
+  <div class="section-title pink-color">🌐 OLJ.ph (OnlineJobs.ph) Guide</div>
+  <div class="pink-box"><strong>📌 What is OLJ?</strong> OnlineJobs.ph is the biggest platform for Filipino remote workers. Most US business owners looking for Filipino bookkeepers come here first. It's free to apply — get your profile right and clients will message you!</div>
+  <div class="phase-banner pink-left"><div class="phase-num">1</div><div class="phase-info"><h3>Optimize Your OLJ Profile</h3><p>Your profile IS your resume — make every word count</p></div></div>
+  <div class="step-card"><h4>📋 OLJ Profile Optimization Checklist</h4>
+    <ul>
+      <li><strong>Professional photo:</strong> Bright, clear, friendly smile. Solid background. No selfies with bad lighting.</li>
+      <li><strong>Headline:</strong> "Certified QuickBooks ProAdvisor | US Remote Bookkeeper | Xero Certified | Bank Reconciliation Specialist"</li>
+      <li><strong>Skills section:</strong> QuickBooks Online, Xero, Bank Reconciliation, Accounts Payable, Accounts Receivable, Payroll Journal Entries, Financial Reporting, Gusto</li>
+      <li><strong>Expected salary:</strong> Start at ₱30,000–₱50,000/mo entry level. Increase as you gain experience. Don't go too low — it signals low quality.</li>
+      <li><strong>Availability:</strong> Set Full Time if serious. Many clients skip Part Time profiles.</li>
+      <li><strong>Take OLJ skill tests:</strong> Accounting, English proficiency, and computer skills tests add credibility</li>
+      <li><strong>Video intro:</strong> Upload a short 60-second intro video — huge differentiator from other applicants!</li>
+    </ul>
+  </div>
+  <div class="phase-banner pink-left"><div class="phase-num">2</div><div class="phase-info"><h3>Your Optimized OLJ Bio</h3><p>Tell them WHY they should hire you, not just what you can do</p></div></div>
+  <div class="step-card"><h4>✍️ Optimized OLJ Bio Template (copy and customize!)</h4>
+    <p><strong>Opening — Hook them immediately:</strong></p>
+    <p>Are your books a mess? Reconciliation months behind? I fix that — fast and accurately.</p>
+    <p style="margin-top:8px;"><strong>Credentials — Establish trust:</strong></p>
+    <p>I'm [Your Name], a certified QuickBooks ProAdvisor and Xero Advisor based in the Philippines with [X] years of hands-on experience in US bookkeeping. I specialize in bank reconciliation, accounts payable/receivable, and monthly financial close for small businesses.</p>
+    <p style="margin-top:8px;"><strong>What I deliver:</strong></p>
+    <p>✅ Clean, reconciled books delivered every month — on time, always<br>✅ Profit & Loss, Balance Sheet, and Cash Flow reports ready for your CPA<br>✅ Fast response within 24 hours, available for weekly calls<br>✅ Fluent English communication with US business owners</p>
+    <p style="margin-top:8px;"><strong>Closing — Call to action:</strong></p>
+    <p>I treat your books like they're my own business. Let's chat and see if we're a good fit!</p>
+  </div>
+  <div class="phase-banner pink-left"><div class="phase-num">3</div><div class="phase-info"><h3>Applying for Jobs on OLJ</h3><p>Strategy for getting responses and interviews</p></div></div>
+  <div class="step-card"><h4>💼 Application Tips</h4>
+    <ul>
+      <li>Apply to new job posts within the first 24 hours — you show up higher in results</li>
+      <li>Personalize every application — mention the client's business name and a specific detail from their post</li>
+      <li>Show certifications: "I hold the QuickBooks ProAdvisor certification and am a Xero Advisor..."</li>
+      <li>Keep your cover letter short — 3 paragraphs max</li>
+      <li>End with a call to action: "I'd love to schedule a 15-minute call to discuss how I can help."</li>
+      <li>Follow up after 3–5 days if no response</li>
+    </ul>
+  </div>
+  <div class="tip-card pink-tip"><div class="tip-label">💡 Rate Strategy</div><p>Start slightly below your target rate to build reviews fast, then increase by 20% per new client or renewal. Don't go below ₱25,000/mo — it signals low quality. A higher rate with certifications is always more credible!</p></div>
+</section>
+
+<section class="section" id="upwork">
+  <div class="section-title pink-color">🟢 Upwork Guide</div>
+  <div class="pink-box"><strong>📌 Important:</strong> Upwork is highly competitive. Your first 1–3 jobs are the hardest. Once you have a Job Success Score (JSS) above 90%, jobs will come to you. Protect your JSS at all costs!</div>
+  <div class="phase-banner pink-left"><div class="phase-num">1</div><div class="phase-info"><h3>Build Your Upwork Profile</h3><p>Treat it like a landing page — 5 seconds to impress</p></div></div>
+  <div class="step-card"><h4>📋 Upwork Profile Must-Haves</h4>
+    <ul>
+      <li><strong>Title:</strong> "QuickBooks ProAdvisor | US Bookkeeping & Bank Reconciliation Expert"</li>
+      <li><strong>Overview:</strong> Start with the client's problem. Lead with "I help US small businesses keep clean books so they can make better financial decisions..."</li>
+      <li><strong>Portfolio:</strong> Screenshots of sample work (from demo QB/Xero company)</li>
+      <li><strong>Skills:</strong> QuickBooks Online, Xero, Bookkeeping, Bank Reconciliation, Accounts Payable, Payroll, Financial Statements</li>
+      <li><strong>Certifications:</strong> Add QB ProAdvisor and Xero Advisor badges</li>
+      <li><strong>Rate:</strong> Start at $10–$15/hr to build JSS, then raise to $20–$35/hr</li>
+    </ul>
+  </div>
+  <div class="step-card"><h4>✍️ Proposal Structure That Wins</h4>
+    <ul>
+      <li><strong>Hook:</strong> "I saw you need someone to catch up on 6 months of reconciliation in QuickBooks..."</li>
+      <li><strong>Credentials:</strong> "I'm a QuickBooks ProAdvisor and Xero Advisor with experience in [their industry]..."</li>
+      <li><strong>Your plan:</strong> 2–3 sentences on how you'll tackle their specific situation</li>
+      <li><strong>Social proof:</strong> "I've helped clients catch up on months of backlog in days..."</li>
+      <li><strong>CTA:</strong> "I'd love a 15-minute call. What time works for you?"</li>
+    </ul>
+  </div>
+  <div class="tip-card pink-tip"><div class="tip-label">💡 JSS Protection</div><p>Only bid on jobs where you're confident you can deliver 5-star work. Communicate proactively. Never leave a contract without asking for a review first. Your first 5 jobs matter most — deliver above and beyond!</p></div>
+</section>
+
+<section class="section" id="linkedin">
+  <div class="section-title pink-color">🔷 LinkedIn Profile Optimization</div>
+  <div class="step-card"><h4>📋 LinkedIn Optimization Checklist</h4>
+    <ul>
+      <li><strong>Profile photo:</strong> Professional headshot, same as OLJ for brand consistency</li>
+      <li><strong>Banner:</strong> Make one in Canva — "QuickBooks ProAdvisor | Xero Certified | Remote Bookkeeper 🇵🇭"</li>
+      <li><strong>Headline:</strong> "Remote US Bookkeeper | QuickBooks ProAdvisor | Xero Advisor | Bank Reconciliation | Financial Reporting"</li>
+      <li><strong>About:</strong> Write in first person. Mention certifications, specialties, and who you help.</li>
+      <li><strong>Open to Work:</strong> Turn on — set to "Remote" and specify bookkeeping roles</li>
+      <li><strong>Featured:</strong> Add QB ProAdvisor certificate, Xero badge, or portfolio Google Drive link</li>
+      <li><strong>Skills:</strong> Add 10+ skills. Top 3: QuickBooks, Xero, Bookkeeping</li>
+    </ul>
+  </div>
+  <div class="step-card"><h4>📝 What to Post on LinkedIn (2–3x per week)</h4>
+    <ul>
+      <li>"Did you know?" accounting tips for small business owners</li>
+      <li>Your bookkeeping wins — "Helped a client catch up on 3 months of books in 2 days!"</li>
+      <li>Quick tips: "3 things to never skip in bank reconciliation"</li>
+      <li>Share your QB/Xero certification when you get it (big credibility post!)</li>
+      <li>Comment on posts by US-based accounting influencers to build visibility</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="interview">
+  <div class="section-title pink-color">🎤 Interview Questions & Best Answers</div>
+  <div class="step-card"><h4>💬 "Tell me about yourself."</h4><p>I'm a remote bookkeeper based in the Philippines, certified in both QuickBooks Online (ProAdvisor) and Xero. I have [X] years of experience handling bookkeeping for US small businesses, specializing in bank reconciliation, accounts payable/receivable, and monthly financial close. I'm detail-oriented, proactive in communication, and I deliver accurate books so business owners can focus on growth.</p></div>
+  <div class="step-card"><h4>💬 "What accounting software do you know?"</h4><p>I'm proficient in QuickBooks Online (ProAdvisor certified) and Xero (Xero Advisor certified). I'm comfortable with Excel/Google Sheets for reporting, and I've worked with Gusto for payroll journal entries and Dext for receipt management. I'm a fast learner and happy to adapt to whatever tools your business uses.</p></div>
+  <div class="step-card"><h4>💬 "Walk me through bank reconciliation."</h4><p>First, I get the bank statement for the period. In QuickBooks, I go to Accounting → Reconcile, select the account, and enter the statement ending balance and date. Then I check off each transaction in QB that appears on the statement. The goal is $0.00 difference. If it doesn't balance, I systematically look for missing transactions, duplicates, or timing differences. I never close a reconciliation unless it's at zero, and I keep the reconciliation report saved for documentation.</p></div>
+  <div class="step-card"><h4>💬 "What's the difference between AR and AP?"</h4><p>Accounts Receivable (AR) is money owed TO the business by customers — open invoices waiting for payment. Accounts Payable (AP) is money the business OWES to vendors or suppliers — bills that need to be paid. I manage AR by monitoring open invoices and following up on overdue accounts. I manage AP by entering bills when received and ensuring they're paid before the due date to avoid late fees.</p></div>
+  <div class="step-card"><h4>💬 "How do you handle books that don't balance?"</h4><p>I stay calm and systematic. I start by checking the reconciliation discrepancy report to see when the difference started. I look for common issues: missing transactions, duplicates, entries in the wrong period, or a wrong opening balance. I trace the error to its source, fix it, and reconcile again. I document what the error was and how I fixed it, then communicate the finding to the client right away.</p></div>
+  <div class="step-card"><h4>💬 "What are your rates?"</h4><p>My rate is $[X]/hour or $[X]/month for a defined scope of work. I prefer monthly retainers because it gives you predictable costs and me predictable income. For new clients, I'm happy to start with a small paid test project so you can evaluate my work before committing long-term.</p></div>
+  <div class="tip-card pink-tip"><div class="tip-label">💡 Interview Prep Tips</div><p>Practice answers out loud before the interview. Record yourself on Loom or voice memo. Use the STAR format for experience questions (Situation, Task, Action, Result). Have your portfolio link ready. Dress professionally — even at home for video calls!</p></div>
+</section>
+
+<!-- ═══ PRO TIPS ═══ -->
+<div class="tool-divider">⭐ Pro Tips — Level Up Your Career ⭐</div>
+
+<section class="section" id="client-comm">
+  <div class="section-title">💬 Client Communication Templates</div>
+  <div class="step-card"><h4>📧 Onboarding Welcome Email</h4>
+    <ul>
+      <li><strong>Subject:</strong> Welcome! Next Steps for [Business Name] Bookkeeping</li>
+      <li>Hi [Client Name]! I'm excited to start working with you. To get started, I'll need: (1) Accountant access to your QuickBooks/Xero — I'll send the invite link. (2) Bank statements for [start month]. (3) Any outstanding receipts or bills. I'll send you a status update every [day of week]. Please message me anytime!</li>
+    </ul>
+  </div>
+  <div class="step-card"><h4>📧 Monthly Report Delivery Email</h4>
+    <ul>
+      <li><strong>Subject:</strong> [Month] Financial Reports — [Business Name]</li>
+      <li>Hi [Client Name], the books for [Month] are closed! Summary: ✅ All bank accounts reconciled ✅ P&L and Balance Sheet attached. Revenue: $X · Expenses: $X · Net Profit: $X. Key notes: [any important items]. Let me know if you have questions!</li>
+    </ul>
+  </div>
+  <div class="step-card"><h4>📧 Requesting Missing Documents</h4>
+    <ul>
+      <li><strong>Subject:</strong> Quick Request — Missing Items for [Month]</li>
+      <li>Hi [Client Name]! While closing [Month], I need a couple of items: (1) Receipt/description for the $X charge on [date]. (2) The [month] credit card statement. This will help me make sure everything is accurately categorized. Thanks so much!</li>
+    </ul>
+  </div>
+  <div class="tip-card"><div class="tip-label">💡 Communication = Retention</div><p>Proactive communication is the #1 thing that makes clients renew and refer you. Set expectations on Day 1: tell them when you'll send updates, how to reach you, and your turnaround time. Clients who don't hear from their bookkeeper get anxious!</p></div>
+</section>
+
+<section class="section" id="security">
+  <div class="section-title">🔐 Security Best Practices</div>
+  <div class="pink-box"><strong>🚨 Critical:</strong> As a bookkeeper, you have access to extremely sensitive financial data. A security breach could ruin your career. These practices are non-negotiable!</div>
+  <div class="card-grid">
+    <div class="card pink-top"><div class="card-icon">🔑</div><div class="card-title">Password Manager</div><div class="card-desc">Use 1Password or Bitwarden. Never reuse passwords. Never store passwords in Google Sheets or text messages.</div></div>
+    <div class="card pink-top"><div class="card-icon">📱</div><div class="card-title">Two-Factor Authentication</div><div class="card-desc">Enable 2FA on every client account — QB, Xero, bank portals, email. Use an authenticator app, not SMS when possible.</div></div>
+    <div class="card pink-top"><div class="card-icon">🔒</div><div class="card-title">VPN</div><div class="card-desc">Use a reputable VPN (NordVPN, ExpressVPN) especially on public WiFi. Never access client books on public networks.</div></div>
+    <div class="card pink-top"><div class="card-icon">💾</div><div class="card-title">Secure File Sharing</div><div class="card-desc">Use Google Drive or Dropbox — never email sensitive documents as plain attachments.</div></div>
+    <div class="card pink-top"><div class="card-icon">📋</div><div class="card-title">Service Agreement</div><div class="card-desc">Always sign a service agreement with a confidentiality/NDA clause. Protects both you and the client.</div></div>
+    <div class="card pink-top"><div class="card-icon">🚪</div><div class="card-title">Access Removal</div><div class="card-desc">When a client relationship ends, confirm they've removed your access — and clear saved credentials from your browser.</div></div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="section-title">💰 Pricing, Rates & Negotiation</div>
+  <table class="data-table">
+    <thead><tr><th>Experience Level</th><th>Hourly (USD)</th><th>Monthly Retainer</th><th>OLJ Salary Range</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Beginner</strong> (0–1 yr, no certs)</td><td>$8–$12/hr</td><td>$400–$700/mo</td><td>₱18,000–₱30,000</td></tr>
+      <tr><td><strong>Entry + Certified</strong> (QB ProAdvisor)</td><td>$12–$18/hr</td><td>$700–$1,200/mo</td><td>₱30,000–₱50,000</td></tr>
+      <tr><td><strong>Intermediate</strong> (1–3 yrs, QB + Xero)</td><td>$18–$25/hr</td><td>$1,200–$2,000/mo</td><td>₱50,000–₱80,000</td></tr>
+      <tr><td><strong>Senior</strong> (3+ yrs, specialty niche)</td><td>$25–$40/hr</td><td>$2,000–$3,500/mo</td><td>₱80,000–₱140,000</td></tr>
+    </tbody>
+  </table>
+  <div class="step-card"><h4>💬 Negotiation Scripts</h4>
+    <ul>
+      <li><strong>If they say your rate is too high:</strong> "I understand budget is a concern. My rate reflects my certifications and the accuracy I bring. Let me see if there's a scope we can work within — what budget did you have in mind?"</li>
+      <li><strong>Asking for a raise after 6 months:</strong> "I've loved working with you! Based on the value I've added — clean books every month, catching discrepancies, and being consistently reliable — I'd like to move to $[X]/hr starting next month."</li>
+      <li><strong>When they lowball you:</strong> "Thank you for the offer. At that rate I wouldn't be able to give your books the attention they deserve. My minimum for this scope is $[X]. Can we make that work?"</li>
+    </ul>
+  </div>
+  <div class="tip-card"><div class="tip-label">💡 Use Monthly Retainers</div><p>Package services as monthly retainers instead of hourly when possible. "Up to 150 transactions/month + bank rec + reports = $X/month." Predictable income for you, predictable expense for the client. You don't get paid less for being efficient!</p></div>
+</section>
+
+<section class="section" id="red-flags">
+  <div class="section-title">🚩 Red Flags in Remote Job Postings</div>
+  <div class="callout">
+    <div class="callout-head" style="background:#FFF3CD;color:#856404;">⚠️ Warning Signs — Walk Away From These</div>
+    <ul class="callout-body">
+      <li style="color:#555"><strong style="color:#856404">Rate too low ($3–$5/hr):</strong> This is exploitation. You're a certified professional — you're worth more.</li>
+      <li style="color:#555"><strong style="color:#856404">No contract offered:</strong> Any serious client will sign an agreement. No contract = no protection for you.</li>
+      <li style="color:#555"><strong style="color:#856404">"We'll pay after 30 days of work":</strong> Never work 30 days without payment. Ask for bi-weekly or weekly pay.</li>
+      <li style="color:#555"><strong style="color:#856404">Asking for bank account details upfront:</strong> Legitimate clients don't need your personal banking info to "set up payment."</li>
+      <li style="color:#555"><strong style="color:#856404">Too many urgent emergencies:</strong> Often means they've had many bookkeepers quit. Run.</li>
+      <li style="color:#555"><strong style="color:#856404">No interview — "start immediately":</strong> Legitimate employers always interview first. Skip it.</li>
+      <li style="color:#555"><strong style="color:#856404">Scope creep from the start:</strong> "Bookkeeper + VA + social media + customer service" for one salary — not okay.</li>
+      <li style="color:#555"><strong style="color:#856404">Asking you to install unknown software:</strong> Scammers sometimes ask you to download "accounting tools." Don't install anything unrecognized.</li>
+    </ul>
+  </div>
+  <div class="tip-card pink-tip"><div class="tip-label">💡 Trust Your Gut</div><p>If something feels off — it probably is. A legitimate US client respects your time, pays fairly, communicates clearly, and treats you as a professional. There are plenty of great clients out there. You don't need to settle!</p></div>
+</section>
+
+<section class="section" id="time-mgmt">
+  <div class="section-title">⏰ Time Management for Multiple Clients</div>
+  <div class="card-grid">
+    <div class="card"><div class="card-icon">📅</div><div class="card-title">Client Deadline Calendar</div><div class="card-desc">Keep a shared Notion or Google Calendar with each client's monthly deadlines: bank rec, report delivery, payroll dates.</div></div>
+    <div class="card"><div class="card-icon">🔁</div><div class="card-title">Batch Similar Tasks</div><div class="card-desc">Do all bank recs on the same day. Send all reports on the same day. Batching reduces context switching dramatically.</div></div>
+    <div class="card"><div class="card-icon">⏱️</div><div class="card-title">Track Your Time</div><div class="card-desc">Use Toggl or Clockify — even on retainer. Helps you know if a client is worth the monthly rate and when to raise prices.</div></div>
+    <div class="card"><div class="card-icon">🤖</div><div class="card-title">Automate First</div><div class="card-desc">Set up bank rules, recurring invoices, and recurring bills in Week 1 with every new client. Less manual work = more clients.</div></div>
+    <div class="card"><div class="card-icon">🚫</div><div class="card-title">Learn to Say No</div><div class="card-desc">Don't take a 5th client if your 4 existing ones are maxing your capacity. Quality over quantity — always.</div></div>
+    <div class="card"><div class="card-icon">📋</div><div class="card-title">Client Kanban Board</div><div class="card-desc">Use Trello or Notion with columns: "In Progress", "Waiting for Client", "Done". Bird's-eye view of all clients at once.</div></div>
+  </div>
+</section>
+
+<section class="section" id="tech-stack">
+  <div class="section-title">🖥️ Essential Tech Stack for Remote Bookkeepers</div>
+  <div class="card-grid">
+    <div class="card"><div class="card-icon">📗</div><div class="card-title">QuickBooks Online</div><div class="card-desc">Primary accounting software for US clients. Get ProAdvisor certified for free practice access.</div></div>
+    <div class="card"><div class="card-icon">🔵</div><div class="card-title">Xero</div><div class="card-desc">Cloud accounting for AU/NZ/UK clients. Get Xero Advisor certification for free partner access.</div></div>
+    <div class="card"><div class="card-icon">📊</div><div class="card-title">Google Sheets / Excel</div><div class="card-desc">For custom reports, tracking logs, and anything the client needs in spreadsheet format.</div></div>
+    <div class="card"><div class="card-icon">💬</div><div class="card-title">Slack / Teams</div><div class="card-desc">Most US clients use Slack for communication. Get comfortable with it before your first client.</div></div>
+    <div class="card"><div class="card-icon">📹</div><div class="card-title">Zoom / Google Meet</div><div class="card-desc">For weekly or monthly calls with clients. Keep a professional background and good lighting.</div></div>
+    <div class="card"><div class="card-icon">🎥</div><div class="card-title">Loom</div><div class="card-desc">Record screen walkthroughs to explain issues to clients. More effective than long emails.</div></div>
+    <div class="card"><div class="card-icon">⏱️</div><div class="card-title">Toggl / Clockify</div><div class="card-desc">Free time tracking. Helps justify your hours and know when to raise rates per client.</div></div>
+    <div class="card"><div class="card-icon">🔐</div><div class="card-title">1Password / Bitwarden</div><div class="card-desc">Password manager. Store all client credentials securely. Never use a spreadsheet or text file.</div></div>
+    <div class="card"><div class="card-icon">📁</div><div class="card-title">Google Drive / Dropbox</div><div class="card-desc">Secure file sharing for statements, reports, and documents with clients.</div></div>
+  </div>
+</section>
+
+<section class="section" id="salary">
+  <div class="section-title">💵 Salary & Income Guide</div>
+  <table class="data-table">
+    <thead><tr><th>Role</th><th>Hourly (USD)</th><th>Monthly (USD)</th><th>Annual (PHP est.)</th></tr></thead>
+    <tbody>
+      <tr><td>Data Entry Bookkeeper</td><td>$5–$8</td><td>$400–$600</td><td>₱240,000–₱360,000</td></tr>
+      <tr><td>Bookkeeper (Certified)</td><td>$12–$18</td><td>$800–$1,500</td><td>₱480,000–₱900,000</td></tr>
+      <tr><td>Senior Bookkeeper / QB Expert</td><td>$18–$28</td><td>$1,500–$2,500</td><td>₱900,000–₱1,500,000</td></tr>
+      <tr><td>Bookkeeping Manager / Controller</td><td>$28–$45</td><td>$2,500–$4,000</td><td>₱1,500,000–₱2,400,000</td></tr>
+      <tr><td>Freelance (3–5 Clients)</td><td>$15–$35</td><td>$2,000–$6,000</td><td>₱1,200,000–₱3,600,000</td></tr>
+    </tbody>
+  </table>
+  <div class="tip-card"><div class="tip-label">💡 Income Growth Strategy</div><p>Start with 1 client at a lower rate. Deliver excellent work, get a testimonial. Add client #2 at a higher rate. After 6 months, raise client #1's rate. Repeat. Most successful PH bookkeepers have 3–5 clients at $800–$1,500/month each = $3,000–$7,000/month total!</p></div>
+</section>
+
+<section class="section" id="videos">
+  <div class="section-title">🎬 Video Resources & Certifications</div>
+  <div class="video-grid">
+    <a class="video-card" href="https://www.youtube.com/@HectorGarciaCPA" target="_blank">
+      <div class="video-thumb qb-bg"><div class="play-btn">▶</div></div>
+      <div class="video-info"><div class="video-tag">⭐ Best QB Channel</div><div class="video-title">Hector Garcia CPA — QuickBooks & Accounting</div><div class="video-meta">YouTube · 500K+ subscribers · US CPA</div><div class="video-link">Visit Channel →</div></div>
+    </a>
+    <a class="video-card" href="https://www.youtube.com/@XeroAccountingSoftware" target="_blank">
+      <div class="video-thumb xero-bg"><div class="play-btn">▶</div></div>
+      <div class="video-info"><div class="video-tag">⭐ Official Xero Channel</div><div class="video-title">Xero Official YouTube Channel</div><div class="video-meta">YouTube · Always updated · Free tutorials</div><div class="video-link">Visit Channel →</div></div>
+    </a>
+    <a class="video-card" href="https://www.youtube.com/@AccountingStuff" target="_blank">
+      <div class="video-thumb teal-bg"><div class="play-btn">▶</div></div>
+      <div class="video-info"><div class="video-tag">Best for Beginners</div><div class="video-title">Accounting Stuff — Learn Accounting Fast</div><div class="video-meta">YouTube · Simple explanations · Highly recommended</div><div class="video-link">Visit Channel →</div></div>
+    </a>
+    <a class="video-card" href="https://www.youtube.com/@SimonSezIT" target="_blank">
+      <div class="video-thumb dark-bg"><div class="play-btn">▶</div></div>
+      <div class="video-info"><div class="video-tag">Full Courses</div><div class="video-title">Simon Sez IT — QB & Xero Full Courses</div><div class="video-meta">YouTube · Comprehensive step-by-step courses</div><div class="video-link">Visit Channel →</div></div>
+    </a>
+    <a class="video-card" href="https://www.youtube.com/@FitSmallBusiness" target="_blank">
+      <div class="video-thumb blue-bg"><div class="play-btn">▶</div></div>
+      <div class="video-info"><div class="video-tag">Beginner Friendly</div><div class="video-title">Fit Small Business — QB Tutorials</div><div class="video-meta">YouTube · Step-by-step practical tutorials</div><div class="video-link">Visit Channel →</div></div>
+    </a>
+    <a class="video-card" href="https://www.youtube.com/results?search_query=quickbooks+online+tutorial+hector+garcia" target="_blank">
+      <div class="video-thumb qb-bg"><div class="play-btn">▶</div></div>
+      <div class="video-info"><div class="video-tag">QB Videos</div><div class="video-title">Search: QB Tutorial Videos on YouTube</div><div class="video-meta">Click to search all QB tutorial videos</div><div class="video-link">Search Now →</div></div>
+    </a>
+  </div>
+  <div class="callout" style="margin-top:20px;">
+    <div class="callout-head" style="background:var(--pink-lt);color:var(--pink);">🎓 Free Certifications — Get These First!</div>
+    <ul class="callout-body pink-check">
+      <li><a href="https://quickbooks.intuit.com/accountants/training-certification/" target="_blank">QuickBooks ProAdvisor Certification — Free (gold standard for US bookkeepers!)</a></li>
+      <li><a href="https://quickbooks.intuit.com/accountants/products-solutions/accounting/online/?sc=oa_qboa_nav_link_qbo" target="_blank">Free QuickBooks Online Access for Accountants — Practice for free!</a></li>
+      <li><a href="https://www.xero.com/ph/advisor-programme/" target="_blank">Xero Advisor Certification — Free (official partner + free Xero access!)</a></li>
+      <li><a href="https://academy.hubspot.com/courses" target="_blank">HubSpot Academy — Free business and finance courses with certificates</a></li>
+      <li><a href="https://www.accountingcoach.com" target="_blank">AccountingCoach — Free accounting lessons and practice quizzes</a></li>
+    </ul>
+  </div>
+</section>
+</main>
+</div>
+
+<div class="footer">
+  Made with 🤍 by <a href="https://www.tiktok.com/@mgsolayao" target="_blank">@mgsolayao</a> — Filipina Remote Accountant &amp; Content Creator<br>
+  <span style="font-size:12px;margin-top:6px;display:block;">Sharing the journey from Philippines to the world 🇵🇭 · Follow for bookkeeping tips, WFH life &amp; financial inspiration!</span>
+</div>
+
+<script>
+/* ============================================================
+   QUIZ ENGINE
+   ============================================================ */
+const quizState = {};
+
+function initQuiz(id, total) {
+  quizState[id] = { current: 0, score: 0, answered: new Array(total).fill(false), total: total };
+}
+
+function answerQ(btn, id, selected) {
+  if (!quizState[id]) return;
+  const state = quizState[id];
+  if (state.answered[state.current]) return;
+  state.answered[state.current] = true;
+
+  const qs = document.querySelectorAll('#' + id + ' .quiz-q');
+  const q = qs[state.current];
+  const correct = q.dataset.correct;
+  const feedback = document.getElementById(id + '-f' + state.current);
+
+  q.querySelectorAll('.quiz-btn').forEach(b => b.disabled = true);
+
+  if (selected === correct) {
+    btn.classList.add('correct');
+    state.score++;
+    feedback.className = 'quiz-feedback correct show';
+    feedback.innerHTML = '✅ Correct!';
+  } else {
+    btn.classList.add('wrong');
+    // Highlight correct button
+    q.querySelectorAll('.quiz-btn').forEach(b => {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + correct + "'")) {
+        b.classList.add('correct');
+      }
+    });
+    feedback.className = 'quiz-feedback wrong show';
+    feedback.innerHTML = '❌ Not quite — the correct answer is <strong>' + correct.toUpperCase() + '</strong>.';
+  }
+
+  // Enable next button
+  const nextBtn = document.getElementById(id + '-next');
+  if (nextBtn) nextBtn.disabled = false;
+}
+
+function prevQ(id) {
+  if (!quizState[id]) return;
+  const state = quizState[id];
+  if (state.current <= 0) return;
+  showQ(id, state.current - 1);
+}
+
+function nextQ(id) {
+  if (!quizState[id]) return;
+  const state = quizState[id];
+  if (state.current < state.total - 1) {
+    showQ(id, state.current + 1);
+  } else {
+    showResult(id);
+  }
+}
+
+function showQ(id, index) {
+  const state = quizState[id];
+  const qs = document.querySelectorAll('#' + id + ' .quiz-q');
+  qs.forEach(q => q.classList.remove('active'));
+  qs[index].classList.add('active');
+  state.current = index;
+
+  // Update nav
+  const prevBtn = document.getElementById(id + '-prev');
+  const nextBtn = document.getElementById(id + '-next');
+  const counter = document.getElementById(id + '-counter');
+
+  if (prevBtn) prevBtn.disabled = index === 0;
+  if (nextBtn) {
+    nextBtn.disabled = !state.answered[index];
+    nextBtn.textContent = (index === state.total - 1) ? 'See Results 🎉' : 'Next →';
+  }
+  if (counter) counter.textContent = 'Question ' + (index + 1) + ' of ' + state.total;
+}
+
+function showResult(id) {
+  const state = quizState[id];
+  const box = document.getElementById(id);
+  if (!box) return;
+
+  box.querySelector('.quiz-nav') && (box.querySelector('.quiz-nav').style.display = 'none');
+  const qs = document.querySelectorAll('#' + id + ' .quiz-q');
+  qs.forEach(q => q.classList.remove('active'));
+
+  const result = document.getElementById(id + '-result');
+  const scoreDisplay = document.getElementById(id + '-score-display');
+  const msg = document.getElementById(id + '-msg');
+
+  if (result) result.style.display = 'block';
+
+  const pct = Math.round((state.score / state.total) * 100);
+  if (scoreDisplay) scoreDisplay.textContent = state.score + ' / ' + state.total + ' (' + pct + '%)';
+
+  let message = '';
+  if (pct === 100) message = '🏆 Perfect score! You\'re a bookkeeping rockstar!';
+  else if (pct >= 80) message = '🌟 Excellent work! Almost there — keep practicing!';
+  else if (pct >= 60) message = '👍 Good effort! Review the sections you missed and try again.';
+  else message = '💪 Keep studying — you\'ve got this! Review the guide and retry.';
+
+  if (msg) msg.textContent = message;
+}
+
+function restartQuiz(id) {
+  if (!quizState[id]) return;
+  const state = quizState[id];
+  state.current = 0;
+  state.score = 0;
+  state.answered = new Array(state.total).fill(false);
+
+  const box = document.getElementById(id);
+  if (!box) return;
+
+  // Reset all questions
+  box.querySelectorAll('.quiz-q').forEach((q, i) => {
+    q.classList.remove('active');
+    q.querySelectorAll('.quiz-btn').forEach(b => {
+      b.disabled = false;
+      b.classList.remove('correct', 'wrong');
+    });
+    const fb = document.getElementById(id + '-f' + i);
+    if (fb) { fb.className = 'quiz-feedback'; fb.textContent = ''; }
+  });
+  box.querySelectorAll('.quiz-q')[0].classList.add('active');
+
+  // Reset result
+  const result = document.getElementById(id + '-result');
+  if (result) result.style.display = 'none';
+
+  // Reset nav
+  const nav = box.querySelector('.quiz-nav');
+  if (nav) nav.style.display = '';
+  const prevBtn = document.getElementById(id + '-prev');
+  const nextBtn = document.getElementById(id + '-next');
+  const counter = document.getElementById(id + '-counter');
+  if (prevBtn) prevBtn.disabled = true;
+  if (nextBtn) { nextBtn.disabled = true; nextBtn.textContent = 'Next →'; }
+  if (counter) counter.textContent = 'Question 1 of ' + state.total;
+}
+
+/* ============================================================
+   INITIALISE ALL QUIZZES ON PAGE LOAD
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', function() {
+  // Count questions in each quiz and initialise
+  document.querySelectorAll('.quiz-box').forEach(function(box) {
+    const id = box.id;
+    const total = box.querySelectorAll('.quiz-q').length;
+    if (id && total > 0) {
+      initQuiz(id, total);
+      // Disable next button initially
+      const nextBtn = document.getElementById(id + '-next');
+      if (nextBtn) nextBtn.disabled = true;
+    }
+  });
+
+  /* ============================================================
+     SIDEBAR SCROLL SPY
+     ============================================================ */
+  const sections = document.querySelectorAll('section[id]');
+  const sideLinks = document.querySelectorAll('.sidebar a[href^="#"]');
+
+  function onScroll() {
+    let current = '';
+    sections.forEach(function(sec) {
+      const top = sec.getBoundingClientRect().top;
+      if (top <= 120) current = sec.id;
+    });
+    sideLinks.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ============================================================
+     MOBILE SIDEBAR — close on link click
+     ============================================================ */
+  sideLinks.forEach(function(a) {
+    a.addEventListener('click', function() {
+      const sidebar = document.querySelector('.sidebar');
+      if (sidebar && window.innerWidth <= 768) {
+        sidebar.classList.remove('open');
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
