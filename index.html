@@ -317,6 +317,7 @@ body{font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--te
   <div class="sidebar-divider"></div>
   <div class="sidebar-label">📗 QuickBooks</div>
   <a class="sidebar-link" href="#qb-intro"><span class="si">🏠</span> What is QB?</a>
+  <a class="sidebar-link" href="#qb-free-account"><span class="si">🎁</span> Get Free Account (Step-by-Step)</a>
   <a class="sidebar-link" href="#qb-versions"><span class="si">📦</span> QB Versions</a>
   <a class="sidebar-link" href="#qb-setup"><span class="si">⚙️</span> QB Setup</a>
   <a class="sidebar-link" href="#qb-coa"><span class="si">📊</span> Chart of Accounts</a>
@@ -461,82 +462,154 @@ body{font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--te
 <section class="section" id="mary-story">
   <div class="section-title pink-color">💗 The Real Story Behind This Academy</div>
 
+  <style>
+    /* 3-polaroid grid */
+    .polaroid-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:6px auto 22px;max-width:760px;justify-items:center}
+    @media(max-width:700px){.polaroid-row{grid-template-columns:1fr;max-width:300px}}
+    .polaroid:nth-child(3){transform:rotate(-1.5deg)}
+  </style>
+
+  <style>
+    .photo-wrap{position:relative !important}
+    .photo-wrap svg.pfp-avatar{position:absolute;inset:0;width:100%;height:100%;display:block}
+    .photo-wrap img.pfp-real{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .4s}
+    .photo-wrap img.pfp-real.loaded{opacity:1}
+  </style>
+
   <div class="polaroid-row">
     <div class="polaroid">
-      <div class="photo-wrap" id="photoWrap1" onclick="document.getElementById('photoInput1').click()" title="Click to upload your photo">
-        <img id="photoImg1" src="" alt="Mary's photo 1" style="display:none">
-        <div id="photoPlaceholder1" style="text-align:center;line-height:1.3">
-          <div style="font-size:42px;margin-bottom:6px">📷</div>
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px">Click to upload</div>
-          <div style="font-size:10px;opacity:.85;margin-top:2px">Your first photo</div>
-        </div>
+      <div class="photo-wrap">
+        <svg class="pfp-avatar" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="bgP1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FCE8F3"/><stop offset="100%" stop-color="#FFE5D9"/></linearGradient>
+            <linearGradient id="hairP1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5C2A22"/><stop offset="100%" stop-color="#3A1812"/></linearGradient>
+            <linearGradient id="skinP1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#EAB48E"/><stop offset="100%" stop-color="#D89B72"/></linearGradient>
+            <linearGradient id="topP1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F8B7CB"/><stop offset="100%" stop-color="#E58FAB"/></linearGradient>
+          </defs>
+          <rect width="200" height="200" fill="url(#bgP1)"/>
+          <circle cx="40" cy="40" r="55" fill="#FCE8F3" opacity="0.5"/>
+          <path d="M 55 95 Q 45 145 55 195 L 145 195 Q 155 145 145 95 Q 130 80 100 78 Q 70 80 55 95 Z" fill="url(#hairP1)"/>
+          <rect x="88" y="130" width="24" height="20" fill="url(#skinP1)"/>
+          <path d="M 50 195 Q 50 165 70 155 Q 85 150 100 150 Q 115 150 130 155 Q 150 165 150 195 Z" fill="url(#topP1)"/>
+          <ellipse cx="100" cy="108" rx="32" ry="38" fill="url(#skinP1)"/>
+          <path d="M 65 95 Q 75 70 100 65 Q 125 70 135 95 Q 130 82 100 75 Q 70 82 65 95 Z" fill="url(#hairP1)"/>
+          <path d="M 70 100 Q 65 130 75 145 L 78 145 Q 70 125 75 100 Z" fill="url(#hairP1)"/>
+          <path d="M 130 100 Q 135 130 125 145 L 122 145 Q 130 125 125 100 Z" fill="url(#hairP1)"/>
+          <ellipse cx="88" cy="106" rx="2.5" ry="3.5" fill="#1A1A2E"/>
+          <ellipse cx="112" cy="106" rx="2.5" ry="3.5" fill="#1A1A2E"/>
+          <path d="M 82 99 Q 88 96 94 99" stroke="#3A1812" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M 106 99 Q 112 96 118 99" stroke="#3A1812" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M 88 124 Q 100 132 112 124" stroke="#8B004E" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <ellipse cx="80" cy="118" rx="5" ry="3" fill="#F4A6BC" opacity="0.5"/>
+          <ellipse cx="120" cy="118" rx="5" ry="3" fill="#F4A6BC" opacity="0.5"/>
+          <text x="100" y="180" text-anchor="middle" font-family="Georgia" font-style="italic" font-size="11" fill="#fff" opacity="0.85">☕ café</text>
+        </svg>
+        <img class="pfp-real maryphoto" data-num="1" src="images/mary-photo-1.jpg" alt="Mary at the café"
+             onload="this.classList.add('loaded')"
+             onerror="this.onerror=null;this.src='images/mary-photo-1.png';this.onerror=function(){this.style.display='none'}">
       </div>
-      <input type="file" id="photoInput1" accept="image/*" style="display:none" onchange="handlePhotoUpload(this, 1)">
       <div class="caption">that's me 💗<small>my favorite café</small></div>
-      <button onclick="clearPhoto(1)" id="clearBtn1" style="display:none;position:absolute;top:6px;right:6px;background:rgba(255,255,255,.95);border:1px solid #ddd;border-radius:50%;width:24px;height:24px;font-size:14px;cursor:pointer;color:var(--pink);line-height:1;padding:0">×</button>
     </div>
     <div class="polaroid">
-      <div class="photo-wrap" id="photoWrap2" onclick="document.getElementById('photoInput2').click()" title="Click to upload your photo">
-        <img id="photoImg2" src="" alt="Mary's photo 2" style="display:none">
-        <div id="photoPlaceholder2" style="text-align:center;line-height:1.3">
-          <div style="font-size:42px;margin-bottom:6px">📷</div>
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px">Click to upload</div>
-          <div style="font-size:10px;opacity:.85;margin-top:2px">Your second photo</div>
-        </div>
+      <div class="photo-wrap">
+        <svg class="pfp-avatar" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="bgP2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFF3D6"/><stop offset="100%" stop-color="#E6F4F5"/></linearGradient>
+            <linearGradient id="hairP2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5C2A22"/><stop offset="100%" stop-color="#3A1812"/></linearGradient>
+            <linearGradient id="skinP2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#EAB48E"/><stop offset="100%" stop-color="#D89B72"/></linearGradient>
+            <linearGradient id="topP2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#A7D4DB"/><stop offset="100%" stop-color="#7EB8C1"/></linearGradient>
+          </defs>
+          <rect width="200" height="200" fill="url(#bgP2)"/>
+          <circle cx="170" cy="50" r="40" fill="#FFE0A0" opacity="0.4"/>
+          <path d="M 55 100 Q 45 150 55 195 L 145 195 Q 155 150 145 100 Q 130 88 100 85 Q 70 88 55 100 Z" fill="url(#hairP2)"/>
+          <rect x="88" y="135" width="24" height="20" fill="url(#skinP2)"/>
+          <path d="M 50 195 Q 50 165 70 155 Q 85 150 100 150 Q 115 150 130 155 Q 150 165 150 195 Z" fill="url(#topP2)"/>
+          <ellipse cx="100" cy="113" rx="32" ry="38" fill="url(#skinP2)"/>
+          <!-- Cap -->
+          <path d="M 60 88 Q 100 60 140 88 L 140 95 L 60 95 Z" fill="#2D4A7A"/>
+          <path d="M 58 92 Q 100 85 142 92 L 145 100 L 55 100 Z" fill="#1E3A5F"/>
+          <text x="100" y="89" text-anchor="middle" font-family="Arial" font-size="9" font-weight="800" fill="#FFD700">PH ★</text>
+          <!-- side hair below cap -->
+          <path d="M 65 105 Q 60 135 72 150 L 75 150 Q 68 130 73 105 Z" fill="url(#hairP2)"/>
+          <path d="M 135 105 Q 140 135 128 150 L 125 150 Q 132 130 127 105 Z" fill="url(#hairP2)"/>
+          <!-- features -->
+          <ellipse cx="88" cy="112" rx="2.5" ry="3.5" fill="#1A1A2E"/>
+          <ellipse cx="112" cy="112" rx="2.5" ry="3.5" fill="#1A1A2E"/>
+          <path d="M 82 105 Q 88 102 94 105" stroke="#3A1812" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M 106 105 Q 112 102 118 105" stroke="#3A1812" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M 88 128 Q 100 137 112 128" stroke="#8B004E" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <ellipse cx="80" cy="122" rx="5" ry="3" fill="#F4A6BC" opacity="0.5"/>
+          <ellipse cx="120" cy="122" rx="5" ry="3" fill="#F4A6BC" opacity="0.5"/>
+        </svg>
+        <img class="pfp-real maryphoto" data-num="2" src="images/mary-photo-2.jpg" alt="Mary outdoors"
+             onload="this.classList.add('loaded')"
+             onerror="this.onerror=null;this.src='images/mary-photo-2.png';this.onerror=function(){this.style.display='none'}">
       </div>
-      <input type="file" id="photoInput2" accept="image/*" style="display:none" onchange="handlePhotoUpload(this, 2)">
       <div class="caption">working anywhere 🌿<small>WFH life</small></div>
-      <button onclick="clearPhoto(2)" id="clearBtn2" style="display:none;position:absolute;top:6px;right:6px;background:rgba(255,255,255,.95);border:1px solid #ddd;border-radius:50%;width:24px;height:24px;font-size:14px;cursor:pointer;color:var(--pink);line-height:1;padding:0">×</button>
+    </div>
+    <div class="polaroid">
+      <div class="photo-wrap">
+        <svg class="pfp-avatar" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="bgP3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E6F4F5"/><stop offset="100%" stop-color="#FCE8F3"/></linearGradient>
+            <linearGradient id="hairP3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5C2A22"/><stop offset="100%" stop-color="#3A1812"/></linearGradient>
+            <linearGradient id="skinP3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#EAB48E"/><stop offset="100%" stop-color="#D89B72"/></linearGradient>
+            <linearGradient id="navyP3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2D2D5E"/><stop offset="100%" stop-color="#1A1A2E"/></linearGradient>
+          </defs>
+          <rect width="200" height="200" fill="url(#bgP3)"/>
+          <!-- city skyline silhouette -->
+          <rect x="0" y="155" width="30" height="45" fill="#1A1A2E" opacity="0.2"/>
+          <rect x="35" y="140" width="22" height="60" fill="#1A1A2E" opacity="0.2"/>
+          <rect x="62" y="148" width="18" height="52" fill="#1A1A2E" opacity="0.2"/>
+          <rect x="120" y="145" width="20" height="55" fill="#1A1A2E" opacity="0.2"/>
+          <rect x="145" y="138" width="26" height="62" fill="#1A1A2E" opacity="0.2"/>
+          <rect x="175" y="150" width="20" height="50" fill="#1A1A2E" opacity="0.2"/>
+          <!-- person standing — smaller, full body -->
+          <path d="M 55 175 Q 45 165 55 95 Q 100 80 145 95 Q 155 165 145 175 Z" fill="url(#navyP3)" opacity="0.18"/>
+          <!-- hair -->
+          <path d="M 65 90 Q 55 130 60 170 L 140 170 Q 145 130 135 90 Q 122 75 100 73 Q 78 75 65 90 Z" fill="url(#hairP3)"/>
+          <rect x="91" y="118" width="18" height="14" fill="url(#skinP3)"/>
+          <!-- top -->
+          <path d="M 56 178 Q 56 152 75 140 Q 88 135 100 135 Q 112 135 125 140 Q 144 152 144 178 Z" fill="url(#navyP3)"/>
+          <ellipse cx="100" cy="100" rx="28" ry="32" fill="url(#skinP3)"/>
+          <path d="M 70 92 Q 80 65 100 60 Q 120 65 130 92 Q 122 75 100 70 Q 78 75 70 92 Z" fill="url(#hairP3)"/>
+          <ellipse cx="90" cy="98" rx="2.2" ry="3" fill="#1A1A2E"/>
+          <ellipse cx="110" cy="98" rx="2.2" ry="3" fill="#1A1A2E"/>
+          <path d="M 85 93 Q 90 91 95 93" stroke="#3A1812" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+          <path d="M 105 93 Q 110 91 115 93" stroke="#3A1812" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+          <path d="M 90 113 Q 100 120 110 113" stroke="#8B004E" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <ellipse cx="84" cy="108" rx="4" ry="2.5" fill="#F4A6BC" opacity="0.5"/>
+          <ellipse cx="116" cy="108" rx="4" ry="2.5" fill="#F4A6BC" opacity="0.5"/>
+          <text x="100" y="190" text-anchor="middle" font-family="Georgia" font-style="italic" font-size="10" fill="#fff" opacity="0.85">🌆 city</text>
+        </svg>
+        <img class="pfp-real maryphoto" data-num="3" src="images/mary-photo-3.jpg" alt="Mary in the city"
+             onload="this.classList.add('loaded')"
+             onerror="this.onerror=null;this.src='images/mary-photo-3.png';this.onerror=function(){this.style.display='none'}">
+      </div>
+      <div class="caption">work from anywhere 🇵🇭<small>made it</small></div>
     </div>
   </div>
-  <p style="text-align:center;font-size:11px;color:var(--subtext);margin:-10px 0 18px;font-style:italic">👆 Click either frame to upload your photo from your computer. It saves in your browser — no internet upload, fully private.</p>
   <script>
-    function handlePhotoUpload(input, num){
-      const file = input.files && input.files[0];
-      if(!file) return;
-      const reader = new FileReader();
-      reader.onload = function(e){
-        const dataUrl = e.target.result;
-        setPhoto(num, dataUrl);
-        try{ localStorage.setItem('maryPhoto'+num, dataUrl); }catch(err){ console.log('localStorage full or unavailable'); }
-      };
-      reader.readAsDataURL(file);
-    }
-    function setPhoto(num, dataUrl){
-      const img = document.getElementById('photoImg'+num);
-      const ph = document.getElementById('photoPlaceholder'+num);
-      const btn = document.getElementById('clearBtn'+num);
-      if(img){ img.src = dataUrl; img.style.display = 'block'; }
-      if(ph){ ph.style.display = 'none'; }
-      if(btn){ btn.style.display = 'flex'; btn.style.alignItems = 'center'; btn.style.justifyContent = 'center'; }
-    }
-    function clearPhoto(num){
-      event.stopPropagation();
-      const img = document.getElementById('photoImg'+num);
-      const ph = document.getElementById('photoPlaceholder'+num);
-      const btn = document.getElementById('clearBtn'+num);
-      const input = document.getElementById('photoInput'+num);
-      if(img){ img.src=''; img.style.display='none'; }
-      if(ph){ ph.style.display='block'; }
-      if(btn){ btn.style.display='none'; }
-      if(input){ input.value=''; }
-      try{ localStorage.removeItem('maryPhoto'+num); }catch(err){}
-    }
-    // Restore photos from localStorage on page load
-    document.addEventListener('DOMContentLoaded', function(){
-      for(let i=1; i<=2; i++){
+    // Photo loader — auto-loads any photos saved via SETUP-MY-PHOTOS.html
+    (function(){
+      document.querySelectorAll('img.maryphoto').forEach(function(img){
         try{
-          const saved = localStorage.getItem('maryPhoto'+i);
-          if(saved){ setPhoto(i, saved); }
-        }catch(err){}
-      }
-    });
+          const num = img.dataset.num;
+          const saved = localStorage.getItem('maryPhoto'+num);
+          if(saved){
+            img.onerror = null;
+            img.src = saved;
+            img.classList.add('loaded');
+          }
+        }catch(e){}
+      });
+    })();
   </script>
 
   <div class="story-card">
     <h2 style="font-size:26px;font-weight:800;color:var(--navy);margin-bottom:6px;text-align:center">Hi, I'm Mary 👋🇵🇭</h2>
-    <p style="font-size:13px;color:var(--pink);font-weight:700;text-transform:uppercase;letter-spacing:1px;text-align:center;margin-bottom:6px">Filipina Remote Bookkeeper &amp; Accountant · 3 Years In</p>
-    <p style="font-size:13px;color:var(--subtext);text-align:center;line-height:1.6;max-width:640px;margin:0 auto 18px">QuickBooks Online ProAdvisor · Xero Advisor Certified · Serving small-business clients across the 🇺🇸 US, 🇦🇺 AU, 🇬🇧 UK &amp; 🇳🇿 NZ · Specializing in monthly close, clean-up &amp; catch-up bookkeeping · Based in the Philippines · Helping fellow Filipinos build their own remote careers through this Academy &amp; <a href="https://www.tiktok.com/@mgsolayao" target="_blank" style="color:var(--pink);font-weight:700">@mgsolayao on TikTok</a></p>
+    <p style="font-size:13px;color:var(--pink);font-weight:700;text-transform:uppercase;letter-spacing:1px;text-align:center;margin-bottom:6px">Remote Bookkeeper &amp; Accountant</p>
+    <p style="font-size:13px;color:var(--subtext);text-align:center;line-height:1.6;max-width:640px;margin:0 auto 18px">QuickBooks Online ProAdvisor · Xero Advisor Certified · Serving small-business clients across the 🇺🇸 US &amp; 🇦🇺 AU · Specializing in monthly close, clean-up &amp; catch-up bookkeeping · Based in the Philippines · Helping fellow Filipinos build their own remote careers through this Academy &amp; <a href="https://www.tiktok.com/@mgsolayao" target="_blank" style="color:var(--pink);font-weight:700">@mgsolayao on TikTok</a></p>
 
     <div class="lifestyle-strip">
       <div class="life-stat"><span class="life-num">3</span><span class="life-label">Years in the game</span></div>
@@ -931,6 +1004,69 @@ body{font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--te
     <div class="card qb-top"><div class="card-icon">🇵🇭</div><div class="card-title">For Remote PH Workers</div><div class="card-desc">Most US small businesses use QB. Knowing it fluently makes you highly hireable for remote jobs.</div></div>
   </div>
   <div class="tip-card qb-tip"><div class="tip-label">💡 Mary's Tip</div><p>When I was starting out, QuickBooks felt overwhelming. The secret? Focus on one module at a time. Learn invoicing first, then expenses, then reconciliation. Don't try to learn everything in one day!</p></div>
+</section>
+
+<!-- ═══ QB PROADVISOR FREE ACCOUNT — STEP BY STEP ═══ -->
+<section class="section" id="qb-free-account">
+  <div class="section-title qb-color">🎁 How to Get Your FREE QuickBooks ProAdvisor Account</div>
+  <div class="info-box"><strong>📌 100% free for accountants &amp; bookkeepers.</strong> No credit card. No trial. This gets you free QBO Accountant access PLUS the path to certification. Below is the EXACT step-by-step I used. It takes ~10 minutes total.</div>
+
+  <div class="step-card" style="border-left:4px solid var(--qb)"><h4>📋 Step 1 — Open the official QuickBooks Accountants page</h4>
+    <p>Click this exact link:</p>
+    <p style="margin-top:8px"><a href="https://quickbooks.intuit.com/accountants/products-solutions/accounting/online/?sc=oa_qboa_nav_link_qbo" target="_blank" style="background:var(--qb);color:#fff;padding:8px 14px;border-radius:6px;font-weight:700;text-decoration:none;display:inline-block">👉 Open QBO Accountant signup page →</a></p>
+  </div>
+
+  <div class="step-card" style="border-left:4px solid var(--qb)"><h4>📋 Step 2 — Click "Explore ProAdvisor"</h4>
+    <p>On the top-left of the page, you'll see three tabs: <strong>For You</strong>, <strong>Start Up</strong>, and <strong>Pro Advisor</strong>. Click the dropdown arrow next to <strong>"Pro Advisor"</strong>, then click <strong>"Explore Pro Advisor."</strong></p>
+  </div>
+
+  <div class="step-card" style="border-left:4px solid var(--qb)"><h4>📋 Step 3 — Click "Sign Up for Free"</h4>
+    <p>You'll be redirected to a new page. Click the bright <strong>"Sign Up for Free"</strong> button.</p>
+  </div>
+
+  <div class="step-card" style="border-left:4px solid var(--qb)"><h4>📋 Step 4 — Fill in your basic info</h4>
+    <p>Enter your <strong>email</strong>, <strong>name</strong>, and <strong>password</strong> (save in Bitwarden or 1Password!).</p>
+    <p style="margin-top:8px"><strong>For the phone number:</strong> you can use your local PH number — <em>BUT</em> before typing it in, click the country flag dropdown and change it from US 🇺🇸 to <strong>Philippines 🇵🇭</strong> first. Then type your number after the +63.</p>
+  </div>
+
+  <div class="step-card" style="border-left:4px solid var(--qb)"><h4>📋 Step 5 — Verify your number</h4>
+    <p>QuickBooks will send a <strong>6-digit verification code</strong> via SMS. In my experience, I used my Globe number and it worked fine. Type the code in and click <strong>"Continue."</strong></p>
+  </div>
+
+  <div class="step-card" style="border-left:4px solid var(--qb)"><h4>📋 Step 6 — Fill in your firm details (use these exact answers)</h4>
+    <table class="data-table" style="margin-top:10px">
+      <thead><tr><th>Field</th><th>What to enter</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Firm name</strong></td><td><code>[Your Name] Consulting</code> · e.g. "Mary Solayao Consulting"</td></tr>
+        <tr><td><strong>Firm code</strong></td><td><code>10001</code> (this is a generic US code — works fine for our purposes)</td></tr>
+        <tr><td><strong>Number of employees</strong></td><td><code>1</code> (just you)</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:10px;font-size:13px;color:var(--subtext);font-style:italic">If they ask for an EIN or business license — leave blank or skip. You can always add later.</p>
+  </div>
+
+  <div class="step-card" style="border-left:4px solid var(--qb)"><h4>📋 Step 7 — You're in! Now turn on 2FA</h4>
+    <p>You'll land in your QBO Accountant Dashboard. <strong>Immediately</strong> turn on Two-Factor Authentication: gear icon (top right) → <strong>Account &amp; Settings</strong> → <strong>Security</strong> → enable 2FA. This is the #1 thing clients check before sharing books with you.</p>
+  </div>
+
+  <div class="step-card" style="border-left:4px solid var(--qb)"><h4>📋 Step 8 — Load the Sample Company &amp; start practicing</h4>
+    <p>From your dashboard → <strong>"Your Books"</strong> → <strong>"Add Company"</strong> → choose <strong>"Sample Company"</strong>. QBO will load a fully-populated practice file called <em>"Craig's Design and Landscaping Services."</em></p>
+    <p style="margin-top:8px">This is where you'll spend the next 21 days practicing — and where you'll prep for the ProAdvisor exam.</p>
+  </div>
+
+  <div class="tip-card qb-tip"><div class="tip-label">💡 Mary's tip</div><p>If you get stuck at any step or it asks for info you don't have — skip it. You can fill in later from your dashboard. The goal today is to get the LOGIN working, not perfection. Once you're in, you have free QBO access forever.</p></div>
+
+  <div class="callout" style="margin-top:18px">
+    <div class="callout-head" style="background:var(--qb-light);color:var(--qb)">🎓 Ready to take the certification?</div>
+    <ul class="callout-body qb-check">
+      <li>From your ProAdvisor Dashboard → click <strong>"Training"</strong> → <strong>"QuickBooks Online Certification"</strong></li>
+      <li>Watch the 6 free training modules (about 30–60 min each) — you can binge them OR space them out</li>
+      <li>Take the certification exam — it's <strong>open-book</strong>, so have your QBO Sample Company + notes open</li>
+      <li>3 attempts allowed · Pass = 80% · Most people pass first try</li>
+      <li>When you pass, screenshot the cert → add to LinkedIn → Licenses &amp; Certifications</li>
+      <li>Direct link: <a href="https://quickbooks.intuit.com/accountants/training-certification/" target="_blank">quickbooks.intuit.com/accountants/training-certification</a></li>
+    </ul>
+  </div>
 </section>
 
 <section class="section" id="qb-versions">
