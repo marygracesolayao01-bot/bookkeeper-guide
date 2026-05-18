@@ -104,13 +104,45 @@
         <ellipse cx="80" cy="118" rx="5" ry="3" fill="#F4A6BC" opacity="0.5"/>
         <ellipse cx="120" cy="118" rx="5" ry="3" fill="#F4A6BC" opacity="0.5"/>
       </svg>
-      <img class="pfp-real" id="pfpReal" src="images/mary-photo-1.jpg" alt="Mary"
-           onload="this.classList.add('loaded')"
-           onerror="this.onerror=null;this.src='images/mary-photo-1.png';this.onerror=function(){this.style.display='none'}">
+      <img class="pfp-real" id="pfpReal" alt="Mary" style="display:none">
     </div>
     <div class="verified">✓</div>
   </div>
-  <script>(function(){try{const s=localStorage.getItem('maryPhoto1');if(s){const i=document.getElementById('pfpReal');if(i){i.onerror=null;i.src=s;i.classList.add('loaded');}}}catch(e){}})();</script>
+  <script>
+    (function(){
+      const img = document.getElementById('pfpReal');
+      if(!img) return;
+      function showPhoto(src){
+        img.onload = function(){
+          img.style.display = 'block';
+          img.style.opacity = '1';
+          img.classList.add('loaded');
+        };
+        img.onerror = function(){ img.style.display='none'; };
+        img.src = src;
+      }
+      // 1. Try localStorage FIRST (saved via SETUP-MY-PHOTOS.html)
+      try{
+        const saved = localStorage.getItem('maryPhoto1');
+        if(saved){ showPhoto(saved); return; }
+      }catch(e){}
+      // 2. Try file path .jpg, then .png
+      img.onerror = function(){
+        if(!img.dataset.triedPng){
+          img.dataset.triedPng = '1';
+          img.src = 'images/mary-photo-1.png';
+        } else {
+          img.style.display = 'none';
+        }
+      };
+      img.onload = function(){
+        img.style.display = 'block';
+        img.style.opacity = '1';
+        img.classList.add('loaded');
+      };
+      img.src = 'images/mary-photo-1.jpg';
+    })();
+  </script>
 
   <div class="handle">@mgsolayao<span class="flag">🇵🇭</span></div>
   <div class="tag">Remote Bookkeeper &amp; Accountant</div>
