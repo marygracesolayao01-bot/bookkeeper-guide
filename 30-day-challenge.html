@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 30-Day Remote Bookkeeper Challenge — by @mgsolayao 🇵🇭</title>
+<style>
+ :root{
+ --pink:#C4006E;--pink-light:#FCE8F3;--pink-dark:#8B004E;
+ --teal:#00838F;--teal-dark:#006670;--teal-light:#E6F4F5;
+ --qb:#2CA01C;--qb-light:#E8F5E3;
+ --xero:#13B5EA;--xero-dark:#0D8AB5;--xero-light:#E3F6FD;
+ --gold:#E89B2D;--gold-light:#FFF3D6;
+ --navy:#1A1A2E;--text:#1A1A2E;--muted:#5A6478;
+ --border:#EAE0E8;--bg:#FFF8FC;
+ }
+ *{box-sizing:border-box;margin:0;padding:0}
+ body{font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+
+ /* HERO */
+.hero{background:linear-gradient(135deg,#1A1A2E 0%,#2D2D5E 40%,#C4006E 100%);color:#fff;padding:60px 24px 50px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-100px;right:-50px;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 70%);border-radius:50%}
+.hero::after{content:"";position:absolute;bottom:-80px;left:-60px;width:240px;height:240px;background:radial-gradient(circle,rgba(255,255,255,.06) 0%,transparent 70%);border-radius:50%}
+.hero-inner{max-width:820px;margin:0 auto;position:relative;z-index:2}
+.hero.badge{display:inline-block;background:rgba(255,255,255,.18);padding:6px 16px;border-radius:20px;font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:18px}
+.hero h1{font-size:38px;font-weight:800;line-height:1.2;margin-bottom:12px;font-family:Georgia,serif}
+.hero h1 em{font-style:italic;color:#FFC9E2}
+.hero p{font-size:15px;opacity:.94;line-height:1.7;max-width:680px;margin:0 auto 22px}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px auto 0;max-width:600px}
+.stat{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);padding:14px 8px;border-radius:12px}
+.stat-num{font-size:24px;font-weight:800;display:block;margin-bottom:2px}
+.stat-label{font-size:9.5px;opacity:.85;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+ @media(max-width:600px){.hero h1{font-size:28px}.stat-row{grid-template-columns:repeat(2,1fr)}}
+
+ /* PROGRESS BAR */
+.progress-wrap{position:sticky;top:0;z-index:50;background:rgba(255,248,252,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:8px 14px;display:flex;align-items:center;gap:10px}
+.progress-text{font-size:11px;font-weight:800;color:var(--pink);min-width:96px;letter-spacing:.4px}
+.progress-bar{flex:1;height:10px;background:#FCE8F3;border-radius:5px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--pink) 0%,var(--teal) 100%);width:0%;transition:width.3s}
+.reset-btn{background:none;border:none;color:var(--muted);font-size:11px;cursor:pointer;text-decoration:underline}
+
+ /* CONTAINER */
+.wrap{max-width:980px;margin:0 auto;padding:40px 22px 60px}
+
+ /* INTRO */
+.intro{background:#fff;border-radius:14px;padding:28px 32px;margin-bottom:30px;border:1px solid var(--border);box-shadow:0 4px 14px rgba(0,0,0,.04)}
+.intro h2{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:10px;font-family:Georgia,serif}
+.intro p{font-size:14px;line-height:1.75;color:var(--text);margin-bottom:12px}
+.intro p strong{color:var(--pink)}
+.intro-quote{background:linear-gradient(135deg,var(--pink-light) 0%,#fff 100%);border-left:4px solid var(--pink);padding:14px 18px;margin:14px 0 4px;font-style:italic;font-size:13.5px;color:var(--navy);border-radius:0 8px 8px 0}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0 0}
+ @media(max-width:700px){.rules{grid-template-columns:repeat(2,1fr)}}
+.rule{background:#FCFCFD;border:1px solid var(--border);border-radius:10px;padding:14px 12px;text-align:center}
+.rule-icon{font-size:22px;display:block;margin-bottom:4px}
+.rule-title{font-size:11px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.rule-desc{font-size:11.5px;color:var(--muted);line-height:1.4}
+
+ /* WEEK BANNER */
+.week-banner{background:linear-gradient(135deg,var(--pink) 0%,var(--pink-dark) 100%);color:#fff;border-radius:14px;padding:24px 28px;margin:30px 0 18px;display:flex;align-items:center;gap:18px;box-shadow:0 6px 18px rgba(196,0,110,.18)}
+.week-banner.teal{background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%)}
+.week-banner.qb{background:linear-gradient(135deg,var(--qb) 0%,#1A6B0F 100%)}
+.week-banner.xero{background:linear-gradient(135deg,var(--xero) 0%,var(--xero-dark) 100%)}
+.week-num{width:64px;height:64px;border-radius:16px;background:rgba(255,255,255,.20);display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:Georgia,serif;flex-shrink:0;font-size:24px;font-weight:800;line-height:1.1;text-align:center}
+.week-num small{font-size:9px;font-weight:700;letter-spacing:1px;opacity:.85;display:block}
+.week-info h3{font-size:22px;font-weight:800;margin-bottom:2px;font-family:Georgia,serif}
+.week-info p{font-size:13px;opacity:.94;line-height:1.4}
+
+ /* DAY CARD */
+.day{background:#fff;border:1px solid var(--border);border-radius:14px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.05);transition:box-shadow.2s}
+.day:hover{box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.day-head{padding:18px 22px 14px;border-bottom:1px solid var(--border);background:linear-gradient(90deg,var(--pink-light) 0%,#fff 100%);display:flex;align-items:center;gap:14px}
+.day-head.teal-head{background:linear-gradient(90deg,var(--teal-light) 0%,#fff 100%)}
+.day-head.qb-head{background:linear-gradient(90deg,var(--qb-light) 0%,#fff 100%)}
+.day-head.xero-head{background:linear-gradient(90deg,var(--xero-light) 0%,#fff 100%)}
+.day-num{width:54px;height:54px;border-radius:12px;background:var(--pink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;flex-shrink:0;font-family:Georgia,serif;line-height:1.1;flex-direction:column}
+.day-num small{font-size:8px;font-weight:700;letter-spacing:1px;opacity:.85;display:block}
+.day-head.teal-head.day-num{background:var(--teal)}
+.day-head.qb-head.day-num{background:var(--qb)}
+.day-head.xero-head.day-num{background:var(--xero)}
+.day-title{flex:1}
+.day-title h4{font-size:17px;font-weight:800;color:var(--navy);line-height:1.3;margin-bottom:3px}
+.day-title.mission{font-size:11.5px;color:var(--pink);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.day-head.teal-head.mission{color:var(--teal-dark)}
+.day-head.qb-head.mission{color:var(--qb)}
+.day-head.xero-head.mission{color:var(--xero-dark)}
+.day-title.timing{font-size:11px;color:var(--muted);margin-left:8px}
+.day-checkbox{width:32px;height:32px;border-radius:50%;border:2px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;color:transparent;font-size:14px;font-weight:800;background:#fff;transition:all.15s;flex-shrink:0}
+.day-checkbox.checked{background:var(--pink);border-color:var(--pink);color:#fff}
+.day-head.teal-head.day-checkbox.checked{background:var(--teal);border-color:var(--teal)}
+.day-head.qb-head.day-checkbox.checked{background:var(--qb);border-color:var(--qb)}
+.day-head.xero-head.day-checkbox.checked{background:var(--xero);border-color:var(--xero)}
+.day-body{padding:20px 22px}
+
+ /* SECTION HEADINGS INSIDE DAYS */
+.sec-title{font-size:11px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:1.2px;margin:18px 0 8px;display:flex;align-items:center;gap:8px}
+.sec-title:first-child{margin-top:0}
+.sec-title.label-pill{background:var(--pink);color:#fff;padding:2px 8px;border-radius:4px;font-size:9.5px;letter-spacing:1px}
+.sec-title.label-pill.teal{background:var(--teal)}
+.sec-title.label-pill.gold{background:var(--gold)}
+.sec-title.label-pill.qb{background:var(--qb)}
+.sec-title.label-pill.xero{background:var(--xero)}
+
+.scenario{background:#FFF6FA;border:1px solid var(--pink-light);border-left:4px solid var(--pink);padding:14px 18px;border-radius:0 8px 8px 0;margin-bottom:10px}
+.scenario p{font-size:13.5px;line-height:1.7;color:var(--navy);font-style:italic;margin-bottom:8px}
+.scenario p:last-child{margin-bottom:0}
+.scenario strong{font-style:normal;color:var(--pink);font-weight:700}
+
+.why{background:#F4FAFB;border:1px solid var(--teal-light);border-left:4px solid var(--teal);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:10px}
+.why p{font-size:13px;line-height:1.65;color:var(--text);margin-bottom:6px}
+.why p:last-child{margin-bottom:0}
+
+.playbook ol{list-style:none;counter-reset:step;padding:0;margin:0}
+.playbook ol li{counter-increment:step;position:relative;padding:8px 0 8px 38px;font-size:13.5px;line-height:1.65;border-bottom:1px dashed var(--border)}
+.playbook ol li:last-child{border-bottom:none}
+.playbook ol li::before{content:counter(step);position:absolute;left:0;top:9px;width:26px;height:26px;border-radius:50%;background:var(--pink-light);color:var(--pink);font-size:11.5px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.playbook ol li strong{color:var(--navy);font-weight:700}
+.playbook ol li a{color:var(--pink);font-weight:700;text-decoration:none}
+.playbook ol li a:hover{text-decoration:underline}
+
+.script-box{background:#FFF8E1;border:1px solid #FFE0A0;border-left:4px solid var(--gold);padding:14px 16px;margin:10px 0;border-radius:0 8px 8px 0;font-family:"SF Mono","Courier New",monospace;font-size:12.5px;line-height:1.65;color:#4A2E08;white-space:pre-wrap}
+.script-label{display:inline-block;background:var(--gold);color:#fff;font-size:9.5px;font-weight:800;padding:2px 8px;border-radius:4px;letter-spacing:.8px;text-transform:uppercase;margin-bottom:8px;font-family:"Segoe UI",sans-serif}
+
+.tools-row{background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin:10px 0;font-size:12.5px;line-height:1.6}
+.tools-row strong{color:var(--teal-dark);text-transform:uppercase;font-size:10.5px;letter-spacing:1px;display:block;margin-bottom:4px}
+.tools-row a{color:var(--teal);text-decoration:none;font-weight:600}
+.tools-row a:hover{text-decoration:underline}
+
+.pitfalls{background:#FCE8F3;border-radius:8px;padding:12px 16px;margin:10px 0}
+.pitfalls strong{color:var(--pink-dark);text-transform:uppercase;font-size:10.5px;letter-spacing:1px;display:block;margin-bottom:6px}
+.pitfalls ul{list-style:none;padding:0;margin:0;font-size:12.5px;line-height:1.6}
+.pitfalls ul li{padding:3px 0;color:var(--text)}
+.pitfalls ul li::before{content:"⚠️ ";margin-right:4px}
+
+.deliverable{background:#E8F5E3;border-radius:8px;padding:12px 16px;margin:10px 0;font-size:12.5px;line-height:1.6;color:#1A4731}
+.deliverable strong{color:var(--qb);text-transform:uppercase;font-size:10.5px;letter-spacing:1px;display:block;margin-bottom:4px}
+
+.bestie{background:#FFF3D6;border:1px solid #FFE0A0;padding:12px 16px;margin:10px 0;border-radius:8px;font-size:13px;color:#4A2E08;line-height:1.65}
+.bestie strong{color:#A66108;text-transform:uppercase;font-size:10.5px;letter-spacing:1px;display:block;margin-bottom:4px}
+
+.reflect{background:#F8F8FB;border:1px dashed var(--border);border-radius:8px;padding:10px 14px;margin:10px 0;font-size:12.5px;color:var(--muted);font-style:italic;line-height:1.55}
+.reflect strong{font-style:normal;color:var(--navy);font-weight:700;display:block;margin-bottom:3px;text-transform:uppercase;font-size:10.5px;letter-spacing:1px}
+
+ /* FINISH */
+.finish{margin-top:40px;background:linear-gradient(135deg,#1A1A2E 0%,#2D2D5E 50%,#C4006E 100%);color:#fff;border-radius:14px;padding:36px 38px;text-align:center;position:relative;overflow:hidden}
+.finish::before{content:"🏅";position:absolute;top:-30px;left:-20px;font-size:160px;opacity:.08;transform:rotate(-15deg)}
+.finish h2{font-size:28px;font-weight:800;margin-bottom:10px;font-family:Georgia,serif;position:relative}
+.finish p{font-size:14px;opacity:.94;line-height:1.7;margin-bottom:18px;max-width:600px;margin-left:auto;margin-right:auto;position:relative}
+.finish.cta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
+.finish a{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--pink);font-size:13px;font-weight:800;padding:12px 22px;border-radius:8px;text-decoration:none;transition:transform.15s,box-shadow.15s}
+.finish a.alt{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.4)}
+.finish a:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.18)}
+
+.footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:12px}
+.footer a{color:var(--pink);font-weight:700;text-decoration:none}
+</style>
+</head>
+<body>
+<!-- ═══ 30-DAY CHALLENGE SIGN-IN GATE ═══ -->
+<div id="ch30-gate-overlay" style="display:none;position:fixed;inset:0;background:rgba(15,27,47,.96);backdrop-filter:blur(8px);z-index:99999;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,'Segoe UI',Arial,sans-serif">
+ <div style="background:#FCFAF5;border-radius:20px;padding:42px 36px;max-width:460px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5);border:1px solid #E5DDD0">
+ <div style="font-size:56px;margin-bottom:10px">🔒</div>
+ <h2 style="color:#0F1B2F;font-size:26px;margin-bottom:10px;font-weight:800;font-family:Georgia,'Times New Roman',serif">Members-only Challenge</h2>
+ <p style="color:#4A5468;margin-bottom:24px;line-height:1.55;font-size:15px">Sign in with your username and password to unlock the 30-Day Challenge — daily missions, scripts, and templates.</p>
+ <a href="login.html" style="display:inline-block;background:#0F1B2F;color:#fff;padding:14px 26px;border-radius:999px;font-weight:600;margin:5px;text-decoration:none">Log In</a>
+ 
+ <div style="margin-top:24px;padding-top:20px;border-top:1px solid #E5DDD0;font-size:13px;color:#888">
+ <a href="index.html" style="color:#E8765E;font-weight:600">← Back to linktree</a>
+ </div>
+ </div>
+</div>
+<script>
+(function(){
+ var ok = localStorage.getItem('academy_access') === 'granted';
+ if (!ok) {
+ document.getElementById('ch30-gate-overlay').style.display = 'flex';
+ document.body.style.overflow = 'hidden';
+ }
+})();
+</script>
+
+<div class="progress-wrap">
+ <span class="progress-text" id="progText">0 / 30 days · 0%</span>
+ <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
+ <button class="reset-btn" onclick="resetProgress()">Reset</button>
+</div>
+
+<section class="hero">
+ <div class="hero-inner">
+ <span class="badge">🇵🇭 By @mgsolayao · Filipina Remote Bookkeeper</span>
+ <h1>The 30-Day Remote <em>Bookkeeper</em> Challenge</h1>
+ <p>30 daily missions. 30+ real client scenarios. Every script you'll need. Every link you'll click. By the end you'll be certified, portfolio-ready, and applying. <strong>I built the version of this I wish someone had handed me 3 years ago.</strong></p>
+ <div class="stat-row">
+ <div class="stat"><span class="stat-num">30</span><span class="stat-label">Daily Missions</span></div>
+ <div class="stat"><span class="stat-num">40+</span><span class="stat-label">Scripts &amp; Templates</span></div>
+ <div class="stat"><span class="stat-num">60+</span><span class="stat-label">Real Links Inside</span></div>
+ <div class="stat"><span class="stat-num">$0</span><span class="stat-label">Total Cost</span></div>
+ </div>
+ </div>
+</section>
+
+<div class="wrap">
+
+<div class="intro">
+ <h2>👋 Hi bestie — read this first</h2>
+ <p>This isn't a "30 day to-do list." This is a 30-day <strong>apprenticeship</strong>. Each day has: a real client scenario you'd actually face, the step-by-step you'd execute, the words you'd type or say, the links you'd click, and the deliverable you'd ship. <strong>You'll spend 60–120 minutes a day. Some days less, some days more.</strong> The deal is showing up every day.</p>
+ <p>I'm not going to lie — you'll feel overwhelmed around Day 8. That's the sign you're <em>actually</em> learning, not the sign to quit. The bookkeepers who win are the ones who push through the awkward middle. Push through. I'm rooting for you.</p>
+ <div class="intro-quote">"By Day 30 you will have two real certifications, a portfolio link, a Loom intro video, 30+ sent proposals, and a complete client onboarding playbook. The future-you reading this on Day 31 will hug present-you so hard. 💗" — Mary</div>
+ <div class="rules">
+ <div class="rule"><span class="rule-icon">📅</span><div class="rule-title">Daily</div><div class="rule-desc">60–120 min · same hour every day</div></div>
+ <div class="rule"><span class="rule-icon">✓</span><div class="rule-title">Check off</div><div class="rule-desc">Tap the circle each day · progress saves</div></div>
+ <div class="rule"><span class="rule-icon">📓</span><div class="rule-title">Journal</div><div class="rule-desc">Write 1 takeaway/day · becomes your cheat sheet</div></div>
+ <div class="rule"><span class="rule-icon">💗</span><div class="rule-title">Pay it forward</div><div class="rule-desc">Share with 1 kababayan on Day 30 · that's the rule</div></div>
+ </div>
+</div>
+
+<!-- ═══ WEEK 1 ═══ -->
+<div class="week-banner"><div class="week-num">W1<small>FOUNDATION</small></div><div class="week-info"><h3>Week 1 — Foundation (Days 1–7)</h3><p>Master the language &amp; mechanics so nothing later confuses you</p></div></div>
+
+<!-- ============================ DAY 1 ============================ -->
+<div class="day"><div class="day-head"><div class="day-num">D1<small>MON</small></div><div class="day-title"><h4>Set the stage — commit, journal, set up your study system</h4><div class="mission">Mission · Inventory + commitment <span class="timing">· ~60 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,1)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill">🎬 The scenario you're prepping for</span></div>
+<div class="scenario"><p>It's Day 30. A US small-business owner DMs you: <strong>"Hi, my friend Sarah said you're a remote bookkeeper. We're a 6-person Shopify store doing about $80k/month. We're 6 months behind on books and tax season is in 90 days. Can you help and how much?"</strong></p><p>If you can answer that DM with confidence — quote a scoped flat fee, send an engagement letter, sign an NDA, and start working — you've won. Everything in the next 29 days builds toward that exact moment.</p></div>
+
+<div class="sec-title"><span class="label-pill teal">💡 Why this matters</span></div>
+<div class="why"><p>Most people fail this challenge in Week 1, not because the work is hard — but because they never <em>decided</em> to do it. They started "trying." Today you're not trying. You're committing. There's a difference, and it shows up by Day 14.</p></div>
+
+<div class="sec-title"><span class="label-pill">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li><strong>Block your daily study window for the next 30 days.</strong> Open your phone calendar → create a recurring event 9:00–10:30 PM (or whatever works). Title it "Bookkeeper Challenge." Mine was 9 PM–11 PM, kids in bed.</li>
+ <li><strong>Pick your journal.</strong> Either a physical notebook OR a Notion page ( at <a href="https://www.notion.so" target="_blank">notion.so</a>). One spot for everything you'll write this month.</li>
+ <li><strong>Write your "Day 0 inventory" on page 1.</strong> Be brutally honest. Format: <em>"Today I know about accounting: [list everything, even nothing]. Today I have: [laptop? wifi? webcam?]. Today my biggest fear: [write it down]."</em></li>
+ <li><strong>Write your Day 30 vision on page 2.</strong> Copy this and fill in: <em>"By Day 30 I will have: QuickBooks ProAdvisor certification ✅ · Xero Advisor certification ✅ · A public portfolio link · A 90-second Loom intro · 5+ sent proposals · A signed engagement letter (real or mock)."</em></li>
+ <li><strong>Set up your "Bookkeeper Email."</strong> Create a fresh Gmail (e.g., yourname.bookkeeper@gmail.com) if your regular one isn't professional. <a href="https://accounts.google.com/signup" target="_blank">Sign up here</a>.</li>
+ <li><strong>Make 4 folders in your Google Drive:</strong> 📁 Portfolio · 📁 Templates · 📁 Sample Client Work · 📁 My Certifications. at <a href="https://drive.google.com" target="_blank">drive.google.com</a>.</li>
+ <li><strong>Install Bitwarden ( password manager).</strong> Download from <a href="https://bitwarden.com" target="_blank">bitwarden.com</a>. Use it for EVERY login from today forward. Clients ask about your security setup — this is the answer.</li>
+ <li><strong>Tell ONE person you're doing this challenge.</strong> Not the world. ONE accountability buddy. Send them this exact text:</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">✉️ Text to your accountability person</span>Hi [Name] — I'm doing a 30-day remote bookkeeper challenge starting today. Goal: get certified, build a portfolio, and apply to my first clients. Can you check in on me once a week? Even just a "how's it going?" text. I want to actually finish this one. 💗</div>
+
+<div class="tools-row"><strong>🛠 Tools today (all )</strong>Calendar app · <a href="https://www.notion.so" target="_blank">Notion</a> · <a href="https://drive.google.com" target="_blank">Google Drive</a> · <a href="https://bitwarden.com" target="_blank">Bitwarden</a> · physical notebook (optional)</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't tell your whole social circle — they'll judge if you wobble. Pick ONE.</li>
+ <li>Don't skip the inventory. The honesty unlocks the work.</li>
+ <li>Don't use a "fun" email like sweetbabe93@. Use yourname.bookkeeper@.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>Calendar blocked · journal page 1 (inventory) + page 2 (Day 30 vision) written · 4 Drive folders created · accountability person notified.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>What's the ONE outcome of this challenge that would change your life if you actually hit it? Write it big at the top of your journal where you'll see it every day.</div>
+</div></div>
+
+<!-- ============================ DAY 2 ============================ -->
+<div class="day"><div class="day-head qb-head"><div class="day-num">D2<small>TUE</small></div><div class="day-title"><h4>Get your QuickBooks ProAdvisor access</h4><div class="mission">Mission · Sign up + tour <span class="timing">· ~75 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,2)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill qb">🎬 The scenario</span></div>
+<div class="scenario"><p>A future US client says: <strong>"We're on QuickBooks Online. Can you log in and start cleaning things up this week?"</strong> To accept their Accountant invite and get the Accountant Toolbox (with Reclassify Transactions, Cleanup, and Write Off Invoices), you need a ProAdvisor login. Today you get it.</p></div>
+
+<div class="sec-title"><span class="label-pill teal">💡 Why this matters</span></div>
+<div class="why"><p>QuickBooks Online powers ~80% of US small business bookkeeping. Without a ProAdvisor login, you can't get hired as their bookkeeper — period. And it's. Most aspiring bookkeepers spend weeks "studying" before signing up. You're doing it Day 2.</p></div>
+
+<div class="sec-title"><span class="label-pill qb">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>Go to <a href="https://quickbooks.intuit.com/accountants/" target="_blank">quickbooks.intuit.com/accountants</a>.</li>
+ <li>Click <strong>"Sign up "</strong>. Use your professional email + a STRONG password (save in Bitwarden).</li>
+ <li>Fill in: real name · firm name (use your name + "Bookkeeping" e.g. "Mary Solayao Bookkeeping") · phone · address (your real city is fine).</li>
+ <li>You'll land in QBO Accountant. Go to <strong>Settings (gear icon) → Account &amp; Settings → Security</strong>. Turn on Two-Factor Authentication. NOW. Not later. This is your trust signal to every future client.</li>
+ <li>Take the 5-minute self-tour QBO offers on first login. Click through it. Don't skip.</li>
+ <li>Click <strong>"Your Books" → Add Company → Sample Company</strong>. QBO will load a fully-populated practice file called "Craig's Design and Landscaping Services."</li>
+ <li>Explore for 30 minutes: open Dashboard · Sales · Expenses · Banking · Reports. Don't click "Save" on anything you don't understand. Just LOOK.</li>
+ <li>Bookmark these in your browser: <a href="https://quickbooks.intuit.com/learn-support/" target="_blank">QBO Support</a>, <a href="https://www.youtube.com/@HectorGarciaCPA" target="_blank">Hector Garcia CPA YouTube</a>, your ProAdvisor dashboard.</li>
+ <li>In your Drive "My Certifications" folder, create a Doc called "QBO ProAdvisor Setup." Write today's date, your ProAdvisor email, the date you'll take the certification exam (Day 21).</li>
+</ol></div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong><a href="https://quickbooks.intuit.com/accountants/" target="_blank">QBO ProAdvisor signup</a> · phone for 2FA SMS · <a href="https://bitwarden.com" target="_blank">Bitwarden</a> for password</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't use the same password as your other accounts.</li>
+ <li>Don't skip 2FA. Real clients check.</li>
+ <li>Don't accidentally sign up for a paid QBO account — make sure you're on the ProAdvisor path (no credit card required).</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>ProAdvisor account active · 2FA on · Sample Company loaded · 30 min tour done · setup doc started in Drive.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>What was the most confusing screen in QBO today? Write its name. We'll come back to it in Week 2 and you'll know it cold.</div>
+</div></div>
+
+<!-- ============================ DAY 3 ============================ -->
+<div class="day"><div class="day-head"><div class="day-num">D3<small>WED</small></div><div class="day-title"><h4>Master debits, credits &amp; the accounting equation</h4><div class="mission">Mission · Foundation theory <span class="timing">· ~90 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,3)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill">🎬 The scenario</span></div>
+<div class="scenario"><p>A client looks at her Balance Sheet and DMs you: <strong>"Mary, why does my bank account show as a CREDIT? Did something go wrong? I'm panicking."</strong></p><p>You need to confidently reply: "<em>Totally normal! 'Credit' in accounting doesn't mean 'bad' — it just means the right side of the entry. For your bank account on the Balance Sheet, the balance is a Debit (left side). What you're seeing is probably the increase indicator. Want me to record a 90-second Loom walking through it?</em>"</p></div>
+
+<div class="sec-title"><span class="label-pill teal">💡 Why this matters</span></div>
+<div class="why"><p>Every other day in this challenge depends on you understanding debits and credits. This is THE foundation. Watch the videos twice if you need to. Then take a quiz. Then teach it back to yourself. Don't move on until you can explain DEAD-CLIC from memory.</p></div>
+
+<div class="sec-title"><span class="label-pill">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>Watch <a href="https://www.youtube.com/results?search_query=accounting+equation+explained+accounting+stuff" target="_blank">"The Accounting Equation" by Accounting Stuff</a> (8 min). Take notes.</li>
+ <li>Watch <a href="https://www.youtube.com/results?search_query=debits+and+credits+explained+for+beginners" target="_blank">"Debits and Credits — Once and For All"</a> (10 min). Pause and rewind freely.</li>
+ <li>Watch <a href="https://www.youtube.com/results?search_query=5+types+of+accounts+assets+liabilities+equity+revenue+expense" target="_blank">"The 5 Account Types"</a> (9 min).</li>
+ <li>In your journal, draw the DEAD-CLIC table from memory. Then check it: <strong>Debit increases: Dividends, Expenses, Assets. Credit increases: Liabilities, Income, Capital (Equity).</strong></li>
+ <li>Take 3 quizzes on <a href="https://www.accountingcoach.com/quiz/quizzes" target="_blank">AccountingCoach</a>. Aim for 80%+. Redo until you hit it.</li>
+ <li>For each of these 5 transactions, write out the debit and credit on paper:<br>
+ a) "We received $500 cash from a customer for services"<br>
+ b) "We paid $200 cash for office supplies"<br>
+ c) "We took out a $5,000 loan from the bank"<br>
+ d) "We paid the owner a $1,000 dividend"<br>
+ e) "We received a $150 utility bill, will pay later"</li>
+ <li>Check your answers (full key in your journal — I'll trust you to look them up).</li>
+ <li>Write the explanation for the client above. 3 sentences, plain English. Save it to your "Client Scripts" doc.</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">💬 Reply to the "why is my bank a credit?" panic DM</span>Totally normal — promise! 💗 In accounting, "Credit" doesn't mean "negative" — it's just a label for the right side of every entry. Your bank account is recorded as a DEBIT balance on the Balance Sheet (left side, which is normal for cash). The "credit" you might be seeing is probably the action that INCREASED it (like a deposit being credited from the bank's perspective). I can record a quick 90-second Loom walking through it if helpful — just say the word!</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong><a href="https://www.youtube.com/@AccountingStuff" target="_blank">Accounting Stuff YouTube</a> · <a href="https://www.accountingcoach.com" target="_blank">AccountingCoach</a> · journal + pen</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't try to memorize "debit means add, credit means subtract." It's WRONG. Use DEAD-CLIC.</li>
+ <li>Don't move to Day 4 if you can't answer the 5 transactions above. Repeat the videos.</li>
+ <li>Don't be embarrassed if this takes 90+ minutes. CPAs spent 4 years on this.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>DEAD-CLIC drawn from memory · 5 transactions answered + checked · client-script reply written to your scripts doc.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>Can you explain debit/credit to a 10-year-old in 2 sentences? Try it out loud. Record yourself on Loom (you'll use this skill in Week 3).</div>
+</div></div>
+
+<!-- ============================ DAY 4 ============================ -->
+<div class="day"><div class="day-head qb-head"><div class="day-num">D4<small>THU</small></div><div class="day-title"><h4>Build your first Chart of Accounts (real, not fake)</h4><div class="mission">Mission · COA setup for a café <span class="timing">· ~75 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,4)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill qb">🎬 The scenario</span></div>
+<div class="scenario"><p>New client onboarding call. The owner says: <strong>"We just opened a coffee shop 6 months ago. We've been doing books in Excel. We need real accounting now. We have: rent, payroll, coffee beans, milk, gift cards we sell, tips employees collect, sales from coffee and food, a small loan from my dad, and we just bought an espresso machine for $8,000. Help?!"</strong></p><p>If you can build her a clean Chart of Accounts in 30 minutes, you've earned her trust for the next 2 years.</p></div>
+
+<div class="sec-title"><span class="label-pill teal">💡 Why this matters</span></div>
+<div class="why"><p>The Chart of Accounts is the spine of every set of books. A messy COA = messy books forever. A clean COA = everything else gets easier. This is one of the most undervalued skills — the bookkeepers who can build a good COA charge premium rates.</p></div>
+
+<div class="sec-title"><span class="label-pill qb">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>In QBO Sample Company, click <strong>Accounting → Chart of Accounts</strong>. Look at what's already there. Note the columns: Name, Type, Detail Type, Balance.</li>
+ <li>Click <strong>"New"</strong> to add a new account. Practice creating ONE income account: "Coffee Sales" (Type: Income · Detail Type: Sales of Product Income).</li>
+ <li>Now build the Sunrise Café COA. Create these accounts:<br>
+ <strong>Income:</strong> Coffee &amp; Beverage Sales · Food Sales · Merchandise Sales · Tips Collected (yes, separate it).<br>
+ <strong>Cost of Goods Sold:</strong> Coffee Beans &amp; Tea · Milk &amp; Dairy · Pastries &amp; Food Cost · Packaging.<br>
+ <strong>Expenses:</strong> Rent · Wages &amp; Salaries · Payroll Taxes · Utilities · Marketing · Software &amp; Subscriptions · Bank Fees · Office Supplies.<br>
+ <strong>Assets:</strong> Espresso Machine (Type: Fixed Asset · Detail: Machinery &amp; Equipment).<br>
+ <strong>Liabilities:</strong> Gift Cards Sold (Type: Other Current Liability) · Loan from Owner's Father (Type: Long Term Liability).</li>
+ <li>Wait — pause on <strong>Gift Cards Sold</strong>. Why is it a LIABILITY not income? Because the customer paid for coffee they haven't received yet. You OWE them coffee. Only when they redeem it does revenue happen. <em>Write this in your journal.</em></li>
+ <li>Wait — pause on <strong>Tips Collected</strong>. In most US states, tips that pass through the business to employees are recorded as a "pass-through" — often as a separate income account paired with a tip-payout expense, OR as a liability. Check the client's state rules. Default in QBO: track as a liability. <em>Note this too.</em></li>
+ <li>Run a fresh COA report (Reports → Chart of Accounts). Export to PDF. Save it to your Portfolio folder as "Sunrise_Cafe_COA_Day4.pdf."</li>
+ <li>Screenshot the COA list view. This goes in your portfolio as your first "case study" artifact.</li>
+ <li>Write a 1-paragraph "design note" in your journal: <em>"Why I chose this structure for a café…"</em>. Real bookkeepers can DEFEND their COA choices to a CPA.</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">💬 What to say to the client when you deliver the COA</span>Hi [Owner Name]! I built your Chart of Accounts based on what you shared. A few highlights:
+
+• Gift Cards are tracked as a LIABILITY (we owe coffee) — they only turn into revenue when redeemed.
+• Tips are tracked separately so we can pay out employees cleanly each pay period.
+• Espresso machine is a Fixed Asset — we'll depreciate it over its useful life (your CPA can advise on the schedule).
+• Your dad's loan is a Long Term Liability — separate from short-term liabilities so it shows correctly on the Balance Sheet.
+
+I attached the full COA as a PDF. Once you confirm it looks right, I'll start entering your transactions. Any questions, just shout!</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>QBO Sample Company · screenshot tool · Portfolio folder in Drive</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't make 47 expense accounts. Keep it lean (under 25 total expenses for most small biz).</li>
+ <li>Don't classify gift cards as income at the point of sale. It's a LIABILITY until redeemed.</li>
+ <li>Don't forget to differentiate COGS (direct product costs) from operating expenses.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>Sunrise Café COA built in QBO · PDF exported + saved to Portfolio · screenshot saved · design-note paragraph written · client delivery script saved.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>Which account type tripped you up the most? Read its definition in <a href="https://www.accountingcoach.com" target="_blank">AccountingCoach</a> before bed. Day 30 You needs to know it cold.</div>
+</div></div>
+
+<!-- ============================ DAY 5 ============================ -->
+<div class="day"><div class="day-head"><div class="day-num">D5<small>FRI</small></div><div class="day-title"><h4>The 3 financial statements — read them like a doctor reads X-rays</h4><div class="mission">Mission · Statement fluency <span class="timing">· ~90 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,5)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill">🎬 The scenario</span></div>
+<div class="scenario"><p>Future client emails you in tears: <strong>"Mary, I made $40,000 in sales last month but I have $200 in my bank account. How is this possible?? Am I being robbed?"</strong></p><p>You need to know exactly which statement explains the gap — and how to walk her through it kindly. This question comes up at LEAST once with every client. Be ready.</p></div>
+
+<div class="sec-title"><span class="label-pill teal">💡 Why this matters</span></div>
+<div class="why"><p>The 3 statements are the language of business. If you can read them, you can spot problems before they become emergencies. This is what separates a "data entry bookkeeper" ($5/hr) from an "advisory bookkeeper" ($50/hr).</p></div>
+
+<div class="sec-title"><span class="label-pill">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>In QBO Sample Co. → Reports → run <strong>Profit &amp; Loss</strong> for the last 3 months. Read every line out loud. Yes, out loud.</li>
+ <li>Run the <strong>Balance Sheet</strong> as of today. Confirm with your eyes: Total Assets = Total Liabilities + Total Equity. If it's not balanced, the books are broken.</li>
+ <li>Run the <strong>Statement of Cash Flows</strong>. This is the magic one for the scenario above. Note the 3 sections: Operating, Investing, Financing.</li>
+ <li>Watch <a href="https://www.youtube.com/results?search_query=cash+flow+statement+explained+simple" target="_blank">"Cash Flow Statement — Simple"</a> by Edspira (10 min).</li>
+ <li>Write out 5 reasons a profitable business can have $200 in the bank:<br>
+ a) Customers haven't paid yet (AR is high) ·<br>
+ b) Owner pulled money out as draws ·<br>
+ c) Big inventory purchase (cash → inventory) ·<br>
+ d) Paid down a loan (operating cash → financing cash) ·<br>
+ e) Bought equipment ($8k espresso machine, anyone?).</li>
+ <li>Run an AR Aging report in QBO. See how much is OWED to the business. That's a clue to the "broke but profitable" problem.</li>
+ <li>Run an AP Aging report. See what's OWED OUT. Compare.</li>
+ <li>Draft your 3-sentence empathy reply to the panicked client. Save it.</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">💬 Reply to the "I'm profitable but broke!" panic</span>Deep breath, friend — this is one of the most common things small business owners hit, and it's NOT a sign anything is wrong. 💗
+
+Quick explanation: Profit and Cash are NOT the same thing. Your P&amp;L shows you made $40k in REVENUE last month — that's sales you've INVOICED. But if customers haven't paid yet (sitting in your AR), or you paid out a big chunk for inventory / a loan / equipment, the CASH leaves before profit "settles."
+
+I'm going to send you a 1-page Cash Flow Summary tomorrow that breaks down exactly where every dollar went. Spoiler: the money is somewhere — usually customer invoices or inventory. We'll find it together.
+
+Talk tomorrow! — Mary</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>QBO Sample Co. · <a href="https://www.youtube.com/@Edspira" target="_blank">Edspira</a> · journal</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't conflate revenue with profit, or profit with cash. Three different things.</li>
+ <li>Don't say "your books are wrong" — they're probably fine, the OWNER is just learning what cash flow means.</li>
+ <li>Don't give tax advice ("you should write off…"). That's the CPA's job.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>P&amp;L, BS, Cash Flow run · 5 reasons profit ≠ cash written · empathy reply script saved.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>If you could only run ONE report each month for a client, which would it be — and why?</div>
+</div></div>
+
+<!-- ============================ DAY 6 ============================ -->
+<div class="day"><div class="day-head qb-head"><div class="day-num">D6<small>SAT</small></div><div class="day-title"><h4>Build your mock company — Sunrise Café LLC</h4><div class="mission">Mission · End-to-end setup <span class="timing">· ~120 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,6)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill qb">🎬 The scenario</span></div>
+<div class="scenario"><p>First real client onboarding call. Mid-call she says: <strong>"Can you walk me through how you'd actually set up our books from scratch — what the first 7 days look like?"</strong></p><p>You smile, share screen, and walk her through EXACTLY what you're about to do today — with confidence — because you've already done it on a mock company.</p></div>
+
+<div class="sec-title"><span class="label-pill teal">💡 Why this matters</span></div>
+<div class="why"><p>This is your first "case study" for your portfolio. Every screenshot from today becomes evidence of your skill. Future clients trust someone who can SHOW the work — not just claim it.</p></div>
+
+<div class="sec-title"><span class="label-pill qb">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>In QBO Accountant Dashboard → click <strong>"Add company"</strong> → choose "Set up trial" (yes it's for accountants).</li>
+ <li>Name it <strong>"Sunrise Café LLC"</strong>. Industry: Restaurant. Currency: USD. Fiscal year start: January.</li>
+ <li>Use yesterday's COA — recreate it in this new file (or import via CSV if you're spicy).</li>
+ <li>Add <strong>3 customers</strong>: Anna Garcia, Ben Reyes, Cathy Lim. Use fake but realistic addresses.</li>
+ <li>Add <strong>3 vendors</strong>: Bay Area Coffee Roastery, Local Dairy Co., Sunshine Power Co.</li>
+ <li>Add <strong>3 products/services</strong>: "12oz Latte" ($5.50) · "Croissant" ($4.00) · "Coffee Beans (1 lb retail)" ($18.00).</li>
+ <li>Create your <strong>FIRST invoice</strong>: customer Anna · 2× Latte · 1× Croissant · today's date · payment due in 7 days. Save and Send (preview only — you don't have her real email).</li>
+ <li>Create your <strong>FIRST bill</strong>: from Bay Area Coffee Roastery · $300 of "Coffee Beans" (categorize to COGS · Coffee Beans &amp; Tea) · due in 14 days.</li>
+ <li>Take a clean screenshot of: Dashboard · COA · Invoice · Bill. Save all 4 to your Portfolio folder. Name them "01_Dashboard.png" etc.</li>
+ <li>In your journal, time yourself: how long did this take? That's your benchmark for quoting "Setup &amp; Onboarding" packages later.</li>
+</ol></div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>QBO Accountant · screenshot app (CMD+Shift+4 on Mac · Win+Shift+S on Windows) · Portfolio folder</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't use real client data even as a "test." Always anonymize fully.</li>
+ <li>Don't spend 4 hours on this. 2 hours max. Done is the deliverable, not perfection.</li>
+ <li>Don't forget to save the screenshots TODAY. You'll forget later.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>Sunrise Café LLC company created · 3 customers + 3 vendors + 3 products · 1 invoice + 1 bill · 4 screenshots saved to Portfolio.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>If a client asked "what would your hourly rate be to do this setup?" — what would you honestly answer today? Don't overthink. Write a number.</div>
+</div></div>
+
+<!-- ============================ DAY 7 ============================ -->
+<div class="day"><div class="day-head"><div class="day-num">D7<small>SUN</small></div><div class="day-title"><h4>Rest, review, journal — the day that prevents burnout</h4><div class="mission">Mission · Recovery <span class="timing">· ~45 min total</span></div></div><div class="day-checkbox" onclick="toggleDay(this,7)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill">🎬 The scenario</span></div>
+<div class="scenario"><p>Month 6 of your bookkeeping career. A Sunday. Slack notification — a client emailed you on a Saturday night. You think: "I'll just do a little." Three hours later it's midnight, you're stressed, and you resent the client. <strong>This is how bookkeepers burn out and quit.</strong></p><p>Today you build the muscle: <em>Sunday is sacred</em>. Train it now, when no one is paying you, so the muscle is strong when they ARE.</p></div>
+
+<div class="sec-title"><span class="label-pill teal">💡 Why this matters</span></div>
+<div class="why"><p>Sustainable beats fast. The bookkeepers who last 10+ years are not the ones who work Sundays — they're the ones who guard their off-time fiercely. Your future clients will respect this boundary if you set it from Day 1.</p></div>
+
+<div class="sec-title"><span class="label-pill">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>NO client work, NO study work today. Repeat: zero hours.</li>
+ <li>Re-read your Week 1 journal pages. Highlight your top 3 takeaways.</li>
+ <li>Make a list called "Things I still don't fully get" — bring them into Week 2 with curiosity, not shame.</li>
+ <li>Take a real walk outside. 30 minutes minimum. Phone in pocket, not in hand.</li>
+ <li>Eat something you love. Be with family / friends / your dog.</li>
+ <li>Optional: post 1 IG/TikTok story: <em>"Day 7 done. Week 1 of my 30-day remote bookkeeper challenge complete!"</em> — tag <a href="https://www.tiktok.com/@mgsolayao" target="_blank">@mgsolayao</a> 💗</li>
+</ol></div>
+
+<div class="bestie"><strong>💗 Bestie tip</strong>The clients who message you on a Sunday afternoon and expect a reply within an hour — those are NOT your good clients. Trust me. Train them now (with kind but firm boundaries) or they'll train you (with burnout).</div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>Zero hours of work done · journal reviewed · "Things I don't get yet" list made · you went outside.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>If you stopped this challenge today, would Week 1 still have been worth it? Spoiler: YES — your QBO ProAdvisor account alone is worth more than most paid courses. Keep going. 💪</div>
+</div></div>
+
+<!-- ═══ WEEK 2 ═══ -->
+<div class="week-banner qb"><div class="week-num">W2<small>CORE SKILLS</small></div><div class="week-info"><h3>Week 2 — Core Bookkeeping (Days 8–14)</h3><p>The actual day-to-day skills clients pay for</p></div></div>
+
+<!-- ============================ DAY 8 ============================ -->
+<div class="day"><div class="day-head qb-head"><div class="day-num">D8<small>MON</small></div><div class="day-title"><h4>Invoicing &amp; Accounts Receivable — the chase</h4><div class="mission">Mission · Bill the client + chase overdue <span class="timing">· ~75 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,8)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill qb">🎬 The scenario</span></div>
+<div class="scenario"><p>Real client message Monday morning: <strong>"Hi Mary! We have $14,000 of unpaid invoices going back 4 months. Some customers are great, others ghosting us. Can you chase them this week and tell me what's collectible?"</strong></p><p>This is one of the highest-impact things you can do for a client — and one of the easiest to get paid well for. Bookkeepers who handle AR well are kept for YEARS.</p></div>
+
+<div class="sec-title"><span class="label-pill teal">💡 Why this matters</span></div>
+<div class="why"><p>$14,000 sitting in AR is $14,000 the business can't use. Cash flow is oxygen. If you up $5k of it through good chasing, you've "earned" your fee in a single week.</p></div>
+
+<div class="sec-title"><span class="label-pill qb">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>In Sunrise Café, create 8 invoices spread across the last 90 days (vary amounts $200–$1,500, vary due dates).</li>
+ <li>Mark 3 as paid (Receive Payment → deposit to "Undeposited Funds" — we'll clear this Day 11).</li>
+ <li>Leave 5 unpaid. Make 2 of them 60+ days overdue. One should be 90+ days.</li>
+ <li>Run <strong>AR Aging Summary</strong> (Reports → Who owes you → A/R Aging Summary). Screenshot it.</li>
+ <li>Run <strong>AR Aging Detail</strong> — this shows each customer + each open invoice. Export to PDF.</li>
+ <li>Categorize the 5 unpaid invoices into:<br>
+ a) <strong>Friendly nudge zone</strong> (1–30 days overdue) ·<br>
+ b) <strong>Firm follow-up zone</strong> (31–60 days) ·<br>
+ c) <strong>Concern zone</strong> (61–90 days) ·<br>
+ d) <strong>Send-to-collections zone</strong> (91+ days).</li>
+ <li>Draft 3 follow-up email scripts (templates below).</li>
+ <li>In QBO, set up <strong>automatic invoice reminders</strong>: Settings → Account &amp; Settings → Sales → Reminders → Set 3 reminders (Day 3 before due, Day of due, Day 7 after).</li>
+ <li>Save all your AR scripts to your Templates folder. You'll reuse them forever.</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">✉️ Friendly nudge — 1–30 days overdue</span>Subject: Quick reminder — invoice [#] from [date]
+
+Hi [Customer Name],
+
+Just a quick heads-up that invoice [#] for $[amount] is now [X] days past due. I know things slip through the cracks — happens to all of us!
+
+If you've already sent it, please disregard. If not, here's the payment link again: [link]
+
+Let me know if you have any questions. Thanks so much!
+
+— [Your Name] for [Business Name]</div>
+
+<div class="script-box"><span class="script-label">✉️ Firm follow-up — 31–60 days overdue</span>Subject: Following up — invoice [#] outstanding
+
+Hi [Customer Name],
+
+I wanted to circle back on invoice [#] for $[amount], which is now [X] days past due. We haven't received payment or heard back from earlier notes.
+
+Could you let me know one of two things by [date]:
+1. The expected payment date, or
+2. If there's an issue with the invoice we should resolve?
+
+Happy to set up a payment plan if that helps. Just reply or call [number].
+
+Best,
+[Your Name]</div>
+
+<div class="script-box"><span class="script-label">✉️ Concern — 61–90 days overdue</span>Subject: [Urgent] Invoice [#] — please respond by [date]
+
+Hi [Customer Name],
+
+Invoice [#] for $[amount] dated [original date] is now [X] days past due, and we haven't heard from you despite previous outreach.
+
+We'd like to resolve this without escalating. Please respond by [date — 7 days out] with:
+• Payment, or
+• A specific payment plan proposal
+
+If we don't hear from you by [date], we'll need to escalate to formal collections. We'd rather not — let's talk.
+
+Sincerely,
+[Your Name]</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>QBO Sunrise Café · Templates folder · email draft folder</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't be passive-aggressive. "Just a friendly reminder" twice is fine. By the 4th, get direct.</li>
+ <li>Don't send chasing emails on Friday afternoons — they'll miss them. Tuesday-Thursday mornings work best.</li>
+ <li>Don't call customers "deadbeats" even in your private notes. Things happen.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>8 invoices created (5 open) · AR Aging Summary screenshot · 3 follow-up scripts saved to Templates · QBO auto-reminders configured.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>What's the longest invoice you'd let go before escalating? There's no right answer — but having a personal rule prevents endless chasing.</div>
+</div></div>
+
+<!-- ============================ DAY 9 ============================ -->
+<div class="day"><div class="day-head qb-head"><div class="day-num">D9<small>TUE</small></div><div class="day-title"><h4>Bills &amp; Accounts Payable — the "vendor is mad" save</h4><div class="mission">Mission · AP basics + vendor recovery <span class="timing">· ~75 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,9)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill qb">🎬 The scenario</span></div>
+<div class="scenario"><p>Tuesday morning, client forwards you a vendor email: <strong>"Where is payment for invoice #4419 from 70 days ago? We're suspending your account effective Friday unless paid in full."</strong></p><p>The client is panicking. Their coffee supply will be cut off. You have 30 minutes to find the bill, pay it, document the fix, and reassure both the client and the vendor. This happens. Be ready.</p></div>
+
+<div class="sec-title"><span class="label-pill teal">💡 Why this matters</span></div>
+<div class="why"><p>Missed vendor payments destroy supplier relationships, which destroys businesses. Bookkeepers who handle AP cleanly are insurance against this. Charge accordingly.</p></div>
+
+<div class="sec-title"><span class="label-pill qb">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>In Sunrise Café → Expenses → Bills → enter 5 bills (Bay Area Coffee Roastery $800 · Local Dairy $200 · Sunshine Power $450 · Rent $2,500 · POS Software $89).</li>
+ <li>Pay 3 of them via "Pay Bills." Leave 2 OPEN — one 45 days overdue, one 70 days overdue.</li>
+ <li>Run <strong>AP Aging Summary</strong> + <strong>AP Aging Detail</strong>. Screenshot both for portfolio.</li>
+ <li>For the 70-day overdue bill: in QBO → Pay Bills → select it → mark paid (use checking account, today's date).</li>
+ <li>Add a memo: "Paid following vendor escalation email [date]. Reviewed cash flow Tuesday." This is the kind of note a CPA will thank you for at tax time.</li>
+ <li>Set up a <strong>recurring bill</strong> for Rent. (Save the bill → click "Make Recurring" → monthly.)</li>
+ <li>Draft a "we missed it" email script to the vendor (template below).</li>
+ <li>Draft a "here's what happened + how we'll prevent it" email to the client (template below).</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">✉️ To the angry vendor</span>Subject: Payment sent for Invoice #4419 — apologies
+
+Hi [Vendor Contact],
+
+Apologies for the delay on Invoice #4419 — we found it this morning and have sent payment today via ACH (reference: [#]). It should land in your account by [date].
+
+We've also reviewed our AP process to make sure this doesn't happen again going forward. We genuinely value the partnership.
+
+Please confirm receipt when convenient — and let us know if there's anything else outstanding.
+
+Sincerely,
+[Your Name] · Bookkeeper for [Business]</div>
+
+<div class="script-box"><span class="script-label">✉️ To the client (ownership + prevention)</span>Subject: Coffee Roastery — paid + new process in place
+
+Hi [Owner],
+
+Just paid Bay Area Coffee Roastery the full $800. Crisis averted ☕💗
+
+What happened: the bill came in via paper invoice (not their usual email), so it wasn't entered into QBO. I've now:
+1. Asked them to switch to email-only invoicing going forward
+2. Set up auto-pay through Bill.com for any bill from this vendor under $1,000
+3. Added a weekly AP review to our Friday close routine
+
+You shouldn't get any surprise calls like this again. Sorry for the scare. — Mary</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>QBO Sunrise Café · Templates folder · <a href="https://www.bill.com" target="_blank">Bill.com</a> (good to know about for real clients)</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't blame the client to the vendor. Take ownership: "We missed it. Paid now. Won't happen again."</li>
+ <li>Don't blame the vendor to the client. Take ownership: "Here's the prevention plan."</li>
+ <li>Don't pay a bill twice. Check if it's already marked paid before processing.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>5 bills entered · 3 paid · 2 open visible in AP Aging · 2 scripts (vendor + client) saved · recurring rent set up.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>Bill vs Expense vs Check — which one do you still mix up? Reread the QBO help docs tonight.</div>
+</div></div>
+
+<!-- ============================ DAY 10 ============================ -->
+<div class="day"><div class="day-head qb-head"><div class="day-num">D10<small>WED</small></div><div class="day-title"><h4>Bank feeds &amp; categorization — sort the chaos</h4><div class="mission">Mission · Speed + accuracy <span class="timing">· ~90 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,10)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill qb">🎬 The scenario</span></div>
+<div class="scenario"><p>Client onboarding kickoff: <strong>"Mary, there are 287 uncategorized transactions in our QBO going back 6 months. We've been ignoring them. Can you sort them all by next Friday?"</strong></p><p>This is THE bookkeeper task. You'll do this hundreds of times. Today you build the muscle and the speed.</p></div>
+
+<div class="sec-title"><span class="label-pill teal">💡 Why this matters</span></div>
+<div class="why"><p>The bookkeepers who categorize fast AND accurately are paid 3x the ones who plod. The trick: bank rules. Set up 10 good ones and you save 4 hours every month. Forever.</p></div>
+
+<div class="sec-title"><span class="label-pill qb">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>In QBO Sample Co. → Banking → look at the bank feed. There are pre-loaded transactions for practice.</li>
+ <li>Click <strong>"For Review"</strong> tab. Categorize the first 5 manually. Read carefully — QBO suggests categories, but verify.</li>
+ <li>For a recurring transaction (like Starbucks coffee) — after categorizing once, click <strong>"Add rule"</strong>. Set: "If description contains 'Starbucks' → Category: Meals &amp; Entertainment → auto-add." Now QBO does it for you.</li>
+ <li>Build 10 bank rules in the Sample Co. for common patterns (rent payments, payroll deposits, software subscriptions, fuel, parking, office supplies). Screenshot the Rules screen.</li>
+ <li>Find 1 ambiguous transaction (e.g., a $150 wire transfer with no memo). Don't guess. Categorize it to a new account called <strong>"Ask Client"</strong> (create as an Other Current Asset or simply an expense temporarily).</li>
+ <li>Practice the keyboard shortcuts: <strong>A</strong> = add transaction, <strong>M</strong> = match to existing, <strong>R</strong> = create rule. Time yourself for 20 transactions. Aim for under 2 min total.</li>
+ <li>Run a <strong>Transaction List by Account</strong> report after you finish. Note: did you catch any duplicates?</li>
+ <li>Save 1 screenshot of your bank rules list to Portfolio as proof of automation skill.</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">💬 Monthly "Ask Client" email (so you never guess)</span>Subject: [Business Name] — quick questions for [Month] close
+
+Hi [Owner Name],
+
+Wrapping up [Month] books. Quick questions before I close:
+
+1. The $150 wire on [date] to "REGAL HOLDINGS" — what was this for?
+2. $42 charge on [date] from "AMAZON.COM" — business or personal?
+3. The $1,200 deposit on [date] from "John Smith" — was this a customer payment? If so, which invoice?
+
+Once you reply, I'll finalize the close and send your monthly packet on Friday. Thanks!
+
+— [Your Name]</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>QBO Sample Co. · keyboard shortcut card · Portfolio folder</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Never categorize something you're unsure of. Use the "Ask Client" account. Always.</li>
+ <li>Don't create rules from a single transaction — wait until you see the pattern repeat 3+ times.</li>
+ <li>Don't ignore credit card matching — bank rec depends on it.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>20+ transactions categorized · 10 bank rules built · "Ask Client" workflow understood · "Ask Client" email template saved.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>Time yourself: how many transactions per minute can you categorize? Aim for 8–10/min by Day 30. Track weekly.</div>
+</div></div>
+
+<!-- ============================ DAY 11 ============================ -->
+<div class="day"><div class="day-head qb-head"><div class="day-num">D11<small>THU</small></div><div class="day-title"><h4>Your first bank reconciliation — close to ZERO</h4><div class="mission">Mission · Tie out · zero variance <span class="timing">· ~90 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,11)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill qb">🎬 The scenario</span></div>
+<div class="scenario"><p>Client sends you the May statement and asks: <strong>"My books show $32,418.21 in checking but my bank statement says $32,418.53. That's $0.32 off — what's wrong?"</strong></p><p>If you can find that $0.32 in 20 minutes — and explain it cleanly — you've earned trust for the year. Most beginner bookkeepers will say "it's close enough." Don't. Find it.</p></div>
+
+<div class="sec-title"><span class="label-pill teal">💡 Why this matters</span></div>
+<div class="why"><p>Bank reconciliation is THE #1 skill clients hire bookkeepers for. Closing to $0.00 variance proves you can be trusted with their books. Closing to $0.32 is the difference between hiring you and ghosting your proposal.</p></div>
+
+<div class="sec-title"><span class="label-pill qb">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>In QBO Sample Co. → Accounting → Reconcile. Choose the Checking account.</li>
+ <li>Enter the bank statement ENDING BALANCE and ENDING DATE (use what QBO suggests for practice).</li>
+ <li>Click Start. You'll see cleared and uncleared transactions on the bank's side.</li>
+ <li>Tick OFF each transaction that appears on the bank statement (use the Bank statement column).</li>
+ <li>As you tick, the "Difference" should drop toward $0.00. Watch the number live.</li>
+ <li>If Difference doesn't reach $0.00 — STOP. Don't close.<br><strong>Common causes (and fixes):</strong><br>
+ • Duplicate entry → delete one ·<br>
+ • Missing transaction → add it ·<br>
+ • Transposed digits ($147 → $174) → almost ALWAYS = the difference is divisible by 9 ·<br>
+ • Wrong period → check the date ·<br>
+ • Sign reversed (debit vs credit) → fix it</li>
+ <li>For the $0.32 scenario: search transactions of $0.32 — often a bank fee. If not, look for a discount or rounding issue on an invoice.</li>
+ <li>Once $0 — click "Finish now." Save the reconciliation REPORT as PDF. Name it "Sunrise_Cafe_BankRec_May.pdf." Save to Portfolio.</li>
+ <li>If you cannot close to zero today — DO NOT MOVE ON. Find the variance. This is THE muscle.</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">💬 Reply when client points out a $0.32 variance</span>Great catch! Hold on — let me investigate before close.
+
+A few things I'll check:
+1. Bank fees not yet booked in QBO (they often hit on the last day of the month)
+2. A timing difference (a check that cleared the bank but isn't in QBO yet — or vice versa)
+3. A rounding issue on a discount or invoice line
+
+I'll get back to you within an hour with the answer. I never close a rec unless it's at $0.00 — that's how we keep your books bulletproof. 💗</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>QBO Sample Co. · calculator app · the "divisible by 9 = transposed digits" rule</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Never close a reconciliation with a non-zero variance. Ever. Find it.</li>
+ <li>Don't "auto-add" a journal entry for the difference. That's hiding a problem.</li>
+ <li>Don't tell a client "it's close enough." Your reputation rides on this.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>1 bank reconciliation closed to $0.00 · reconciliation report PDF saved to Portfolio · "I never close unless zero" script saved.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>What's the highest variance you'd "let go" before stopping the rec? Trick question. The answer is $0.00. Internalize it.</div>
+</div></div>
+
+<!-- ============================ DAY 12 ============================ -->
+<div class="day"><div class="day-head qb-head"><div class="day-num">D12<small>FRI</small></div><div class="day-title"><h4>Payroll journal entries — record without running</h4><div class="mission">Mission · Map Gusto/ADP to QBO <span class="timing">· ~75 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,12)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill qb">🎬 The scenario</span></div>
+<div class="scenario"><p>Client: <strong>"We use Gusto for payroll. Can you mirror those entries in QBO so our P&amp;L is accurate?"</strong></p><p>80% of US small businesses use Gusto, ADP, or Paychex. As a PH-based bookkeeper, you don't RUN payroll (licensing). But you DO record it. Today you learn the standard journal entry pattern.</p></div>
+
+<div class="sec-title"><span class="label-pill teal">💡 Why this matters</span></div>
+<div class="why"><p>Payroll is usually the largest expense on a P&amp;L. If you record it wrong, the entire financial picture is wrong. This is a "must-know" skill that separates serious bookkeepers from beginners.</p></div>
+
+<div class="sec-title"><span class="label-pill qb">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>Watch <a href="https://www.youtube.com/results?search_query=payroll+journal+entry+quickbooks+online" target="_blank">"Payroll Journal Entry QuickBooks Online"</a> by Hector Garcia (full video). Take notes.</li>
+ <li>In Sunrise Café, create a manual <strong>Journal Entry</strong> (+ button → Other → Journal Entry). For a $5,000 payroll run with $500 employer payroll tax:<br>
+ DEBIT: Wages &amp; Salaries Expense $5,000 ·<br>
+ DEBIT: Payroll Tax Expense $500 ·<br>
+ CREDIT: Payroll Clearing (current liability) $5,500</li>
+ <li>The next day (when cash actually leaves your bank):<br>
+ DEBIT: Payroll Clearing $5,500 ·<br>
+ CREDIT: Checking $5,500.</li>
+ <li>Why two entries? Because Gusto withdraws money in 1–2 batches. The Clearing account lets you reconcile cleanly.</li>
+ <li>Run P&amp;L → confirm payroll shows correctly.</li>
+ <li>Document your <strong>Gusto-to-QBO mapping</strong>: which Gusto line maps to which QBO account. Save as "Payroll Mapping.docx" in Templates folder.</li>
+ <li>Set a recurring monthly reminder in your calendar: "Record payroll JE on [day after Gusto runs]."</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">💬 Quick client note explaining payroll JE</span>Hi [Owner],
+
+Recorded today's payroll in QBO using the standard journal entry approach:
+
+• $5,000 to Wages &amp; Salaries Expense
+• $500 to Payroll Tax Expense
+• $5,500 cash will leave your bank tomorrow (matched when reconciling)
+
+Quick reminder: I record payroll based on the Gusto report, but I don't actually run payroll for you (licensing reasons). Just FYI in case anyone asks.
+
+— [Your Name]</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>QBO · <a href="https://www.youtube.com/@HectorGarciaCPA" target="_blank">Hector Garcia YouTube</a> · <a href="https://gusto.com" target="_blank">Gusto</a> demo (no signup needed to see UI)</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't try to RUN payroll yourself for US clients without proper licensing. Just RECORD it.</li>
+ <li>Don't skip the Clearing account — it makes bank reconciliation infinitely easier.</li>
+ <li>Don't post payroll directly to "Wages" without separating Wages + Employer Taxes. Tax preparers will hate you.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>1 payroll JE recorded (in 2 entries) · Gusto-to-QBO mapping doc saved · client note script saved.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>If you charged a separate "Payroll Setup" fee on top of monthly bookkeeping, what would you charge? Look at competitor pricing later this week.</div>
+</div></div>
+
+<!-- ============================ DAY 13 ============================ -->
+<div class="day"><div class="day-head qb-head"><div class="day-num">D13<small>SAT</small></div><div class="day-title"><h4>Run your first complete month-end packet</h4><div class="mission">Mission · Close the month, deliver the packet <span class="timing">· ~120 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,13)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill qb">🎬 The scenario</span></div>
+<div class="scenario"><p>Retainer client expectation: <strong>"Every month by the 10th, I want a P&amp;L, Balance Sheet, Cash Flow, AR Aging, and a one-page summary email in plain English. Can you do that?"</strong></p><p>This is THE deliverable for monthly retainers. You'll do it 12 times a year per client. Today you build the system.</p></div>
+
+<div class="sec-title"><span class="label-pill teal">💡 Why this matters</span></div>
+<div class="why"><p>The Monthly Close Packet is what retainer clients pay you for. Doing it well = retention for years. The 1-page email is the part most beginners skip — and it's the part that separates a $400/mo bookkeeper from a $1,500/mo one.</p></div>
+
+<div class="sec-title"><span class="label-pill qb">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>For Sunrise Café, run for the most recent month:<br>
+ • Profit &amp; Loss (with comparison to prior month) ·<br>
+ • Balance Sheet (as of month end) ·<br>
+ • Cash Flow Statement ·<br>
+ • A/R Aging Summary ·<br>
+ • A/P Aging Summary.</li>
+ <li>Export each as PDF. Name them: "SunriseCafe_2026-04_PL.pdf" etc.</li>
+ <li>Create a single combined PDF using <a href="https://smallpdf.com/merge-pdf" target="_blank">SmallPDF Merge</a> or <a href="https://www.ilovepdf.com/merge_pdf" target="_blank">iLovePDF</a> — name it "SunriseCafe_2026-04_Monthly_Packet.pdf."</li>
+ <li>Write the 1-page summary email (template below). The OWNER reads this email, not the PDFs. Make it gold.</li>
+ <li>Save BOTH the packet PDF + the summary email to a "Client Deliverables Sample" folder in your Portfolio.</li>
+ <li>Add this to your portfolio case study: "Monthly Close Sample — [Month]."</li>
+ <li>Time yourself. End-to-end, how long did this take? Aim for 90 minutes by Day 30.</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">✉️ The Monthly Close email — your $1,000/mo deliverable</span>Subject: 📊 [Business] · [Month] is closed — your summary inside
+
+Hi [Owner Name],
+
+Books for [Month] are closed and reconciled. Here's the snapshot:
+
+📈 PERFORMANCE
+• Revenue: $[X] (vs. $[Y] last month · +/- [Z]%)
+• Expenses: $[X] (vs. $[Y] last month · +/- [Z]%)
+• Net Profit: $[X] (vs. $[Y] last month)
+
+💰 CASH POSITION
+• Cash on hand at month-end: $[X]
+• AR (money owed TO you): $[X]
+• AP (money you owe): $[X]
+• Net "working cash": $[X – Y]
+
+🔍 WHAT I NOTICED
+• [1 specific insight — e.g., "Coffee Beans expense is up 12% — worth reviewing supplier pricing"]
+• [1 specific insight — e.g., "Customer Anna Garcia has 3 overdue invoices totaling $850, I sent her a firm follow-up"]
+
+📅 NEXT MONTH'S WATCH-LIST
+• [1 thing to track]
+• [1 question I need from you]
+
+Full PDF packet attached. Any questions, just reply.
+
+Have a great Monday! 💗
+— [Your Name]
+Your remote bookkeeper · QB ProAdvisor · Xero Advisor</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>QBO · <a href="https://smallpdf.com/merge-pdf" target="_blank">SmallPDF</a> · email draft folder · Portfolio folder</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't just send the PDFs. The 1-page email IS the value-add.</li>
+ <li>Don't write the email like a report. Write it like a smart friend.</li>
+ <li>Don't skip the "What I noticed" section. That's the advisory layer that earns rate increases.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>Monthly packet PDF created · 1-page summary email written · time logged · case study added to Portfolio.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>If you were the OWNER reading your summary email, what's missing? Add it. Polish until you'd pay for it.</div>
+</div></div>
+
+<!-- ============================ DAY 14 ============================ -->
+<div class="day"><div class="day-head qb-head"><div class="day-num">D14<small>SUN</small></div><div class="day-title"><h4>Mock client meeting — record &amp; review your 90-sec intro</h4><div class="mission">Mission · Speak like a pro <span class="timing">· ~60 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,14)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill qb">🎬 The scenario</span></div>
+<div class="scenario"><p>Friday 9 PM. You're on a Zoom discovery call with a prospect from Upwork. They say: <strong>"Tell me about yourself and how you'd help my business."</strong></p><p>You have 90 seconds. Most beginners RAMBLE for 3 minutes and lose the deal. Today you nail your script — and you record yourself proving it.</p></div>
+
+<div class="sec-title"><span class="label-pill teal">💡 Why this matters</span></div>
+<div class="why"><p>The 90-second intro is the single biggest conversion lever in your business. Pros sound like pros because they REHEARSED. Tonight you become a pro.</p></div>
+
+<div class="sec-title"><span class="label-pill qb">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>Write your 90-second intro using the script below. Fill in the brackets.</li>
+ <li>Read it out loud once. Time yourself. Adjust until it's 80–90 seconds.</li>
+ <li>Record yourself on your phone (voice memo). Listen back. Cringe is normal.</li>
+ <li>Re-record 3 times. Each time, sound LESS like you're reading.</li>
+ <li>Now practice the next 3 questions:<br>
+ "Walk me through bank reconciliation." (use Day 11's playbook) ·<br>
+ "Why should I trust someone in the Philippines?" (your answer below) ·<br>
+ "What are your rates?" (you'll work on this Day 27 — but draft a placeholder)</li>
+ <li>Record yourself on Loom (face on camera) doing the full intro. Save the link — you'll use it Day 17 if it's good.</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">🎤 The 90-second intro template — fill in &amp; memorize</span>"Hi [Client Name] — thanks for the time today!
+
+I'm [Your Name], a remote bookkeeper based in the Philippines. I'm certified as a QuickBooks Online ProAdvisor and a Xero Advisor — both verified through Intuit and Xero's directories.
+
+I focus on small businesses doing [revenue range — e.g., $25k–$250k/mo] across the US, Australia, UK, and New Zealand. The clients I keep longest are ones where I handle the FULL monthly cycle: bank rec, AR/AP, payroll JE, monthly close packet, and a 1-page summary email so the owner always knows where they stand.
+
+Time-zone-wise, I overlap with your [US Pacific / EST / AEST] mornings, so when you start your day, my work is already in your inbox.
+
+I came across your job because [SPECIFIC DETAIL from their job post — e.g., 'you mentioned needing someone fluent in both QBO and Xero — that's me'].
+
+I'd love to learn what your books look like today, and tell you how I'd approach the first 30 days. Sound good?"</div>
+
+<div class="script-box"><span class="script-label">💬 Answer for "Why should I trust someone in the Philippines?"</span>Totally fair question — and one I get a lot. Here's my honest answer:
+
+1. I'll sign a Mutual NDA before I see a single transaction.
+2. I use a password manager (Bitwarden) and 2FA on every account — I never email passwords.
+3. You can start with a paid 2-week trial. Small scope, low risk. If it's not a fit, no hard feelings.
+4. My certifications (QB ProAdvisor + Xero Advisor) are publicly verifiable — link below.
+5. I publish a weekly written status email. You'll never wonder where things stand.
+
+Would a paid trial work as a way to get started?</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>Phone voice memo · <a href="https://loom.com" target="_blank">Loom</a> · mirror · script template (above)</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't memorize so hard it sounds robotic. Aim for "natural-but-prepared."</li>
+ <li>Don't apologize for being from the Philippines. Lead with your CERTS.</li>
+ <li>Don't go over 90 seconds. They tune out.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>90-second intro recorded 3× · "Why trust me" answer scripted · 1 Loom video saved (for portfolio if good).</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>Listen to your recording. What 1 word would you remove? What 1 word would you add? Polish, then sleep.</div>
+</div></div>
+
+<!-- ═══ WEEK 3 ═══ -->
+<div class="week-banner xero"><div class="week-num">W3<small>VISIBILITY</small></div><div class="week-info"><h3>Week 3 — Get Visible &amp; Get Certified (Days 15–21)</h3><p>Xero · portfolio · profiles · certs · first proposals</p></div></div>
+
+<!-- ============================ DAY 15 ============================ -->
+<div class="day"><div class="day-head xero-head"><div class="day-num">D15<small>MON</small></div><div class="day-title"><h4>Set up your Xero Advisor account</h4><div class="mission">Mission · Add the 2nd platform <span class="timing">· ~60 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,15)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill xero">🎬 The scenario</span></div>
+<div class="scenario"><p>An Australian property manager DMs you: <strong>"Hi! Saw your profile. Are you also Xero certified? We're a 12-unit rental business in Sydney — not on QBO."</strong></p><p>Without Xero, you lose this AUD $1,500/month retainer instantly. Two certs = double the inbox.</p></div>
+
+<div class="sec-title"><span class="label-pill teal">💡 Why this matters</span></div>
+<div class="why"><p>QBO dominates the US. Xero dominates AU, NZ, UK. Knowing only one cuts your market in half. The good news: both certifications are, and Xero's exam is shorter than QBO's.</p></div>
+
+<div class="sec-title"><span class="label-pill xero">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>Go to <a href="https://www.xero.com/" target="_blank">xero.com</a> → top menu → click <strong>"Partners"</strong> → <strong>"Become a Partner"</strong>.</li>
+ <li>Choose "Bookkeeper" path. Sign up with your professional email + strong password (Bitwarden it).</li>
+ <li>Fill in: real name · firm name · country (Philippines is fine) · phone.</li>
+ <li>You'll land in your Xero HQ dashboard. Tour it for 30 min: My Xero · Subscribers · Practice Library · Education.</li>
+ <li>Click <strong>"Education"</strong> → find <strong>"Xero Advisor Certification"</strong>. Bookmark this. You'll take the exam Day 22.</li>
+ <li>Click <strong>"Demo Company"</strong> in the top right → load it. This is your Sunrise Café equivalent in Xero.</li>
+ <li>Enable 2FA right now: My Profile → Security → Two-step authentication.</li>
+ <li>In your Drive "My Certifications" folder, add: "Xero Advisor Setup.docx" with login info + exam date.</li>
+</ol></div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong><a href="https://www.xero.com/" target="_blank">Xero</a> · phone for 2FA · Bitwarden · Drive folder</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't sign up as "client" — choose "Partner / Bookkeeper" path.</li>
+ <li>Don't skip 2FA. Xero is even stricter than QBO about security.</li>
+ <li>Don't try to rush through the Education section today. Save it for Day 22.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>Xero Partner account active · 2FA on · Demo Company tour done · exam date noted in calendar.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>Xero vs QBO — first impression? Write it down. By Day 22 your opinion will evolve.</div>
+</div></div>
+
+<!-- ============================ DAY 16 ============================ -->
+<div class="day"><div class="day-head xero-head"><div class="day-num">D16<small>TUE</small></div><div class="day-title"><h4>Rebuild Sunrise Café in Xero — hands-on practice</h4><div class="mission">Mission · End-to-end Xero <span class="timing">· ~120 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,16)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill xero">🎬 The scenario</span></div>
+<div class="scenario"><p>Australian client: <strong>"We're switching from MYOB to Xero next quarter. Can you handle the migration AND ongoing books?"</strong></p><p>You can answer YES — because today you built Sunrise Café from scratch in Xero. You've now used both platforms end-to-end. Premium rate territory.</p></div>
+
+<div class="sec-title"><span class="label-pill xero">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>In Xero → click "Try a Demo Company" OR add Sunrise Café as a new subscriber org (you can use Xero's 30-day trial for one org).</li>
+ <li>Setup → Chart of Accounts → recreate the COA from Day 4. Note: Xero uses 4-digit codes (e.g., 200 for Sales, 400 for Operating Expenses).</li>
+ <li>Add the 3 customers + 3 vendors from Day 6 under <strong>Contacts</strong>.</li>
+ <li>Create 1 invoice (Business → Invoices → New Invoice).</li>
+ <li>Enter 1 bill (Business → Bills to Pay → New Bill).</li>
+ <li>Click <strong>Bank Accounts → Manual Reconcile</strong> and add 5 mock transactions. Reconcile them one by one — Xero's reconcile UX is different from QBO. Learn the rhythm.</li>
+ <li>Set up your first <strong>Bank Rule</strong> in Xero (Business → Bank Rules → New). Notice it's more powerful than QBO's.</li>
+ <li>Run the <strong>Profit &amp; Loss</strong> report. Compare to your QBO version mentally.</li>
+ <li>Screenshot 4 key views: Dashboard · COA · Invoice · Reconcile screen. Save to Portfolio.</li>
+</ol></div>
+
+<div class="bestie"><strong>💗 Bestie tip</strong>Xero's "Find &amp; Recode" feature (Adviser menu) is MAGIC for cleanup work. It lets you bulk-reclassify hundreds of transactions in one go. QBO doesn't have a direct equivalent. Remember this when AU prospects ask about cleanup capability.</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>Xero Demo Company OR org · screenshot app · Portfolio folder</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't expect Xero to feel like QBO — it WON'T. Lean in.</li>
+ <li>Don't skip the manual reconcile practice. Xero's reconcile is its strongest feature.</li>
+ <li>Don't forget to label your Xero screenshots clearly when filing in Portfolio.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>Sunrise Café rebuilt in Xero · COA + 1 invoice + 1 bill · 5 reconciled transactions · 1 bank rule · 4 screenshots saved.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>Which platform felt more intuitive after today? That's likely your first specialty. Lean into it.</div>
+</div></div>
+
+<!-- ============================ DAY 17 ============================ -->
+<div class="day"><div class="day-head"><div class="day-num">D17<small>WED</small></div><div class="day-title"><h4>Record your Loom intro video — your secret weapon</h4><div class="mission">Mission · 90-second pro intro on camera <span class="timing">· ~75 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,17)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill">🎬 The scenario</span></div>
+<div class="scenario"><p>Tuesday morning. A prospect just got 47 Upwork proposals for her bookkeeper job. She's scrolling. Yours has a Loom video link. She clicks. 90 seconds later she emails: <strong>"You — let's talk."</strong></p><p>Loom videos in proposals can 3–4× your conversion rate. Today you make yours.</p></div>
+
+<div class="sec-title"><span class="label-pill">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>Sign up at <a href="https://loom.com" target="_blank">loom.com</a> (, 25 videos/mo, 5 min each — plenty).</li>
+ <li>Install the Loom desktop app or Chrome extension.</li>
+ <li>Brush hair. Wear what you'd wear on a client call (decent shirt, no PJs).</li>
+ <li>Sit by a window. Test audio. Natural light is your friend.</li>
+ <li>Record using your Day 14 90-second intro script as a base. Look at the camera, not the screen. Smile.</li>
+ <li>Re-record 5–7 times. Each time, sound MORE natural and LESS scripted. Allow it.</li>
+ <li>Pick the best take. Trim the start/end (Loom has built-in editing).</li>
+ <li>Set the thumbnail (a smiling face frame). Customize the URL slug to "/mary-bookkeeper-intro" or similar.</li>
+ <li>Copy the Loom link. Save it in your "Client Toolkit" Notion page.</li>
+ <li>Test the link on your phone in incognito mode — make sure ANYONE can view it without login.</li>
+</ol></div>
+
+<div class="bestie"><strong>💗 Bestie tip</strong>No filters. No "professional" Zoom backgrounds. Just YOU, smiling, by a window. Authenticity wins over polish every single time. Filipinos are KNOWN for warmth — lead with it.</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong><a href="https://loom.com" target="_blank">Loom</a> · webcam · natural light · Day 14 script</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't aim for "perfect." Aim for "warm, clear, and under 90 seconds."</li>
+ <li>Don't say your kids' names or show family photos in the background.</li>
+ <li>Don't forget to test the share link as a guest (incognito).</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>Loom intro recorded · trimmed · thumbnail set · link saved to Client Toolkit · tested in incognito.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>Send the Loom link to ONE friend you trust. Ask: "If you were a US business owner, would you book a call with me after this?" Listen to their honest feedback.</div>
+</div></div>
+
+<!-- ============================ DAY 18 ============================ -->
+<div class="day"><div class="day-head"><div class="day-num">D18<small>THU</small></div><div class="day-title"><h4>Build your portfolio page in Notion</h4><div class="mission">Mission · Show the work <span class="timing">· ~120 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,18)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill">🎬 The scenario</span></div>
+<div class="scenario"><p>Prospect: <strong>"Can you send me examples of your work?"</strong> You reply with ONE link. They scroll, see screenshots, watch your Loom, read your case studies. They book a call. Today you build that link.</p></div>
+
+<div class="sec-title"><span class="label-pill">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>Sign up at <a href="https://www.notion.so" target="_blank">notion.so</a> (, unlimited pages).</li>
+ <li>Create a new blank page. Title: "[Your Name] · Remote Bookkeeper · Portfolio."</li>
+ <li>Make it PUBLIC: Share (top right) → toggle "Share to web" ON. Copy the link.</li>
+ <li>Build these sections (in order):<br>
+ <strong>1. Hero:</strong> Your name · tagline ("Remote Bookkeeper for US &amp; AU Small Businesses") · 1-sentence value prop · profile photo.<br>
+ <strong>2. About Me:</strong> 3 short paragraphs.<br>
+ <strong>3. Certifications:</strong> QB ProAdvisor (link to verification page) + Xero Advisor + The Ultimate Bookkeeper Academy + HubSpot.<br>
+ <strong>4. Services:</strong> 3 packages — Monthly Bookkeeping · Cleanup Project · Catch-Up Project.<br>
+ <strong>5. Case Studies:</strong> Use Sunrise Café screenshots as 2 case studies (Cleanup + Monthly Maintenance).<br>
+ <strong>6. Loom Video:</strong> Embed your Day 17 Loom.<br>
+ <strong>7. How I Work:</strong> 6 steps (NDA · Onboarding · Monthly Close · Friday Status · Quarterly Review · Pay it forward).<br>
+ <strong>8. Tools:</strong> Logos for QBO · Xero · Hubdoc · Gusto · Slack · Loom · Wise · 1Password.<br>
+ <strong>9. Testimonials:</strong> "Coming soon" placeholder OR a quote from a friend / Academy peer / family.<br>
+ <strong>10. Contact:</strong> Email · Calendly link · LinkedIn URL · TikTok (if you post).</li>
+ <li>Set up Calendly at <a href="https://calendly.com" target="_blank">calendly.com</a>. Create 1 event: " 20-min discovery call." Get the link.</li>
+ <li>Add a big "Book a Call" button on your Notion page linking to Calendly.</li>
+ <li>Test on your phone — does it look good? Fix anything broken.</li>
+ <li>Share the link with 2 friends. Ask: "Would you trust someone after reading this?" Get feedback.</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">📝 Case study format — copy this for each one</span>## Case Study: [Type of Business] — [Type of Project]
+
+**Client:** Anonymized (e.g., "A US-based 8-person SaaS startup")
+**Engagement:** Monthly bookkeeping retainer · QBO Plus
+**Duration:** 6 months (ongoing)
+
+**The Problem:**
+[2-3 sentences describing what the client was dealing with — e.g., 8 months of unreconciled books, 200+ uncategorized transactions, tax deadline looming.]
+
+**My Approach:**
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+
+**The Result:**
+• All 8 months closed to $0 variance in 3 weeks
+• 200+ transactions categorized with 10 new bank rules
+• Clean P&amp;L and Balance Sheet delivered for the CPA
+
+**Tools used:** QuickBooks Online · Hubdoc · Excel
+
+**Screenshot:** [embed your reconciled rec screenshot here]</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong><a href="https://www.notion.so" target="_blank">Notion</a> · <a href="https://calendly.com" target="_blank">Calendly</a> · phone for mobile test</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Done beats perfect. Publish today even if it's "not quite right." Polish later.</li>
+ <li>Don't use real client data even as a fake case study. Always anonymize.</li>
+ <li>Don't forget the Calendly button. The whole point is to BOOK CALLS.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>Public Notion portfolio LIVE · 2 case studies written · Loom embedded · Calendly button added · 2 friends asked for feedback.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>What did your friends say? Did they like it? Trust it? Adjust ONE thing tomorrow based on their honest feedback.</div>
+</div></div>
+
+<!-- ============================ DAY 19 ============================ -->
+<div class="day"><div class="day-head"><div class="day-num">D19<small>FRI</small></div><div class="day-title"><h4>Optimize LinkedIn + OnlineJobs.ph profiles</h4><div class="mission">Mission · Be findable <span class="timing">· ~120 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,19)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill">🎬 The scenario</span></div>
+<div class="scenario"><p>A US CPA firm searches LinkedIn: <strong>"Remote bookkeeper QuickBooks Philippines"</strong>. 12 profiles come up. Yours is #11 because your headline isn't optimized. Today you fix it and become #2 or #3.</p></div>
+
+<div class="sec-title"><span class="label-pill">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li><strong>LinkedIn HEADLINE</strong> (220 char limit) — replace yours with this exact format:<br>
+ <em>"Remote Bookkeeper for US &amp; AU Small Businesses | QuickBooks ProAdvisor + Xero Advisor Certified | Helping Founders Get Clean Books Without the Stress | PH-based 🇵🇭"</em></li>
+ <li><strong>LinkedIn ABOUT</strong> — use the template below. Replace [brackets] with your details.</li>
+ <li><strong>LinkedIn Profile Photo</strong> — your warm, smiling Loom-style photo. NOT a corporate stare.</li>
+ <li><strong>LinkedIn Banner</strong> — make a one in Canva (size: 1584 × 396). Brand it with your colors.</li>
+ <li>Add "Featured" section (pin 3 items): Portfolio link · Loom video · 1 post you'll write today.</li>
+ <li>Turn ON "Open to Work" (visible to recruiters only if you prefer).</li>
+ <li><strong>OLJ.ph:</strong> Sign up at <a href="https://www.onlinejobs.ph" target="_blank">onlinejobs.ph</a> ().</li>
+ <li>Get ID-verified (the green badge DOUBLES your profile views).</li>
+ <li>Job title: "Remote Bookkeeper | QuickBooks ProAdvisor &amp; Xero Advisor Certified | Full-Time PH."</li>
+ <li>Take the bookkeeping + English skill tests on OLJ. Aim for "Excellent."</li>
+ <li>Salary expectation: market rate, NOT the lowest (you'll get ignored if too low).</li>
+ <li>Upload your resume PDF (Academy templates folder has 3 versions).</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">🔷 LinkedIn ABOUT section (paste &amp; customize)</span>Hi, I'm [Your Name] — a remote bookkeeper based in the Philippines, serving small businesses across the US, Australia, UK, and New Zealand.
+
+I help busy founders and operators get clean, accurate, reconciled books — every month, without the panic that usually shows up around tax season.
+
+WHAT I DO
+I run end-to-end monthly bookkeeping for small businesses (1–25 employees) on QuickBooks Online and Xero. My typical engagement includes:
+
+• Monthly bank, credit card, and merchant account reconciliation
+• AR / AP management and follow-up
+• Receipt capture via Hubdoc or Dext
+• Bank rules and automation setup
+• Monthly P&amp;L, Balance Sheet, and a 1-page summary email
+• Year-end cleanup and prep for your tax preparer
+
+WHO I WORK WITH
+I'm a great fit if you run a [SaaS / e-commerce / agency / construction / consulting] business and:
+- You're frustrated by uncategorized transactions piling up
+- You need books closed on a predictable schedule
+- You want a bookkeeper who actually replies within 24 hours
+
+CERTIFICATIONS
+✅ QuickBooks Online ProAdvisor — Intuit
+✅ Xero Advisor Certified
+✅ HubSpot Academy — Finance Fundamentals
+✅ The Ultimate Bookkeeper Academy by @mgsolayao
+
+TOOLS I USE DAILY
+QBO · Xero · MYOB · Hubdoc · Dext · A2X · Gusto · Bill.com · Slack · Loom · Calendly · Wise · 1Password
+
+LET'S TALK
+If you're looking for a long-term bookkeeping partner — not just someone to clear a one-off backlog — I'd love to chat. Drop me a message here on LinkedIn, or book a 20-minute call: [your Calendly link]
+
+— [Your Name]</div>
+
+<div class="script-box"><span class="script-label">🔥 Your first LinkedIn POST — paste &amp; tweak</span>3 years ago I was a girl from the province with no job, no mentor, and a borrowed laptop.
+
+Today I'm a certified remote bookkeeper supporting US, AU, UK and NZ small businesses from a desk in my own home.
+
+Three things I learned the hard way:
+
+1️⃣ Your certifications mean less than your communication. The best clients keep the bookkeepers who EXPLAIN, not the ones who hide behind jargon.
+
+2️⃣ Reconcile to zero. Always. "Close enough" is the fastest way to lose a client.
+
+3️⃣ Friday status emails > Monthly close. Clients leave when they wonder. They stay when you tell them.
+
+If you're a Filipino trying to break into remote bookkeeping — DM me. I'm open. I built a Academy (free) so you don't have to figure this out alone. Pay it forward when you make it. 💗
+
+#RemoteBookkeeper #Filipino #QuickBooks #Xero #WorkFromHome #PinoyExcellence</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong><a href="https://linkedin.com" target="_blank">LinkedIn</a> · <a href="https://www.onlinejobs.ph" target="_blank">OLJ.ph</a> · <a href="https://canva.com" target="_blank">Canva</a> (for banner) · Academy resume templates</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't use the same generic LinkedIn photo your friend took at a party.</li>
+ <li>Don't set OLJ salary at the floor — you'll attract bad clients.</li>
+ <li>Don't write "Looking for opportunities" as your headline. Be specific.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>LinkedIn fully optimized · OLJ ID-verified · 1 LinkedIn post published · resume uploaded to OLJ · 2 friends asked for LinkedIn recommendations.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>Did 1 person see your LinkedIn post in the first hour? Engagement matters. Reply to every comment.</div>
+</div></div>
+
+<!-- ============================ DAY 20 ============================ -->
+<div class="day"><div class="day-head"><div class="day-num">D20<small>SAT</small></div><div class="day-title"><h4>Send your first 5 Upwork proposals + 5 OLJ applications</h4><div class="mission">Mission · Get in the arena <span class="timing">· ~150 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,20)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill">🎬 The scenario</span></div>
+<div class="scenario"><p>Reality check: you'll send 50 proposals before your first interview. That's NORMAL. Today you send 10. Tomorrow you send 10. Eventually one says yes — that's how this works.</p></div>
+
+<div class="sec-title"><span class="label-pill">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>Sign up at <a href="https://www.upwork.com" target="_blank">upwork.com</a>. Fill out your profile completely. Upload your real photo. Title: "Remote Bookkeeper | QB ProAdvisor + Xero Advisor."</li>
+ <li>Upwork Profile Overview — paste your LinkedIn ABOUT section, adjust slightly.</li>
+ <li>Take Upwork's "Readiness Test" (5 questions,, takes 5 min).</li>
+ <li>Set hourly rate to start at $15–25/hr (you can raise later — start above $10).</li>
+ <li>Search for jobs: "bookkeeper part time" · "QBO cleanup" · "monthly bookkeeping" · "Xero advisor."</li>
+ <li>For each job — read the WHOLE post. Identify ONE specific detail.</li>
+ <li>Use the Upwork proposal template (script below). Customize EACH ONE.</li>
+ <li>Attach your portfolio link + Loom intro link to every proposal.</li>
+ <li>Send 5 Upwork proposals. Track them in a Google Sheet (job title · date sent · status).</li>
+ <li>Then go to OLJ.ph. Apply to 5 fresh bookkeeping postings. Use the OLJ cover letter template.</li>
+ <li>Set a goal: 5 Upwork + 5 OLJ per day for the next 7 days. Track it.</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">📝 Upwork Proposal — short version (under 200 words)</span>Hi [Client First Name],
+
+I noticed your job mentions [SPECIFIC DETAIL — e.g., "8 months of QBO cleanup for a Shopify store"]. I've handled this exact scenario several times — happy to help.
+
+About me:
+• Certified QuickBooks Online ProAdvisor + Xero Advisor
+• Based in the Philippines, full-time available
+• Time-zone overlap with [their timezone]: [block]
+• Portfolio + Loom intro below
+
+My quick plan for your project:
+1. Review your last 3 months of bank statements + current QBO state (, 30 min)
+2. Send you a scoped fixed fee + 30-day cleanup plan
+3. Reconcile to $0 variance for each month, in priority order
+
+Quick question: are you on QBO Plus or Essentials? That changes my recommended bank rules setup.
+
+Portfolio: [your Notion link]
+Loom intro: [your Loom link]
+QB ProAdvisor verification: [link]
+
+Available to start [date]. Looking forward!
+
+— [Your Name]</div>
+
+<div class="script-box"><span class="script-label">📝 OLJ.ph Application Cover Letter</span>Hi [Employer Name],
+
+I'd love to be considered for the [Job Title] position. I'm a certified QuickBooks ProAdvisor + Xero Advisor based in [your city]. Time zone-wise, I overlap with your [region] hours from [time block].
+
+Three quick reasons I'm a fit:
+1. [Specific skill or experience matching their post]
+2. Both QBO + Xero certifications (verifiable on Intuit + Xero directories)
+3. Async working style with weekly written status updates — you'll never wonder where things stand
+
+My resume + portfolio are attached. I'd be happy to start with a small paid trial so you can evaluate my work risk-.
+
+Looking forward to your reply!
+
+— [Your Name]
+Portfolio: [Notion link]</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong><a href="https://www.upwork.com" target="_blank">Upwork</a> · <a href="https://www.onlinejobs.ph" target="_blank">OLJ.ph</a> · Google Sheets (for tracking) · Academy templates</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't copy-paste the same proposal to every job. Customize ONE specific detail per proposal.</li>
+ <li>Don't bid the lowest rate — you'll get filtered out as "too cheap to be good."</li>
+ <li>Don't mention you're a "beginner." Mention your CERTS.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>Upwork profile complete · 5 Upwork proposals sent · 5 OLJ applications sent · tracking sheet started · 7-day goal set.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>Which job posting made your heart race? That's your "dream client" signal. Apply twice as hard to similar ones.</div>
+</div></div>
+
+<!-- ============================ DAY 21 ============================ -->
+<div class="day"><div class="day-head qb-head"><div class="day-num">D21<small>SUN</small></div><div class="day-title"><h4>Take the QuickBooks ProAdvisor exam 🏅</h4><div class="mission">Mission · GET CERTIFIED <span class="timing">· ~4 hours (can pause)</span></div></div><div class="day-checkbox" onclick="toggleDay(this,21)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill qb">🎬 The scenario</span></div>
+<div class="scenario"><p>Discovery call. Prospect: <strong>"Are you certified?"</strong> You: <strong>"Yes — QuickBooks Online ProAdvisor. Want the verification link?"</strong> Boom. Trust earned in 5 seconds.</p></div>
+
+<div class="sec-title"><span class="label-pill teal">💡 Why this matters</span></div>
+<div class="why"><p>This is THE certification US clients filter for. Without it, you're invisible. With it, you can confidently charge market rate. And it's.</p></div>
+
+<div class="sec-title"><span class="label-pill qb">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>Log into <a href="https://quickbooks.intuit.com/accountants/" target="_blank">QBO Accountant</a>.</li>
+ <li>Click <strong>Training</strong> → <strong>QuickBooks Online Certification</strong>.</li>
+ <li>If you haven't already, watch the 6 training modules (they're each 30–60 min). If you have 4 hours straight, you can binge them today.</li>
+ <li>When ready, click <strong>"Take the Certification Exam"</strong>.</li>
+ <li>The exam is open-book. Have your QBO Sample Co. open in another tab. Have your journal notes ready.</li>
+ <li>You get 3 attempts. Most people pass on the 1st or 2nd. Pass = 80%.</li>
+ <li>If you pass: take the screenshot of your cert. Update LinkedIn → Licenses &amp; Certifications. Add to Portfolio.</li>
+ <li>Post on TikTok / IG / LinkedIn: "Just got QB ProAdvisor certified — Day 21 of my 30-day challenge ✅" — tag <a href="https://www.tiktok.com/@mgsolayao" target="_blank">@mgsolayao</a></li>
+ <li>If you don't pass: ZERO shame. Note the topics you missed. Re-watch those modules. Retake in 2 days.</li>
+</ol></div>
+
+<div class="bestie"><strong>💗 Bestie tip</strong>You won't fail if you've actually done Days 1–20 of this challenge. The exam tests the exact stuff you've been doing all month. Take it seriously — and breathe. You've got this. 🇵🇭💗</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>QBO Accountant · 4 quiet hours · your Week 1–2 journal notes</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't take the exam when tired. Mornings &gt; nights.</li>
+ <li>Don't skip the prep modules even if "you know it." They cover specific QBO UI scenarios.</li>
+ <li>Don't forget to download the official cert PDF after passing.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>QB ProAdvisor certification EARNED · cert PDF downloaded · LinkedIn updated · public post made.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>You're now CERTIFIED. Sit with it for a sec. 5 minutes. You did that. 🇵🇭💗</div>
+</div></div>
+
+<!-- ═══ WEEK 4 ═══ -->
+<div class="week-banner teal"><div class="week-num">W4<small>LAUNCH</small></div><div class="week-info"><h3>Week 4 — Real Client Situations &amp; Launch (Days 22–30)</h3><p>Handle real DMs · real objections · real first work</p></div></div>
+
+<!-- ============================ DAY 22 ============================ -->
+<div class="day"><div class="day-head xero-head"><div class="day-num">D22<small>MON</small></div><div class="day-title"><h4>Get your Xero Advisor certification</h4><div class="mission">Mission · 2nd cert in the pocket <span class="timing">· ~3 hours</span></div></div><div class="day-checkbox" onclick="toggleDay(this,22)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill xero">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>Log into <a href="https://www.xero.com/" target="_blank">Xero Partner Portal</a>.</li>
+ <li>Education → Xero Advisor Certification path → start the 4 modules.</li>
+ <li>Each module is 30–45 min. Watch + take the mini-quizzes.</li>
+ <li>Once all 4 modules are done, take the final cert exam. Pass = 90% (yes, higher than QBO).</li>
+ <li>You can retake. Most people pass on attempt 1 or 2.</li>
+ <li>Cert in hand: screenshot · download PDF · add to LinkedIn · add to Portfolio.</li>
+ <li>Post on socials. Tag <a href="https://www.tiktok.com/@mgsolayao" target="_blank">@mgsolayao</a> + Xero's official channel — they sometimes reshare.</li>
+</ol></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>Xero Advisor cert EARNED · LinkedIn + Portfolio updated · public post made tagging Xero.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>You now have TWO certifications. That's a top-tier filter most candidates don't have. Internalize it before the next discovery call.</div>
+</div></div>
+
+<!-- ============================ DAY 23 ============================ -->
+<div class="day"><div class="day-head teal-head"><div class="day-num">D23<small>TUE</small></div><div class="day-title"><h4>Handle the "6-month cleanup" DM — quote a real scope</h4><div class="mission">Mission · Diagnostic + flat fee <span class="timing">· ~75 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,23)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill">🎬 The scenario</span></div>
+<div class="scenario"><p>Prospect DM (use this exact scenario for practice): <strong>"Hi Mary! I haven't done my books in 6 months. I have a Shopify store doing ~$80k/mo, 1 business checking, 1 credit card. Can you help and how much?"</strong></p><p>Today you write the EXACT reply. Then save it. Then use it forever.</p></div>
+
+<div class="sec-title"><span class="label-pill">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>DO NOT quote a number in your first reply. NEVER. Ask discovery questions first.</li>
+ <li>Use the Diagnostic Email template (below) as your reply.</li>
+ <li>Estimate hours for a cleanup: roughly 1 hour per month per bank account = 6 hours base · then add complexity (Shopify integration = +6 hrs · uncategorized volume = +6 hrs).</li>
+ <li>For 6 months of cleanup with 1 bank + 1 CC + Shopify: ballpark 18–25 hours total.</li>
+ <li>Quote a FLAT FEE, not hourly. Add a 30% complexity buffer.</li>
+ <li>Offer a paid trial (4 hours, ~$200) before committing to the full project. Reduces THEIR risk.</li>
+ <li>Always send your Scope-of-Work doc AFTER they verbally accept. Use template #2 in Academy templates folder.</li>
+ <li>Save the back-and-forth script to your Templates as "Cleanup DM Reply.docx."</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">✉️ THE Reply (use this exact framework)</span>Hi [Name]!
+
+Thanks for reaching out — totally happy to help. 6 months of catch-up is very doable. Before I quote anything, can I ask you 5 quick questions so I can give you a real scoped fee (not a guess)?
+
+1. Roughly how many transactions per month across your bank + credit card? (rough is fine — 50, 200, 500?)
+2. Are you using A2X or any other integration to pull Shopify into QBO/Xero?
+3. Do you have payroll? If yes, what provider (Gusto, ADP, etc.)?
+4. Any tax preparer involved? Or do you need this rushed for an upcoming filing?
+5. What's your deadline? (Soft "by end of quarter" or hard "tax filing on March 15"?)
+
+Once I have these, I'll send you a fixed-fee scope of work within 24 hours. Most cleanups this size are flat $X–$Y depending on the answers above.
+
+I always start with a paid 4-hour diagnostic (~$200) — so you see HOW I work before committing to the full project. If it's not a fit, we part ways with zero hard feelings.
+
+Talk soon!
+
+— [Your Name]
+QB ProAdvisor + Xero Advisor Certified
+[your portfolio link]</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>Academy templates folder · calculator · empathy</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't quote anything until you have answers to your 5 questions.</li>
+ <li>Don't quote hourly for cleanup. Always flat fee.</li>
+ <li>Don't do cleanup on net-30 terms. 50% upfront, 50% on completion.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>Discovery Q&amp;A reply template saved · ballpark estimation method documented · "50% upfront" rule internalized.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>What was the WORST job offer you'd consider? Write down the floor. Stick to it.</div>
+</div></div>
+
+<!-- ============================ DAY 24 ============================ -->
+<div class="day"><div class="day-head teal-head"><div class="day-num">D24<small>WED</small></div><div class="day-title"><h4>Run a mock discovery call — record &amp; review</h4><div class="mission">Mission · Sales meeting practice <span class="timing">· ~90 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,24)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill">🎬 The scenario</span></div>
+<div class="scenario"><p>Zoom call with a real US prospect: <strong>"Tell me how you'd help my business."</strong> 30 minutes. Today you run the EXACT meeting structure that wins clients — with a fake one first.</p></div>
+
+<div class="sec-title"><span class="label-pill">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>Recruit a friend / sibling / spouse. Tell them to play "US small business owner."</li>
+ <li>Send them a Calendly invite for tonight. Treat the call as if it were real.</li>
+ <li>Run this 30-min agenda:<br>
+ <strong>0:00–3:00:</strong> Pleasantries + check audio/video<br>
+ <strong>3:00–10:00:</strong> Discovery — let THEM talk 70% (ask the 5 questions from Day 23)<br>
+ <strong>10:00–20:00:</strong> Your approach — walk through your monthly process + your 30-day plan<br>
+ <strong>20:00–25:00:</strong> Pricing band (ranges, not exact) + paid trial offer<br>
+ <strong>25:00–28:00:</strong> Their Q&amp;A<br>
+ <strong>28:00–30:00:</strong> Close: "Based on what you've shared, I think we'd work well. Can I send a formal SOW by tomorrow EOD?"</li>
+ <li>Record the Zoom (for your eyes only). Watch yourself back — yes, it's brutal.</li>
+ <li>Note 2 things you did well + 1 thing to improve.</li>
+ <li>Adjust your script. Practice the close out loud 5 times.</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">🎤 THE CLOSE — say it exactly</span>"Based on everything we've covered, I think this is a fit. Here's what I'd love to do next:
+
+I'll send you a formal Scope of Work by tomorrow EOD. It'll include: monthly fee · what's included · what's NOT included · cancellation terms · start date.
+
+If everything looks good, you sign and I send the Mutual NDA. Once both are signed, we kick off our first 7 days.
+
+Sound good? Anything else before we wrap?"</div>
+
+<div class="bestie"><strong>💗 Bestie tip</strong>In a real call, talk LESS than the prospect. Aim for 30% you, 70% them. Most beginners flip it and lose the deal. The ones who ask great questions win. Practice asking.</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>Zoom · Calendly · a willing friend</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't dump your whole life story. Talk less. Ask more.</li>
+ <li>Don't quote an exact price on the call. Quote ranges, send formal SOW after.</li>
+ <li>Don't end the call without asking for the business. ASK.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>30-min mock call done · recording reviewed · close practiced 5× · adjustment notes in journal.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>Did you ACTUALLY ask for the business at the end? If not, that's the only skill that matters next time.</div>
+</div></div>
+
+<!-- ============================ DAY 25 ============================ -->
+<div class="day"><div class="day-head teal-head"><div class="day-num">D25<small>THU</small></div><div class="day-title"><h4>Send your first engagement letter + NDA</h4><div class="mission">Mission · Paper the deal <span class="timing">· ~75 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,25)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill">🎬 The scenario</span></div>
+<div class="scenario"><p>Prospect verbally agrees. <strong>NEVER start work without paper.</strong> Today you send a 1-page engagement letter + your NDA template, both for e-signature.</p></div>
+
+<div class="sec-title"><span class="label-pill">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>Open the Engagement Letter template from your Academy templates folder.</li>
+ <li>Fill in: parties · scope (use bullets) · monthly fee · start date · what's NOT included · cancellation (30 days written notice) · termination · liability cap.</li>
+ <li>Open the Mutual NDA template (templates/09_Mutual_NDA.txt).</li>
+ <li>Fill in: parties · effective date · jurisdiction (default to client's state/country).</li>
+ <li>Sign up at <a href="https://www.dropbox.com/sign" target="_blank">Dropbox Sign</a> (3 signs/mo) OR <a href="https://www.pandadoc.com" target="_blank">PandaDoc </a>.</li>
+ <li>Upload both docs · add signature fields for you + the client.</li>
+ <li>Send for e-signature.</li>
+ <li>DO NOT request access to their books until BOTH docs are signed.</li>
+ <li>Once signed, send the "Welcome — here's our working rhythm" email (template below).</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">✉️ "Engagement letter + NDA on the way" email</span>Subject: 📝 [Client Business] · Engagement Letter + NDA — for signature
+
+Hi [Name],
+
+Great call! As promised, I've attached two documents for signature via Dropbox Sign:
+
+1. **Engagement Letter** — 1 page. Covers our scope, monthly fee, start date, what's included/excluded, and cancellation terms.
+2. **Mutual NDA** — short form. Standard confidentiality.
+
+Once both are signed (takes ~2 minutes), I'll send you the secure onboarding form to collect your QBO/Xero access + bank statements. We'll be running by [start date].
+
+Any questions before signing, just reply. Excited to start!
+
+— [Your Name]</div>
+
+<div class="script-box"><span class="script-label">✉️ Welcome — here's our working rhythm</span>Subject: 💗 Welcome — here's our working rhythm
+
+Hi [Name],
+
+Welcome aboard! Here's the schedule I'll commit to, so you always know what to expect:
+
+📅 MY WORKING BLOCKS
+• Deep-focus work: Mon–Fri, 9 PM – 1 AM PHT (= your mornings, [their time])
+• Live meeting block: Tue + Thu, 9–11 PM PHT (= your 6–8 AM [their time])
+• Email response window: within 12 hours, business days
+
+📤 WHAT YOU'LL ALWAYS GET FROM ME
+• Daily Slack update (1–2 lines on what I touched)
+• Weekly written status email every Friday
+• Monthly close packet by the 10th of the following month
+• Loom walkthrough any time something is complex
+
+🚦 HOW WE HANDLE URGENT ITEMS
+• Tag @here in Slack for time-sensitive items
+• Truly urgent? Text [+63 number] and I'll log in.
+
+If anything doesn't work, tell me TODAY so we can adjust. Otherwise let's lock it in.
+
+Talk Monday!
+— [Your Name]</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>Engagement letter template · NDA template · <a href="https://www.dropbox.com/sign" target="_blank">Dropbox Sign</a> · <a href="https://www.pandadoc.com" target="_blank">PandaDoc</a></div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Verbal agreements are NOT agreements. Paper or nothing.</li>
+ <li>Don't log into their books before both docs are signed. Ever.</li>
+ <li>Don't customize the NDA terms heavily — clients get nervous if it feels lawyered up.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>Engagement Letter filled · NDA filled · Dropbox Sign or PandaDoc set up · "rhythm" email saved.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>If a real client tried to start "we'll handle the paperwork later," what's your firm-but-friendly response? Write it down.</div>
+</div></div>
+
+<!-- ============================ DAY 26 ============================ -->
+<div class="day"><div class="day-head teal-head"><div class="day-num">D26<small>FRI</small></div><div class="day-title"><h4>Run your first client onboarding — first 7 days</h4><div class="mission">Mission · First-week magic <span class="timing">· ~90 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,26)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill">🎬 The scenario</span></div>
+<div class="scenario"><p>Day 1 with your first paying client. They email: <strong>"OK we signed — now what?"</strong> Today you run the perfect first week so they tell their network about you.</p></div>
+
+<div class="sec-title"><span class="label-pill">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>Send the "Working Rhythm" email (Day 25 template). Set expectations on Day 1.</li>
+ <li>Send a secure intake form. Use Google Forms or Tally (). Ask for:<br>
+ • QBO/Xero login process (do NOT ask for password — request you be invited as Accountant)<br>
+ • Last 3 bank statements + credit card statements<br>
+ • Vendor list with W-9s (for US)<br>
+ • Current AR + AP detail<br>
+ • Tax preparer contact info<br>
+ • Payroll provider login (if applicable)</li>
+ <li>Once you have access, run a "discovery audit": review COA, check last reconciliation date, run AR/AP aging, scan for red flags (negative balances, weird accounts, missing reconciliations).</li>
+ <li>Send a "Discovery Audit Results" Loom video (5 min max) — show what you found, what you'll fix in week 1.</li>
+ <li>Schedule the next 7 days in your calendar: 30-min daily for this client until the cleanup baseline is hit.</li>
+ <li>Set up a Friday status email reminder (recurring weekly).</li>
+ <li>Document EVERYTHING in your client's Notion page (so you don't ask the same question twice).</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">🎥 Loom intro after you've accessed their books</span>"Hi [Name] — Mary here. I've done a 30-minute discovery audit of your books. Quick overview:
+
+What's working well:
+• [thing 1]
+• [thing 2]
+
+What I noticed that needs attention:
+• [thing 1 — e.g., 'last bank reconciliation was 4 months ago']
+• [thing 2 — e.g., '47 uncategorized transactions in May–July']
+• [thing 3]
+
+My plan for the first 7 days:
+1. Reconcile bank + credit card through end of last month
+2. Categorize all uncategorized transactions
+3. Run a clean AR aging + send you a chase list
+4. Deliver a clean P&amp;L + Balance Sheet by Friday
+
+If anything I mentioned was a surprise, ping me. Otherwise — I'm on it. Talk Friday with your first status update! 💗"</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>Google Forms · <a href="https://tally.so" target="_blank">Tally</a> · Loom · client's Notion page</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't ask for their password. Always request to be ADDED as a user.</li>
+ <li>Don't promise everything will be cleaned up in week 1. Manage expectations.</li>
+ <li>Don't skip the Loom. The video is what makes them say "I love working with her."</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>Onboarding intake form built · "Working Rhythm" email saved · discovery audit Loom script saved · client Notion page templated.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>What's ONE question you wish you'd asked in your kickoff? Add it to your intake form. Forever-improvable.</div>
+</div></div>
+
+<!-- ============================ DAY 27 ============================ -->
+<div class="day"><div class="day-head teal-head"><div class="day-num">D27<small>SAT</small></div><div class="day-title"><h4>"What's your rate?" — pricing confidence drill</h4><div class="mission">Mission · Quote without flinching <span class="timing">· ~60 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,27)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill">🎬 The scenario</span></div>
+<div class="scenario"><p>30 seconds into a discovery call: <strong>"So what do you charge?"</strong> If you fumble, you lose. Today you nail the answer.</p></div>
+
+<div class="sec-title"><span class="label-pill">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>Write your 3 retainer tiers:<br>
+ <strong>Basic</strong> — $400–600/mo · 1 bank · 1 CC · &lt;50 txns/mo · monthly P&amp;L + BS<br>
+ <strong>Standard</strong> — $700–1,000/mo · up to 3 accounts · &lt;200 txns/mo · monthly packet + 1 advisory call<br>
+ <strong>Premium</strong> — $1,200–1,800/mo · multi-entity OR e-commerce · advisory + KPIs + biweekly Loom</li>
+ <li>Practice the script (below) OUT LOUD. 10 times. Until it doesn't make you nervous.</li>
+ <li>Practice the upsell: "If you'd like advisory-level monthly reviews — looking at trends, KPIs, growth strategy — that's an extra $X."</li>
+ <li>Practice the boundary: "I can't quote below $400 — that's the floor for this scope."</li>
+ <li>Practice the "scope creep" pushback: "That's a great idea but it's outside our current SOW — let me send you a quick add-on quote."</li>
+ <li>Record yourself saying all 4 scripts. Listen back. Refine until you sound like you BELIEVE the number.</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">💰 THE PRICING SCRIPT (memorize this exactly)</span>"Great question — pricing depends on volume, complexity, and whether you want advisory in addition to bookkeeping.
+
+For most clients, my monthly retainers range from $400 to $1,800 — most clients land in the $700 to $1,000 range.
+
+After today's call, I'll send you a specific quote within 24 hours — usually within that range, sometimes a bit above or below depending on your specific situation.
+
+Sound fair?"</div>
+
+<div class="script-box"><span class="script-label">💪 When they push back: "Can you do it for $200?"</span>"I appreciate you asking, and I get it — budget matters. Honestly, I can't do quality monthly bookkeeping for $200 — at that price I'd be cutting corners that would cost you more at tax time.
+
+What I CAN do: I have a Basic tier at $400 that covers [scope]. Or we can start with a one-time cleanup at a flat $500–800 to get your books current, and you can decide later if you want ongoing.
+
+Would either of those work? If not, totally understand — let me know who I can refer you to."</div>
+
+<div class="bestie"><strong>💗 Bestie tip</strong>If saying your number out loud makes you nervous — THAT'S the right number. Underpricing kills your business. Practice till you say "$1,000/month" without your voice wavering.</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>Journal · mirror · phone recorder</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't quote an exact number on the first call. Range, then formal SOW.</li>
+ <li>Don't apologize for your rates ("I know it's a lot but…"). Confidence sells.</li>
+ <li>Don't drop your rate by more than 15% even when asked. Below that = different scope.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>3 pricing tiers written · 4 scripts practiced 10× · recorded + refined.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>Did you flinch saying $1,800? You will until you don't. Practice tomorrow morning too.</div>
+</div></div>
+
+<!-- ============================ DAY 28 ============================ -->
+<div class="day"><div class="day-head teal-head"><div class="day-num">D28<small>SUN</small></div><div class="day-title"><h4>Handle the "can you also do my taxes?" curveball</h4><div class="mission">Mission · Boundaries <span class="timing">· ~45 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,28)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill">🎬 The scenario</span></div>
+<div class="scenario"><p>Client mid-call: <strong>"Hey Mary, I noticed you're so good at books — can you also do my tax return this year? My CPA is expensive."</strong></p><p>If you say yes without a US CPA license, you're in serious legal trouble. Today you script the elegant no.</p></div>
+
+<div class="sec-title"><span class="label-pill">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>The base boundary: "I do bookkeeping, not tax prep. I'm not a US CPA, so I can't file your return — but I PREP clean books your CPA can file in half the time."</li>
+ <li>The offer: "I can introduce you to 2 CPAs I trust if you don't have one yet."</li>
+ <li>Same logic applies to: legal advice · payroll filing (US) · financial planning · audit defense · investment advice.</li>
+ <li>Build your referral network: list 3 US-based CPAs · 3 AU accountants · 3 PH CPAs. Connect with them on LinkedIn. Their referrals come BACK to you.</li>
+ <li>Add the boundary script to your "FAQ" doc in Templates folder.</li>
+ <li>Test it on your mock client friend from Day 24. Can you say "no" without sounding like you're rejecting them?</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">💬 The elegant NO + the elegant referral</span>"Thanks for trusting me with that — but I have to be honest: I do bookkeeping, NOT tax preparation. I'm not a US CPA so I can't legally file your return.
+
+The good news: clean books = your CPA's job becomes 50% smaller, so you'll save on tax prep fees anyway.
+
+If you don't have a CPA you love, I can introduce you to 2 I trust — both work great with bookkeepers like me. Want me to make the intro?"</div>
+
+<div class="bestie"><strong>💗 Bestie tip</strong>Saying "no, but here's who can" makes you MORE trustworthy. Clients respect clear boundaries. Plus the CPAs you refer to often refer BACK to you. It's a flywheel.</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>Boundary scripts doc · LinkedIn search "CPA + [client's city]" · referral spreadsheet</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't say "I'll figure it out" — you'll regret it.</li>
+ <li>Don't pretend the line between bookkeeping and tax doesn't exist. Be clear.</li>
+ <li>Don't recommend a CPA you haven't met or vetted. Your name goes on every intro.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>"No, but here's who can" script saved · 3 CPA / accountant referral contacts identified (LinkedIn) · FAQ doc updated.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>What other questions do you NEED to say no to clearly? Write them. Script the no.</div>
+</div></div>
+
+<!-- ============================ DAY 29 ============================ -->
+<div class="day"><div class="day-head teal-head"><div class="day-num">D29<small>MON</small></div><div class="day-title"><h4>Send your first weekly client status email</h4><div class="mission">Mission · Build the Friday rhythm <span class="timing">· ~45 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,29)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill">🎬 The scenario</span></div>
+<div class="scenario"><p>It's Friday. Real client is wondering: <strong>"Where are we?"</strong> You beat them — they get your weekly email before they think to ask. This ONE habit retains clients for years.</p></div>
+
+<div class="sec-title"><span class="label-pill">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>Open your Weekly Status Email template (below).</li>
+ <li>Fill out for "Sunrise Café" practice: 5 sections — Done · In Progress · Next Week · Need From You · Reconciliations Status.</li>
+ <li>Save it as your live template.</li>
+ <li>Set a recurring Friday 4 PM PHT (= Friday morning their time) reminder in your calendar.</li>
+ <li>For every real client going forward: send this email EVERY Friday. Even when there's nothing exciting.</li>
+ <li>If literally nothing happened, still send: "Light week — staying ahead on next month's prep, all reconciliations current. Have a great weekend!"</li>
+ <li>Save 1 example sent email to your "Client Deliverables Sample" folder for portfolio.</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">✉️ The Weekly Status Email — your secret retention weapon</span>Subject: 📊 [Client Business] · Weekly Status · [Date]
+
+Hi [Name],
+
+Quick status from this week:
+
+✅ DONE THIS WEEK
+• Reconciled [Bank account] through [date]
+• Categorized [N] transactions
+• Resolved [N] open AR items totaling $[X]
+• [other completed work]
+
+🔄 IN PROGRESS
+• [What I'm working on now]
+• ETA: [date]
+
+📅 NEXT WEEK
+• [Planned work]
+• [Planned deliverable]
+
+❓ NEED FROM YOU
+• [Specific question 1]
+• [Specific question 2]
+• OR: "Nothing this week, you're all clear!"
+
+🚦 RECONCILIATIONS STATUS
+• Bank: closed through [date] ✅
+• Credit card: closed through [date] ✅
+• [other accounts]
+
+Anything else, just reply. Have a great weekend!
+
+— [Your Name]</div>
+
+<div class="bestie"><strong>💗 Bestie tip</strong>The Friday email is the difference between a bookkeeper they KEEP and one they replace. Clients pay for peace of mind. This email delivers it weekly.</div>
+
+<div class="tools-row"><strong>🛠 Tools today</strong>Email template · calendar reminder · client Notion page</div>
+
+<div class="pitfalls"><strong>🚫 Don't do this</strong><ul>
+ <li>Don't skip a Friday because "nothing happened." Send anyway — the silence is worse.</li>
+ <li>Don't make the email a wall of text. 5 sections, scannable.</li>
+ <li>Don't forget the "Need from you" section. That's how you keep YOUR work moving.</li>
+</ul></div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>1 status email written for Sunrise Café · template locked in · Friday recurring reminder set · 1 sample saved to portfolio.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>What's a small win to highlight this week? Frame it for the client. Always.</div>
+</div></div>
+
+<!-- ============================ DAY 30 ============================ -->
+<div class="day"><div class="day-head teal-head"><div class="day-num">D30<small>🏅</small></div><div class="day-title"><h4>YOU DID IT — celebrate, plan, pay it forward</h4><div class="mission">Mission · LAUNCH MODE <span class="timing">· ~60 min</span></div></div><div class="day-checkbox" onclick="toggleDay(this,30)">✓</div></div><div class="day-body">
+
+<div class="sec-title"><span class="label-pill">🎬 The scenario</span></div>
+<div class="scenario"><p>30 days ago you were stuck. Today you have: TWO certifications · a public portfolio · a Loom intro · 30+ sent proposals · a complete client onboarding playbook · scripts for every awkward situation · and the muscle to keep going. <strong>You. Did. The. Hard. Part.</strong></p></div>
+
+<div class="sec-title"><span class="label-pill">📋 Step-by-step playbook</span></div>
+<div class="playbook"><ol>
+ <li>Re-read your journal from Day 1. Cry a little if you need to. I did. 💗</li>
+ <li>Update your CV with EVERYTHING you accomplished: certs · portfolio link · Sunrise Café case study · Loom intro link · CPAs you've networked with.</li>
+ <li>Set Day-31 goal: send 30 NEW proposals this week. Track them.</li>
+ <li>Generate your Certificate of Completion: open <a href="academy.html#certificate" target="_blank">your Academy page</a> → Certificate section → type your name + today's date → print as PDF.</li>
+ <li>Add your Academy Certificate to LinkedIn → Licenses &amp; Certifications. Issuer: "The Ultimate Bookkeeper Academy by @mgsolayao."</li>
+ <li>Post your win publicly. Tag <a href="https://www.tiktok.com/@mgsolayao" target="_blank">@mgsolayao</a> 💗</li>
+ <li>Tell your accountability person you finished. Take the celebration call.</li>
+ <li>Pay it forward: share this challenge with ONE kababayan starting from zero. That's the rule.</li>
+ <li>Plan your next 90 days: keep applying daily · raise your rate every 2 clients · save 50%+ of every payment · pay 1 mentee forward each year.</li>
+</ol></div>
+
+<div class="script-box"><span class="script-label">📲 Your Day 30 victory post (TikTok / IG / LinkedIn)</span>30 days ago I had no idea what "ProAdvisor" even meant.
+
+Today I have:
+✅ QuickBooks ProAdvisor certified
+✅ Xero Advisor certified
+✅ A public portfolio link
+✅ A 90-second Loom intro
+✅ 30+ sent proposals
+✅ Every script + template I need
+
+I followed the 30-day challenge from @mgsolayao's Academy 🇵🇭
+
+If you're a Filipino who wants to break into remote bookkeeping — DM me. I'll share the link. This is what happens when we lift each other up.
+
+Pay it forward when you make it. 💗
+
+#FilipinaRemote #Bookkeeper #QuickBooks #Xero #30DayChallenge #PinoyExcellence</div>
+
+<div class="bestie"><strong>💗 Bestie tip</strong>You did the hard part — you SHOWED UP. Most people never even start. You're already ahead of 95%. Be proud. Now go land that first client.</div>
+
+<div class="deliverable"><strong>✅ Today's deliverable</strong>Academy Certificate generated · LinkedIn fully updated · victory post made · accountability call done · 1 kababayan tagged.</div>
+
+<div class="reflect"><strong>🌙 Reflection journal</strong>3 years from now, you'll look back at THIS month as the thing that changed everything. Hold the moment. 🇵🇭💗</div>
+</div></div>
+
+<!-- FINISH -->
+<div class="finish">
+ <h2>🏅 You finished. Now claim what's yours.</h2>
+ <p>You committed 30 days. You showed up when it was hard. You earned this. Generate your Certificate of Completion on the Academy page, then walk straight into your next opportunity — proposal in hand, Loom intro ready, books reconciled to zero.</p>
+ <div class="cta-row">
+ <a href="academy.html#certificate">🏅 Generate My Certificate</a>
+ <a href="academy.html" class="alt">📗 Back to The Academy</a>
+ <a href="index.html" class="alt">🌳 My Links</a>
+ </div>
+</div>
+
+<div class="footer">
+ Made with 🤍 by <a href="https://www.tiktok.com/@mgsolayao" target="_blank">@mgsolayao</a> · Filipina Remote Bookkeeper 🇵🇭<br>
+ Part of the Academy (free) · Pay it forward when you finish 💗
+</div>
+</div>
+
+<script>
+function toggleDay(el, dayNum){ el.classList.toggle('checked'); saveProgress(); updateProgress(); }
+function saveProgress(){
+ const allBoxes = Array.from(document.querySelectorAll('.day-checkbox'));
+ const checked = allBoxes.map((b,i) => b.classList.contains('checked') ? i : null).filter(x => x !== null);
+ try{ localStorage.setItem('challenge30days', JSON.stringify(checked)); }catch(e){}
+}
+function updateProgress(){
+ const total = document.querySelectorAll('.day-checkbox').length;
+ const done = document.querySelectorAll('.day-checkbox.checked').length;
+ const pct = total > 0 ? Math.round((done/total)*100) : 0;
+ document.getElementById('progText').textContent = done + ' / ' + total + ' days · ' + pct + '%';
+ document.getElementById('progFill').style.width = pct + '%';
+}
+function resetProgress(){
+ if(!confirm('Reset all progress? You can\'t undo this.')) return;
+ document.querySelectorAll('.day-checkbox.checked').forEach(cb => cb.classList.remove('checked'));
+ try{ localStorage.removeItem('challenge30days'); }catch(e){}
+ updateProgress();
+}
+document.addEventListener('DOMContentLoaded', function(){
+ try{
+ const saved = JSON.parse(localStorage.getItem('challenge30days') || '[]');
+ const allBoxes = document.querySelectorAll('.day-checkbox');
+ saved.forEach(idx => { if(allBoxes[idx]) allBoxes[idx].classList.add('checked'); });
+ }catch(e){}
+ updateProgress();
+});
+</script>
+
+
+
+</body>
+</html>
