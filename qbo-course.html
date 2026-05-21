@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>QuickBooks Online Mastery: US · CAN · UK · AU — by @mgsolayao</title>
+<style>
+ *{box-sizing:border-box;margin:0;padding:0}
+ html{scroll-behavior:smooth}
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#FFF8F0;color:#1A1A2E;line-height:1.6;-webkit-font-smoothing:antialiased}
+ a{color:#C4006E;text-decoration:none}
+ a:hover{text-decoration:underline}
+
+ 
+
+.topnav{background:#fff;border-bottom:1px solid #eee;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.topnav.brand{font-weight:700;color:#1A1A2E;font-size:17px;display:flex;align-items:center;gap:10px}
+.topnav.brand-badge{background:linear-gradient(135deg,#2CA01C,#00838F);color:#fff;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
+.topnav.nav-links{display:flex;gap:18px;align-items:center;font-size:14px}
+.topnav.nav-links a{color:#1A1A2E;font-weight:500}
+.topnav.logout{background:#f5f5f5;padding:6px 14px;border-radius:6px;font-size:13px;cursor:pointer;border:none;color:#666}
+
+.hero{background:linear-gradient(135deg,#FFF8F0 0%,#E8F5E3 100%);color:#0F1B2F;border:1.5px solid #E5DDD0;padding:80px 24px 100px;position:relative;overflow:hidden}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.hero-eyebrow{display:inline-block;background:rgba(255,255,255,0.18);backdrop-filter:blur(10px);padding:8px 18px;border-radius:30px;font-size:13px;font-weight:600;letter-spacing:0.5px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.25)}
+.hero h1{font-size:56px;line-height:1.05;margin-bottom:20px;font-weight:800;letter-spacing:-1px}
+.hero h1 span{background:linear-gradient(90deg,#E89B2D,#FFC857);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero.lead{font-size:19px;max-width:680px;line-height:1.55;opacity:0.95;margin-bottom:30px}
+.hero-flags{display:flex;gap:14px;margin-top:24px;flex-wrap:wrap}
+.hero-flag{background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);padding:12px 20px;border-radius:12px;font-weight:600;border:1px solid rgba(255,255,255,0.25);display:flex;align-items:center;gap:10px}
+.hero-flag.emoji{font-size:22px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:520px;margin-top:36px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.2)}
+.hero-stats.stat{text-align:center}
+.hero-stats.stat-num{font-size:32px;font-weight:800;color:#E89B2D}
+.hero-stats.stat-label{font-size:12px;text-transform:uppercase;letter-spacing:1px;opacity:0.85;margin-top:4px}
+
+.why{max-width:1100px;margin:0 auto;padding:80px 24px}
+.why h2{font-size:36px;color:#1A1A2E;margin-bottom:36px;text-align:center;font-weight:800}
+.why h2 span{color:#2CA01C}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.why-card{background:#fff;padding:28px;border-radius:14px;border:1px solid #eee;transition:all 0.2s}
+.why-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,0.08)}
+.why-card.why-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#2CA01C,#00838F);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;margin-bottom:14px}
+.why-card h3{color:#1A1A2E;margin-bottom:8px;font-size:18px}
+.why-card p{color:#555;font-size:15px}
+
+.toc-section{background:#fff;padding:80px 24px;border-top:1px solid #eee;border-bottom:1px solid #eee}
+.toc-inner{max-width:1100px;margin:0 auto}
+.toc-section h2{font-size:36px;color:#1A1A2E;margin-bottom:8px;text-align:center;font-weight:800}
+.toc-section h2 span{color:#2CA01C}
+.toc-section.toc-sub{text-align:center;color:#666;margin-bottom:40px}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.toc-item{display:flex;align-items:center;gap:14px;background:#FFF8F0;padding:18px;border-radius:12px;border:1px solid #eee;color:#1A1A2E;transition:all 0.2s}
+.toc-item:hover{transform:translateX(4px);background:#fff;text-decoration:none;border-color:#2CA01C}
+.toc-num{width:44px;height:44px;border-radius:10px;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.toc-text strong{display:block;font-size:16px;color:#1A1A2E}
+.toc-text small{color:#777;font-size:12px}
+
+.modules{max-width:1000px;margin:0 auto;padding:60px 24px}
+.module{background:#fff;border-radius:18px;overflow:hidden;margin-bottom:30px;box-shadow:0 6px 20px rgba(0,0,0,0.05);border:1px solid #eee}
+.module-head{padding:36px 32px;color:#fff;display:flex;gap:24px;align-items:flex-start}
+.module-icon{background:rgba(255,255,255,0.18);backdrop-filter:blur(10px);width:72px;height:72px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;flex-shrink:0;border:1px solid rgba(255,255,255,0.3)}
+.module-tag{font-size:13px;text-transform:uppercase;letter-spacing:1px;opacity:0.9;font-weight:600;margin-bottom:6px}
+.module-title{font-size:28px;margin-bottom:8px;font-weight:800;letter-spacing:-0.5px}
+.module-summary{font-size:15px;opacity:0.92;line-height:1.5}
+.lessons{padding:30px 32px 36px}
+.lesson{display:flex;gap:18px;padding:18px 0;border-bottom:1px dashed #eee}
+.lesson:last-child{border-bottom:none}
+.lesson-num{background:#FFF8F0;color:#1A1A2E;font-weight:800;width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
+.lesson-body h4{color:#1A1A2E;margin-bottom:6px;font-size:17px}
+.lesson-body p{color:#444;font-size:15px;line-height:1.65}
+
+.cta-block{background:#E8F5E3;color:#0F1B2F;border:1.5px solid #2CA01C;border-radius:18px;padding:80px 24px;text-align:center}
+.cta-block h2{font-size:38px;margin-bottom:14px;font-weight:800}
+.cta-block p{font-size:18px;opacity:0.92;max-width:600px;margin:0 auto 30px}
+.cta-btn{display:inline-block;background:#E89B2D;color:#1A1A2E;padding:16px 38px;border-radius:12px;font-weight:800;font-size:17px;text-decoration:none;box-shadow:0 8px 24px rgba(232,155,45,0.4)}
+.cta-btn:hover{transform:translateY(-2px);text-decoration:none}
+
+ footer{background:#FCFAF5;color:#0F1B2F;padding:32px 24px;text-align:center;font-size:14px;border-top:1px solid #E5DDD0;border-radius:16px;margin:24px;font-weight:500}
+ footer a{color:#C4006E;font-weight:700;text-decoration:none}
+ footer a:hover{text-decoration:underline}
+ footer a{color:#E89B2D}
+
+ @media (max-width:720px) {
+.hero h1{font-size:36px}
+.hero.lead{font-size:16px}
+.hero-stats{grid-template-columns:1fr 1fr}
+.module-head{flex-direction:column;padding:28px 22px}
+.module-title{font-size:22px}
+.lessons{padding:24px 22px}
+.topnav.nav-links{display:none}
+ }
+
+ /* ═══ VIDEO WALKTHROUGH STYLES ═══ */
+.video-help{background:linear-gradient(135deg,#FFF8F0 0%,#FCE8F3 100%);color:#0F1B2F;border:1.5px solid #E5DDD0;padding:18px 22px;border-radius:14px;margin:0 0 26px;box-shadow:0 6px 20px rgba(196,0,110,.18)}
+.video-help-inner{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.video-help-icon{font-size:28px;background:rgba(255,255,255,.18);width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.video-help-body{flex:1;min-width:240px;font-size:14px;line-height:1.55;color:rgba(255,255,255,.95)}
+.video-help-body strong{color:#E89B2D;display:block;margin-bottom:3px;font-size:14px}
+.video-help-cta{background:#E89B2D;color:#1A1A2E;padding:10px 18px;border-radius:10px;font-weight:800;text-decoration:none;font-size:13px;flex-shrink:0;transition:transform.15s}
+.video-help-cta:hover{transform:translateY(-1px);text-decoration:none}
+
+.video-walkthrough{background:#FCFAF5;border:1.5px solid #E5DDD0;border-radius:14px;padding:22px;margin:0 0 22px;box-shadow:0 4px 14px rgba(15,27,47,.06);color:#0F1B2F}
+.video-walkthrough-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.video-tag{background:linear-gradient(90deg,#E89B2D,#FFC857);color:#1A1A2E;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:800;letter-spacing:.5px}
+.video-note{color:rgba(255,255,255,.6);font-size:11px;font-style:italic}
+.video-player{position:relative;width:100%;padding-top:56.25%;background:#0F1B2F;border-radius:10px;overflow:hidden;margin-bottom:14px}
+.video-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-recs{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.video-card{background:#FFF8F0;border:1.5px solid #E5DDD0;border-radius:10px;padding:14px;text-decoration:none;color:#0F1B2F;transition:all.2s;display:block}
+.video-card:hover{background:#FCE8F3;transform:translateY(-2px);text-decoration:none;border-color:#C4006E}
+.video-card-thumb{background:linear-gradient(135deg,#C4006E,#00838F);color:#fff;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;margin-bottom:8px}
+.video-card-title{font-size:13px;font-weight:700;line-height:1.35;margin-bottom:4px;color:#0F1B2F}
+.video-card-sub{font-size:11px;color:#C4006E;font-weight:700}
+
+ @media (max-width:720px){
+.video-help-inner{flex-direction:column;text-align:center}
+.video-help-cta{align-self:stretch;text-align:center}
+ }
+
+</style>
+</head>
+<body>
+
+
+ </div>
+</section>
+
+<section class="why" id="why">
+ <h2>Why this course <span>matters</span></h2>
+ <div class="why-grid">
+ <div class="why-card"><div class="why-icon">$$</div><h3>QBO = US clients</h3><p>QBO dominates the US market with 80% share. If you want US clients (highest-paying for PH bookkeepers), QBO is non-negotiable. This course gets you there.</p></div>
+ <div class="why-card"><div class="why-icon">PA</div><h3>ProAdvisor-prep</h3><p>Course content aligns with Intuit's ProAdvisor certification exam. After this, take the exam, get listed in Intuit's Find-a-ProAdvisor directory, and watch the leads come in.</p></div>
+ <div class="why-card"><div class="why-icon">✓</div><h3>By a real bookkeeper</h3><p>Mary has 3 years actually doing this work. This is what she wishes she had on day one — not theory, but the actual workflows from real client files.</p></div>
+ <div class="why-card"><div class="why-icon">4x</div><h3>4 countries covered</h3><p>US (deep dive), Canada (deep dive), UK + AU (cross-border). When to use QBO vs Xero — and how to advise the client confidently.</p></div>
+ <div class="why-card"><div class="why-icon">►</div><h3>Real case studies</h3><p>Walk through a full month-end for a Texas e-commerce store, a Toronto consulting firm, and a Florida construction subcontractor. The messy real stuff.</p></div>
+ <div class="why-card"><div class="why-icon">🌍</div><h3>For Aspiring Bookkeepers</h3><p>Practical, beginner-friendly examples. Your time zone is your superpower — finish their books overnight while they sleep in EST/PST/CST.</p></div>
+ </div>
+</section>
+
+<section class="toc-section" id="curriculum">
+ <div class="toc-inner">
+ <h2>The <span>curriculum</span></h2>
+ <p class="toc-sub">10 modules · 69+ lessons · jump to any section</p>
+ <div class="toc-grid">
+ <a class="toc-item" href="#module-01">
+ <span class="toc-num" style="background:#2CA01C;">01</span>
+ <span class="toc-text">
+ <strong>QuickBooks Online Foundations</strong>
+ <small>Universal · 7 lessons</small>
+ </span>
+ </a>
+ 
+
+ <a class="toc-item" href="#module-02">
+ <span class="toc-num" style="background:#00838F;">02</span>
+ <span class="toc-text">
+ <strong>Daily Operations</strong>
+ <small>Universal · 7 lessons</small>
+ </span>
+ </a>
+ 
+
+ <a class="toc-item" href="#module-03">
+ <span class="toc-num" style="background:#0052CC;">03</span>
+ <span class="toc-text">
+ <strong>United States — Sales Tax, 1099s, Payroll</strong>
+ <small>US Specialist · 8 lessons</small>
+ </span>
+ </a>
+ 
+
+ <a class="toc-item" href="#module-04">
+ <span class="toc-num" style="background:#D32F2F;">04</span>
+ <span class="toc-text">
+ <strong>Canada — GST/HST, QST, T4s</strong>
+ <small>Canada Specialist · 8 lessons</small>
+ </span>
+ </a>
+ 
+
+ <a class="toc-item" href="#module-05">
+ <span class="toc-num" style="background:#7B1FA2;">05</span>
+ <span class="toc-text">
+ <strong>Cross-Border — UK, AU, Multi-Currency</strong>
+ <small>Global · 6 lessons</small>
+ </span>
+ </a>
+ 
+
+ <a class="toc-item" href="#module-06">
+ <span class="toc-num" style="background:#D81B60;">06</span>
+ <span class="toc-text">
+ <strong>Bank Reconciliation Mastery</strong>
+ <small>Universal · 6 lessons</small>
+ </span>
+ </a>
+ 
+
+ <a class="toc-item" href="#module-07">
+ <span class="toc-num" style="background:#E89B2D;">07</span>
+ <span class="toc-text">
+ <strong>Reporting & Analysis</strong>
+ <small>Universal · 7 lessons</small>
+ </span>
+ </a>
+ 
+
+ <a class="toc-item" href="#module-08">
+ <span class="toc-num" style="background:#0288D1;">08</span>
+ <span class="toc-text">
+ <strong>Apps & Integrations</strong>
+ <small>Universal · 7 lessons</small>
+ </span>
+ </a>
+ 
+
+ <a class="toc-item" href="#module-09">
+ <span class="toc-num" style="background:#C2185B;">09</span>
+ <span class="toc-text">
+ <strong>Cleanup & Year-End</strong>
+ <small>Pro · 6 lessons</small>
+ </span>
+ </a>
+ 
+
+ <a class="toc-item" href="#module-10">
+ <span class="toc-num" style="background:#5E35B1;">10</span>
+ <span class="toc-text">
+ <strong>Real Client Practice</strong>
+ <small>Hands-on · 7 lessons</small>
+ </span>
+ </a>
+ </div>
+ </div>
+</section>
+
+<div class="modules">
+ <!-- ═══ VIDEO HELP BANNER (top of course) ═══ -->
+ <div class="video-help">
+ <div class="video-help-inner">
+ <div class="video-help-icon">🎬</div>
+ <div class="video-help-body">
+ <strong>Each module has a video walkthrough section below.</strong>
+ For now we curate the best YouTube tutorials on each topic. As Mary records her own custom walkthroughs, they'll appear here in this same spot.
+ </div>
+ <a href="https://www.youtube.com/@mgsolayao0198" target="_blank" rel="noopener" class="video-help-cta">
+ ▶ Mary's YouTube
+ </a>
+ </div>
+ </div>
+ 
+ <section class="module" id="module-01">
+ <div class="module-head" style="background:linear-gradient(135deg,#2CA01C 0%,#1B7A12 100%);">
+ <div class="module-icon">QB</div>
+ <div>
+ <div class="module-tag">Module 01 · Universal</div>
+ <h2 class="module-title">QuickBooks Online Foundations</h2>
+ <p class="module-summary">Set up QBO from scratch — company file, COA, users, banking, and the navigation map that real US/CAN bookkeepers actually use.</p>
+ </div>
+ </div>
+ 
+ <!-- ═══ VIDEO WALKTHROUGH (Module 01) ═══ -->
+ <!-- TO ADD YOUR OWN VIDEO: replace the iframe src with: -->
+ <!-- https://www.youtube-nocookie.com/embed/YOUR_VIDEO_ID (single video) -->
+ <!-- OR https://www.youtube-nocookie.com/embed/videoseries?list=YOUR_PLAYLIST_ID (playlist) -->
+ <div class="video-walkthrough">
+ <div class="video-walkthrough-head">
+ <span class="video-tag">🎥 Video Walkthrough</span>
+ <span class="video-note">Curated tutorials · replace with your own when ready</span>
+ </div>
+ <a href="https://www.youtube.com/results?search_query=QuickBooks+Online+setup+tutorial+chart+of+accounts" target="_blank" rel="noopener" class="video-player video-hero" style="position:relative;display:block;width:100%;padding-top:56.25%;background:linear-gradient(135deg,#0F1B2F 0%,#2D3A52 100%);border-radius:10px;overflow:hidden;margin-bottom:14px;text-decoration:none;cursor:pointer">
+ <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center">
+ <div style="background:#E8765E;color:#fff;width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:18px;box-shadow:0 10px 30px rgba(232,118,94,.5)">▶</div>
+ <div style="color:#E89B2D;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">▶ Watch on YouTube</div>
+ <div style="color:#fff;font-family:Georgia,serif;font-size:20px;font-weight:700;line-height:1.3;max-width:480px;margin-bottom:10px">QuickBooks Online setup tutorial chart of accounts</div>
+ <div style="color:rgba(255,255,255,.65);font-size:12px">Curated tutorials · opens in new tab</div>
+ </div>
+ <div style="position:absolute;bottom:14px;right:18px;background:rgba(255,255,255,.10);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;backdrop-filter:blur(8px)">YouTube ↗</div>
+ </a>
+ <div class="video-recs">
+ <a href="https://www.youtube.com/results?search_query=QBO+new+company+setup" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO new company setup</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QuickBooks+Online+chart+of+accounts" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QuickBooks Online chart of accounts</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QBO+users+and+permissions" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO users and permissions</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ </div>
+ </div>
+ 
+ <div class="lessons">
+ 
+ <div class="lesson">
+ <div class="lesson-num">01</div>
+ <div class="lesson-body">
+ <h4>Choosing the Right QBO Subscription</h4>
+ <p>Simple Start (1 user, no bills), Essentials (3 users + bills), Plus (5 users + inventory + classes/locations), Advanced (25 users + workflows). Most small business clients land on Essentials or Plus. NEVER recommend Self-Employed for true business clients — it doesn't have a proper COA. ProAdvisors get QBO Accountant edition.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">02</div>
+ <div class="lesson-body">
+ <h4>Company Setup</h4>
+ <p>Account and Settings → Company. Enter legal name, EIN (US) / Business Number (CAN), legal address, tax form (Sole Prop, LLC, S-Corp, C-Corp, Partnership, Non-Profit). Set fiscal year start. Industry — this preloads the chart of accounts. Choose the right industry on day one; switching later is messy.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">03</div>
+ <div class="lesson-body">
+ <h4>Chart of Accounts (COA)</h4>
+ <p>Accounting → Chart of Accounts. Account types in QBO: Bank, Accounts Receivable, Other Current Asset, Fixed Asset, Other Asset, Accounts Payable, Credit Card, Other Current Liability, Long-Term Liability, Equity, Income, Cost of Goods Sold, Expense, Other Income, Other Expense. Detail Type matters — it drives where the account appears on reports. Use account numbers (Settings → Advanced → Chart of Accounts → enable account numbers) for any client with > 30 accounts.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">04</div>
+ <div class="lesson-body">
+ <h4>Users & Permissions</h4>
+ <p>Settings → Manage Users. Roles: Primary Admin (one only — the owner), Company Admin (full access), Standard User (you customize), Reports Only, Time Tracking Only. Accountant Users (up to 2 per company) — invite via QBO Accountant. NEVER share login credentials with clients — always invite them with appropriate role.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">05</div>
+ <div class="lesson-body">
+ <h4>Bank & Credit Card Connection</h4>
+ <p>Banking → Link account. Search bank → enter online banking credentials. QBO downloads 90 days of history (can request up to 18 months for some banks). Set up rules to auto-categorize repeat transactions. For banks without direct connect: import CSV/QBO file manually.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">06</div>
+ <div class="lesson-body">
+ <h4>Receipt Capture</h4>
+ <p>QBO mobile app — snap a receipt, OCR extracts vendor/amount/date, attaches to a bill or expense. Or forward email receipts to a unique QBO inbox address (Banking → Receipts → Manage Forwarding Email). For high-volume: integrate Dext or Hubdoc.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">07</div>
+ <div class="lesson-body">
+ <h4>Navigation & Quick Tips</h4>
+ <p>The + (New) button is your speed weapon — invoice, expense, bill, journal entry, statement, transfer, all in one click. The Search icon (magnifier) searches transactions by amount, date, contact, memo. The Gear icon opens settings. Keyboard shortcut: Ctrl+Alt+I (invoice), Ctrl+Alt+W (cheque), Ctrl+Alt+E (estimate). On Mac use Cmd.</p>
+ </div>
+ </div>
+ 
+ </div>
+ </section>
+ 
+
+ <section class="module" id="module-02">
+ <div class="module-head" style="background:linear-gradient(135deg,#00838F 0%,#006670 100%);">
+ <div class="module-icon">II</div>
+ <div>
+ <div class="module-tag">Module 02 · Universal</div>
+ <h2 class="module-title">Daily Operations</h2>
+ <p class="module-summary">Invoices, bills, payments, deposits, transfers — the daily transactions that fill 80% of a bookkeeper's screen time.</p>
+ </div>
+ </div>
+ 
+ <!-- ═══ VIDEO WALKTHROUGH (Module 02) ═══ -->
+ <!-- TO ADD YOUR OWN VIDEO: replace the iframe src with: -->
+ <!-- https://www.youtube-nocookie.com/embed/YOUR_VIDEO_ID (single video) -->
+ <!-- OR https://www.youtube-nocookie.com/embed/videoseries?list=YOUR_PLAYLIST_ID (playlist) -->
+ <div class="video-walkthrough">
+ <div class="video-walkthrough-head">
+ <span class="video-tag">🎥 Video Walkthrough</span>
+ <span class="video-note">Curated tutorials · replace with your own when ready</span>
+ </div>
+ <a href="https://www.youtube.com/results?search_query=QuickBooks+Online+invoices+bills+bank+feeds+tutorial" target="_blank" rel="noopener" class="video-player video-hero" style="position:relative;display:block;width:100%;padding-top:56.25%;background:linear-gradient(135deg,#0F1B2F 0%,#2D3A52 100%);border-radius:10px;overflow:hidden;margin-bottom:14px;text-decoration:none;cursor:pointer">
+ <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center">
+ <div style="background:#E8765E;color:#fff;width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:18px;box-shadow:0 10px 30px rgba(232,118,94,.5)">▶</div>
+ <div style="color:#E89B2D;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">▶ Watch on YouTube</div>
+ <div style="color:#fff;font-family:Georgia,serif;font-size:20px;font-weight:700;line-height:1.3;max-width:480px;margin-bottom:10px">QuickBooks Online invoices bills bank feeds tutorial</div>
+ <div style="color:rgba(255,255,255,.65);font-size:12px">Curated tutorials · opens in new tab</div>
+ </div>
+ <div style="position:absolute;bottom:14px;right:18px;background:rgba(255,255,255,.10);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;backdrop-filter:blur(8px)">YouTube ↗</div>
+ </a>
+ <div class="video-recs">
+ <a href="https://www.youtube.com/results?search_query=QBO+create+invoice+tutorial" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO create invoice tutorial</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QBO+enter+bills+walkthrough" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO enter bills walkthrough</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QBO+bank+feed+setup" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO bank feed setup</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ </div>
+ </div>
+ 
+ <div class="lessons">
+ 
+ <div class="lesson">
+ <div class="lesson-num">01</div>
+ <div class="lesson-body">
+ <h4>Sales Invoices</h4>
+ <p>+ → Invoice. Choose customer, add product/service lines, set tax (if taxable). Email directly from QBO, or download PDF. Set up online payments (QBO Payments) so customers click 'Pay Now' and the deposit flows back through. Always use Products/Services list — NEVER type -text into the description field for items you sell repeatedly.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">02</div>
+ <div class="lesson-body">
+ <h4>Sales Receipts vs Invoices</h4>
+ <p>Sales Receipt = money received same day, no AR. Invoice = bill the customer now, get paid later (creates AR). Don't mix them up — recording every transaction as a Sales Receipt blows up your AR aging.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">03</div>
+ <div class="lesson-body">
+ <h4>Estimates / Quotes</h4>
+ <p>+ → Estimate. Won't post to books. Customer accepts → convert to invoice in one click. Use Estimate stages: Pending → Accepted → Closed → Rejected. Status drives reports like Open Estimates by Customer.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">04</div>
+ <div class="lesson-body">
+ <h4>Bills (Accounts Payable)</h4>
+ <p>+ → Bill. Enter vendor, terms, due date. Attach the PDF/scan. Bill Pay (QBO Bill Pay or Melio integration) lets you pay bills via ACH/check directly from QBO. Always reconcile Accounts Payable to a vendor balance summary each month.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">05</div>
+ <div class="lesson-body">
+ <h4>Expenses vs Bills vs Cheques</h4>
+ <p>Expense = card swipe/online payment, money already gone. Bill = obligation now, payment later. Cheque = paper cheque you wrote. Use the right one — picking the wrong type creates duplicate transactions when the bank feed comes in.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">06</div>
+ <div class="lesson-body">
+ <h4>Customer & Vendor Management</h4>
+ <p>Sales → Customers. Add billing/shipping address, payment terms, default tax code. Use Sub-customers for projects under one parent. Vendors: track 1099 status here (US — see Module 4). Group with Customer Types and Vendor Types for easier filtering.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">07</div>
+ <div class="lesson-body">
+ <h4>Journal Entries</h4>
+ <p>+ → Journal Entry. Use for: accruals, prepayments, depreciation, owner contributions/distributions, year-end adjustments. Must balance (debits = credits). Cannot include AR or AP accounts (use Receive Payment / Bill Payment instead). NEVER use a JE to fix a bank balance — fix the underlying transaction.</p>
+ </div>
+ </div>
+ 
+ </div>
+ </section>
+ 
+
+ <section class="module" id="module-03">
+ <div class="module-head" style="background:linear-gradient(135deg,#0052CC 0%,#003584 100%);">
+ <div class="module-icon">US</div>
+ <div>
+ <div class="module-tag">Module 03 · US Specialist</div>
+ <h2 class="module-title">United States — Sales Tax, 1099s, Payroll</h2>
+ <p class="module-summary">The bread-and-butter of US bookkeeping: state sales tax setup, 1099 contractor tracking, and QuickBooks Payroll.</p>
+ </div>
+ </div>
+ 
+ <!-- ═══ VIDEO WALKTHROUGH (Module 03) ═══ -->
+ <!-- TO ADD YOUR OWN VIDEO: replace the iframe src with: -->
+ <!-- https://www.youtube-nocookie.com/embed/YOUR_VIDEO_ID (single video) -->
+ <!-- OR https://www.youtube-nocookie.com/embed/videoseries?list=YOUR_PLAYLIST_ID (playlist) -->
+ <div class="video-walkthrough">
+ <div class="video-walkthrough-head">
+ <span class="video-tag">🎥 Video Walkthrough</span>
+ <span class="video-note">Curated tutorials · replace with your own when ready</span>
+ </div>
+ <a href="https://www.youtube.com/results?search_query=QuickBooks+Online+sales+tax+1099+payroll+tutorial" target="_blank" rel="noopener" class="video-player video-hero" style="position:relative;display:block;width:100%;padding-top:56.25%;background:linear-gradient(135deg,#0F1B2F 0%,#2D3A52 100%);border-radius:10px;overflow:hidden;margin-bottom:14px;text-decoration:none;cursor:pointer">
+ <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center">
+ <div style="background:#E8765E;color:#fff;width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:18px;box-shadow:0 10px 30px rgba(232,118,94,.5)">▶</div>
+ <div style="color:#E89B2D;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">▶ Watch on YouTube</div>
+ <div style="color:#fff;font-family:Georgia,serif;font-size:20px;font-weight:700;line-height:1.3;max-width:480px;margin-bottom:10px">QuickBooks Online sales tax 1099 payroll tutorial</div>
+ <div style="color:rgba(255,255,255,.65);font-size:12px">Curated tutorials · opens in new tab</div>
+ </div>
+ <div style="position:absolute;bottom:14px;right:18px;background:rgba(255,255,255,.10);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;backdrop-filter:blur(8px)">YouTube ↗</div>
+ </a>
+ <div class="video-recs">
+ <a href="https://www.youtube.com/results?search_query=QBO+sales+tax+setup" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO sales tax setup</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QBO+1099+contractor+setup" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO 1099 contractor setup</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QuickBooks+Online+payroll+tutorial" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QuickBooks Online payroll tutorial</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ </div>
+ </div>
+ 
+ <div class="lessons">
+ 
+ <div class="lesson">
+ <div class="lesson-num">01</div>
+ <div class="lesson-body">
+ <h4>US Sales Tax Setup</h4>
+ <p>Taxes → Sales Tax. Add agencies for each state where the client has nexus (physical presence, economic nexus thresholds, or marketplace facilitator triggers). Common nexus thresholds: $100k revenue or 200 transactions per state (post-Wayfair). Multi-state clients use a sales tax automation tool — Avalara, TaxJar — that pushes filings. QBO calculates the tax based on customer address — but you must mark products as taxable AND mark customers as taxable for the calc to happen.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">02</div>
+ <div class="lesson-body">
+ <h4>Filing Sales Tax</h4>
+ <p>Taxes → Sales Tax → Return. QBO shows what you owe per state. File and pay through the state's online portal (CA: CDTFA, NY: Tax.NY.Gov, TX: Comptroller, etc.) — or via Avalara/TaxJar. Mark return as filed in QBO so it doesn't re-include in next period. Frequency varies by state and revenue — monthly, quarterly, or annual.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">03</div>
+ <div class="lesson-body">
+ <h4>1099-NEC Contractors</h4>
+ <p>Vendors → mark vendor as 'Track payments for 1099'. Threshold: $600+ paid in a calendar year for services (not goods). Form 1099-NEC for nonemployee compensation. Form 1099-MISC for rent, royalties, other. Due to recipients by January 31. E-file via QBO's 1099 e-file service or Track1099. NEVER include payments made by credit card — those get reported on 1099-K by the processor.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">04</div>
+ <div class="lesson-body">
+ <h4>QuickBooks Online Payroll Setup</h4>
+ <p>Three QBO Payroll tiers: Core (full-service payroll, basic), Premium (HR support + same-day direct deposit), Elite (white-glove). Setup: company info, federal EIN, state withholding accounts (one per state where employees live), pay schedule, deductions (401k, HSA, health insurance pre-tax).</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">05</div>
+ <div class="lesson-body">
+ <h4>Employee Onboarding</h4>
+ <p>Workers → Employees → Add Employee. Collect: SSN, address, W-4 (federal withholding), state W-4, direct deposit form, I-9 (verify work eligibility). Pay type: hourly or salary. Tax exemptions (rare). Sick/vacation accrual rules. Send the QBO Workforce invite — employees access pay stubs and W-2s themselves.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">06</div>
+ <div class="lesson-body">
+ <h4>Running Payroll</h4>
+ <p>Workers → Run Payroll. QBO pulls hours from time tracking (or enter manually). Review gross pay, taxes, deductions, net pay. Click 'Submit' — direct deposit goes 1-2 business days later (faster on Premium/Elite). QBO files federal and state taxes automatically on the auto-filed dates.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">07</div>
+ <div class="lesson-body">
+ <h4>Year-End Payroll Tasks</h4>
+ <p>By Jan 31: distribute W-2s (employees) and 1099-NECs (contractors). QBO Payroll auto-prepares W-2s — review for accuracy first. Reconcile W-2 totals to your 941 filings (quarterly). Process bonus pay runs separately so federal tax withholding applies the supplemental rate (22%) correctly.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">08</div>
+ <div class="lesson-body">
+ <h4>State-Specific Quirks (Top 5 States)</h4>
+ <p>California: SDI tax, ETT, separate SUI. Requires final paycheck on termination day. New York: NY SDI, NY PFL. Strict pay frequency rules. Texas: no state income tax — but SUI required. Florida: no state income tax — but reemployment tax. Illinois: state income tax 4.95%, monthly SUTA filings. Always check the state DOR website for current rates.</p>
+ </div>
+ </div>
+ 
+ </div>
+ </section>
+ 
+
+ <section class="module" id="module-04">
+ <div class="module-head" style="background:linear-gradient(135deg,#D32F2F 0%,#891E1E 100%);">
+ <div class="module-icon">CA</div>
+ <div>
+ <div class="module-tag">Module 04 · Canada Specialist</div>
+ <h2 class="module-title">Canada — GST/HST, QST, T4s</h2>
+ <p class="module-summary">Canadian sales tax (GST/HST/QST) setup, T4/T5/T4A filing, and CRA compliance through QBO.</p>
+ </div>
+ </div>
+ 
+ <!-- ═══ VIDEO WALKTHROUGH (Module 04) ═══ -->
+ <!-- TO ADD YOUR OWN VIDEO: replace the iframe src with: -->
+ <!-- https://www.youtube-nocookie.com/embed/YOUR_VIDEO_ID (single video) -->
+ <!-- OR https://www.youtube-nocookie.com/embed/videoseries?list=YOUR_PLAYLIST_ID (playlist) -->
+ <div class="video-walkthrough">
+ <div class="video-walkthrough-head">
+ <span class="video-tag">🎥 Video Walkthrough</span>
+ <span class="video-note">Curated tutorials · replace with your own when ready</span>
+ </div>
+ <a href="https://www.youtube.com/results?search_query=QuickBooks+Online+Canada+GST+HST+QST+T4+tutorial" target="_blank" rel="noopener" class="video-player video-hero" style="position:relative;display:block;width:100%;padding-top:56.25%;background:linear-gradient(135deg,#0F1B2F 0%,#2D3A52 100%);border-radius:10px;overflow:hidden;margin-bottom:14px;text-decoration:none;cursor:pointer">
+ <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center">
+ <div style="background:#E8765E;color:#fff;width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:18px;box-shadow:0 10px 30px rgba(232,118,94,.5)">▶</div>
+ <div style="color:#E89B2D;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">▶ Watch on YouTube</div>
+ <div style="color:#fff;font-family:Georgia,serif;font-size:20px;font-weight:700;line-height:1.3;max-width:480px;margin-bottom:10px">QuickBooks Online Canada GST HST QST T4 tutorial</div>
+ <div style="color:rgba(255,255,255,.65);font-size:12px">Curated tutorials · opens in new tab</div>
+ </div>
+ <div style="position:absolute;bottom:14px;right:18px;background:rgba(255,255,255,.10);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;backdrop-filter:blur(8px)">YouTube ↗</div>
+ </a>
+ <div class="video-recs">
+ <a href="https://www.youtube.com/results?search_query=QBO+Canada+GST%2FHST+setup" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO Canada GST/HST setup</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QBO+QST+Quebec+setup" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO QST Quebec setup</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QBO+Canada+payroll+T4" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO Canada payroll T4</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ </div>
+ </div>
+ 
+ <div class="lessons">
+ 
+ <div class="lesson">
+ <div class="lesson-num">01</div>
+ <div class="lesson-body">
+ <h4>GST/HST Registration & Setup</h4>
+ <p>Mandatory registration when revenue exceeds CAD $30,000 in any 12-month rolling period. Voluntary registration available below. In QBO: Taxes → Sales Tax → Add Tax. Default GST/HST varies by province: AB/SK/MB/BC/YT/NWT/NU = 5% GST + provincial sales tax separately; ON = 13% HST; NB/NL/NS/PEI = 15% HST; QC = 5% GST + 9.975% QST (two separate taxes).</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">02</div>
+ <div class="lesson-body">
+ <h4>Filing Frequency</h4>
+ <p>Annual: revenue ≤ $1.5m. Quarterly: $1.5m–$6m. Monthly: > $6m. Most clients are annual or quarterly. Reporting period set by CRA when you register. You can request frequency changes via My Business Account.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">03</div>
+ <div class="lesson-body">
+ <h4>Quebec QST Special Handling</h4>
+ <p>QC clients must register with both CRA (GST) and Revenu Québec (QST). In QBO: enable QST tax agency. QBO calculates both taxes on each transaction. Filing happens on a single combined GST/QST return for most QC small businesses. Always confirm the QST registration number is set in Company Settings.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">04</div>
+ <div class="lesson-body">
+ <h4>Provincial Sales Tax (PST) — BC/SK/MB</h4>
+ <p>These provinces have PST (or RST in MB) ON TOP of GST. PST is generally NOT recoverable as an input tax credit — it's a true cost. Set up separate tax codes in QBO: 'GST + PST' for sales, but for purchases use 'GST only' (you can claim ITC) — and just expense the PST portion to the COGS account.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">05</div>
+ <div class="lesson-body">
+ <h4>Filing GST/HST Return</h4>
+ <p>Taxes → Sales Tax → Prepare return. QBO produces the GST34 numbers (Line 101 Sales, Line 103 GST/HST collected, Line 106 ITCs, Line 109 Net Tax). File via My Business Account on CRA. Or use QBO's 'File to CRA' integration. Always run a GST/HST detail report and review for misclassified transactions BEFORE filing.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">06</div>
+ <div class="lesson-body">
+ <h4>T4 (Employees) Year-End</h4>
+ <p>QBO Payroll (Canada) prepares T4s automatically by Feb 28. Review each employee's box 14 (employment income), 16 (CPP), 18 (EI), 22 (income tax). T4 Summary (T4SUM) submitted to CRA. Issue T4 slips to employees by end of February. Pension/RRSP contributions appear in box 20/52.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">07</div>
+ <div class="lesson-body">
+ <h4>T4A (Contractors)</h4>
+ <p>T4A for self-employed contractors paid > $500 in a year for services. Required for many service-business setups (cleaners, freelancers, subcontractors). QBO tracks T4A-flagged vendors. Box 048 'Fees for services' is the most common. Due to recipient and CRA by Feb 28.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">08</div>
+ <div class="lesson-body">
+ <h4>Year-End Procedures (Dec 31)</h4>
+ <p>Most Canadian businesses use calendar year. Steps: reconcile bank accounts, run AR/AP aging, file last GST/HST return for the year, prepare T4s/T4As, calculate corporate tax instalments, prepare year-end financials for the accountant who'll file T2 (corporate return). T2 due 6 months after year-end; tax payable 2 or 3 months after year-end depending on CCPC status.</p>
+ </div>
+ </div>
+ 
+ </div>
+ </section>
+ 
+
+ <section class="module" id="module-05">
+ <div class="module-head" style="background:linear-gradient(135deg,#7B1FA2 0%,#4F1469 100%);">
+ <div class="module-icon">🌐</div>
+ <div>
+ <div class="module-tag">Module 05 · Global</div>
+ <h2 class="module-title">Cross-Border — UK, AU, Multi-Currency</h2>
+ <p class="module-summary">QBO is heavily US/CAN. When you have UK or AU clients, here's what's different — and when you should recommend Xero instead.</p>
+ </div>
+ </div>
+ 
+ <!-- ═══ VIDEO WALKTHROUGH (Module 05) ═══ -->
+ <!-- TO ADD YOUR OWN VIDEO: replace the iframe src with: -->
+ <!-- https://www.youtube-nocookie.com/embed/YOUR_VIDEO_ID (single video) -->
+ <!-- OR https://www.youtube-nocookie.com/embed/videoseries?list=YOUR_PLAYLIST_ID (playlist) -->
+ <div class="video-walkthrough">
+ <div class="video-walkthrough-head">
+ <span class="video-tag">🎥 Video Walkthrough</span>
+ <span class="video-note">Curated tutorials · replace with your own when ready</span>
+ </div>
+ <a href="https://www.youtube.com/results?search_query=QuickBooks+Online+UK+VAT+multicurrency+Australia+tutorial" target="_blank" rel="noopener" class="video-player video-hero" style="position:relative;display:block;width:100%;padding-top:56.25%;background:linear-gradient(135deg,#0F1B2F 0%,#2D3A52 100%);border-radius:10px;overflow:hidden;margin-bottom:14px;text-decoration:none;cursor:pointer">
+ <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center">
+ <div style="background:#E8765E;color:#fff;width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:18px;box-shadow:0 10px 30px rgba(232,118,94,.5)">▶</div>
+ <div style="color:#E89B2D;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">▶ Watch on YouTube</div>
+ <div style="color:#fff;font-family:Georgia,serif;font-size:20px;font-weight:700;line-height:1.3;max-width:480px;margin-bottom:10px">QuickBooks Online UK VAT multicurrency Australia tutorial</div>
+ <div style="color:rgba(255,255,255,.65);font-size:12px">Curated tutorials · opens in new tab</div>
+ </div>
+ <div style="position:absolute;bottom:14px;right:18px;background:rgba(255,255,255,.10);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;backdrop-filter:blur(8px)">YouTube ↗</div>
+ </a>
+ <div class="video-recs">
+ <a href="https://www.youtube.com/results?search_query=QBO+UK+VAT+MTD" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO UK VAT MTD</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QBO+multi-currency+setup" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO multi-currency setup</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QBO+Australia+BAS" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO Australia BAS</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ </div>
+ </div>
+ 
+ <div class="lessons">
+ 
+ <div class="lesson">
+ <div class="lesson-num">01</div>
+ <div class="lesson-body">
+ <h4>QBO UK — VAT & MTD</h4>
+ <p>QBO UK supports VAT registration, all major VAT schemes (Standard, Flat Rate, Cash, Annual), and Making Tax Digital (MTD). Connect to HMRC via Settings. File VAT returns directly. VAT codes match Xero: 20% standard, 5% reduced, 0% zero-rated, Exempt, No VAT, Reverse Charge. CIS support for construction is weaker than Xero — recommend Xero for CIS-heavy clients.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">02</div>
+ <div class="lesson-body">
+ <h4>QBO Australia — GST & STP</h4>
+ <p>QBO Australia handles GST, BAS reporting, and Single Touch Payroll (STP Phase 2). Tax codes: GST (10%), GST, Input Taxed, BAS Excluded. Generate BAS directly. QBO Payroll Australia covers super, PAYG withholding, leave accruals. Smaller market share than Xero — many AU accountants prefer Xero. Recommend QBO only if the client specifically asks.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">03</div>
+ <div class="lesson-body">
+ <h4>When to Recommend Xero Instead</h4>
+ <p>AU clients with complex payroll (multiple awards, casual loading) → Xero or KeyPay. UK clients with CIS or > 50 employees → Xero + BrightPay. NZ clients (almost always) → Xero (QBO doesn't support NZ as well). Multi-entity consolidations → neither, use Fathom or Spotlight Reporting on top of either.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">04</div>
+ <div class="lesson-body">
+ <h4>Multi-Currency in QBO</h4>
+ <p>Settings → Advanced → Currency → turn on. Once on, can't be turned off. Adds foreign currencies to customers/vendors/bank accounts. QBO pulls daily exchange rates. Realized FX gain/loss posts on payment. Unrealized FX (month-end) requires a manual journal — QBO doesn't auto-revalue. Available on Essentials and above.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">05</div>
+ <div class="lesson-body">
+ <h4>Foreign Customer Invoicing</h4>
+ <p>Set customer's currency on their record. Invoice in their currency. QBO converts to home currency at the invoice date rate. Payment in same currency clears the AR cleanly. Payment in different currency requires manually entering exchange rate. Always set 'Charge in foreign currency' on the customer level.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">06</div>
+ <div class="lesson-body">
+ <h4>Accepting International Payments</h4>
+ <p>QBO Payments US/CAN only. For international clients use Wise, Stripe (international), or PayPal Business. After receiving, manually create a Sales Receipt in foreign currency, or apply payment to the foreign-currency invoice.</p>
+ </div>
+ </div>
+ 
+ </div>
+ </section>
+ 
+
+ <section class="module" id="module-06">
+ <div class="module-head" style="background:linear-gradient(135deg,#D81B60 0%,#8C113E 100%);">
+ <div class="module-icon"><></div>
+ <div>
+ <div class="module-tag">Module 06 · Universal</div>
+ <h2 class="module-title">Bank Reconciliation Mastery</h2>
+ <p class="module-summary">The reconciliation game in QBO is different from Xero. Master Banking screen, rules, and the dreaded Undeposited Funds account.</p>
+ </div>
+ </div>
+ 
+ <!-- ═══ VIDEO WALKTHROUGH (Module 06) ═══ -->
+ <!-- TO ADD YOUR OWN VIDEO: replace the iframe src with: -->
+ <!-- https://www.youtube-nocookie.com/embed/YOUR_VIDEO_ID (single video) -->
+ <!-- OR https://www.youtube-nocookie.com/embed/videoseries?list=YOUR_PLAYLIST_ID (playlist) -->
+ <div class="video-walkthrough">
+ <div class="video-walkthrough-head">
+ <span class="video-tag">🎥 Video Walkthrough</span>
+ <span class="video-note">Curated tutorials · replace with your own when ready</span>
+ </div>
+ <a href="https://www.youtube.com/results?search_query=QuickBooks+Online+bank+reconciliation+tutorial" target="_blank" rel="noopener" class="video-player video-hero" style="position:relative;display:block;width:100%;padding-top:56.25%;background:linear-gradient(135deg,#0F1B2F 0%,#2D3A52 100%);border-radius:10px;overflow:hidden;margin-bottom:14px;text-decoration:none;cursor:pointer">
+ <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center">
+ <div style="background:#E8765E;color:#fff;width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:18px;box-shadow:0 10px 30px rgba(232,118,94,.5)">▶</div>
+ <div style="color:#E89B2D;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">▶ Watch on YouTube</div>
+ <div style="color:#fff;font-family:Georgia,serif;font-size:20px;font-weight:700;line-height:1.3;max-width:480px;margin-bottom:10px">QuickBooks Online bank reconciliation tutorial</div>
+ <div style="color:rgba(255,255,255,.65);font-size:12px">Curated tutorials · opens in new tab</div>
+ </div>
+ <div style="position:absolute;bottom:14px;right:18px;background:rgba(255,255,255,.10);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;backdrop-filter:blur(8px)">YouTube ↗</div>
+ </a>
+ <div class="video-recs">
+ <a href="https://www.youtube.com/results?search_query=QBO+bank+reconciliation+walkthrough" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO bank reconciliation walkthrough</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QBO+undeposited+funds+tutorial" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO undeposited funds tutorial</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QBO+bank+rules" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO bank rules</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ </div>
+ </div>
+ 
+ <div class="lessons">
+ 
+ <div class="lesson">
+ <div class="lesson-num">01</div>
+ <div class="lesson-body">
+ <h4>The Banking Screen</h4>
+ <p>Banking → For Review tab. Three buttons per transaction: Add (creates a new transaction), Match (links to existing), Find Match (advanced match across split deposits). After reviewing, click Reconcile on the bank account to formally reconcile to a statement.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">02</div>
+ <div class="lesson-body">
+ <h4>Bank Rules</h4>
+ <p>Banking → Rules. Create: 'When Description contains GOOGLE → Categorize as Software Subscription, Vendor: Google, Tax: applicable'. Auto-add option (DANGEROUS — only for 100% certain patterns). Most pros leave rules on 'suggest' not 'auto-add' so they review before posting.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">03</div>
+ <div class="lesson-body">
+ <h4>Undeposited Funds (The Killer Account)</h4>
+ <p>When you receive customer payments in QBO and don't bank them immediately, they sit in Undeposited Funds. When the bank deposit hits, use + → Bank Deposit, tick the customer payments → match the deposit. If you skip this step and just match the bank deposit directly to invoices, you create duplicate transactions. ALWAYS keep Undeposited Funds at zero at month-end.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">04</div>
+ <div class="lesson-body">
+ <h4>Bank Reconciliation Itself</h4>
+ <p>Settings → Reconcile. Enter statement ending date and balance. Tick off transactions one by one. Difference must equal zero. If it doesn't: (1) check for transactions in QBO not on statement (probably duplicates); (2) check for statement items not in QBO (missing entries); (3) check for math errors. Auto-adjust feature exists but NEVER use it — it masks real errors.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">05</div>
+ <div class="lesson-body">
+ <h4>Common Errors & Fixes</h4>
+ <p>(1) Duplicate transactions — undo the bank feed match, delete one, re-match. (2) Wrong category — re-categorize from the For Review tab if not yet added, or edit transaction directly. (3) Beginning balance off — someone changed a reconciled prior transaction; undo recent reconciliations until balance matches, then re-reconcile.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">06</div>
+ <div class="lesson-body">
+ <h4>Credit Card Reconciliation</h4>
+ <p>Same process as bank. Reconcile each month against the statement. Statement Balance to enter = ending balance from statement (the amount owed). Credits/refunds appear as deposits on the bank screen but reduce the balance on the credit card. Settle outstanding charges to ensure they appear on next month's statement.</p>
+ </div>
+ </div>
+ 
+ </div>
+ </section>
+ 
+
+ <section class="module" id="module-07">
+ <div class="module-head" style="background:linear-gradient(135deg,#E89B2D 0%,#96641D 100%);">
+ <div class="module-icon">##</div>
+ <div>
+ <div class="module-tag">Module 07 · Universal</div>
+ <h2 class="module-title">Reporting & Analysis</h2>
+ <p class="module-summary">P&L variations, balance sheet review, AR/AP aging, custom reports, and the QBO Advanced features your serious clients pay for.</p>
+ </div>
+ </div>
+ 
+ <!-- ═══ VIDEO WALKTHROUGH (Module 07) ═══ -->
+ <!-- TO ADD YOUR OWN VIDEO: replace the iframe src with: -->
+ <!-- https://www.youtube-nocookie.com/embed/YOUR_VIDEO_ID (single video) -->
+ <!-- OR https://www.youtube-nocookie.com/embed/videoseries?list=YOUR_PLAYLIST_ID (playlist) -->
+ <div class="video-walkthrough">
+ <div class="video-walkthrough-head">
+ <span class="video-tag">🎥 Video Walkthrough</span>
+ <span class="video-note">Curated tutorials · replace with your own when ready</span>
+ </div>
+ <a href="https://www.youtube.com/results?search_query=QuickBooks+Online+reports+profit+loss+balance+sheet+tutorial" target="_blank" rel="noopener" class="video-player video-hero" style="position:relative;display:block;width:100%;padding-top:56.25%;background:linear-gradient(135deg,#0F1B2F 0%,#2D3A52 100%);border-radius:10px;overflow:hidden;margin-bottom:14px;text-decoration:none;cursor:pointer">
+ <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center">
+ <div style="background:#E8765E;color:#fff;width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:18px;box-shadow:0 10px 30px rgba(232,118,94,.5)">▶</div>
+ <div style="color:#E89B2D;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">▶ Watch on YouTube</div>
+ <div style="color:#fff;font-family:Georgia,serif;font-size:20px;font-weight:700;line-height:1.3;max-width:480px;margin-bottom:10px">QuickBooks Online reports profit loss balance sheet tutorial</div>
+ <div style="color:rgba(255,255,255,.65);font-size:12px">Curated tutorials · opens in new tab</div>
+ </div>
+ <div style="position:absolute;bottom:14px;right:18px;background:rgba(255,255,255,.10);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;backdrop-filter:blur(8px)">YouTube ↗</div>
+ </a>
+ <div class="video-recs">
+ <a href="https://www.youtube.com/results?search_query=QBO+P%26L+report+tutorial" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO P&L report tutorial</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QBO+custom+report+groups" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO custom report groups</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QBO+classes+and+locations" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO classes and locations</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ </div>
+ </div>
+ 
+ <div class="lessons">
+ 
+ <div class="lesson">
+ <div class="lesson-num">01</div>
+ <div class="lesson-body">
+ <h4>Profit & Loss</h4>
+ <p>Reports → Profit and Loss. Default is Accrual basis — toggle to Cash if needed. Compare: prior period, prior year, % of income, % expense. Group by classes or locations (Plus+). Customize columns (Months, Quarters, Customers). Save Customization → schedule email delivery.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">02</div>
+ <div class="lesson-body">
+ <h4>Balance Sheet</h4>
+ <p>Reports → Balance Sheet. Always reconcile each balance: bank to statement, AR to AR aging, AP to AP aging, sales tax payable to sales tax return. Look for: negative balances on bank (overdraft or error), Undeposited Funds > 0 (un-deposited customer payments), Opening Balance Equity > 0 (always investigate — should be zero after setup).</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">03</div>
+ <div class="lesson-body">
+ <h4>AR & AP Aging</h4>
+ <p>Reports → Customers & Receivables → A/R Aging Summary / Detail. Send statements monthly. Reports → Vendors & Payables → A/P Aging Summary / Detail. Print before each bill payment run. Auto-send statements: Sales → All Sales → Statements → set up automation.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">04</div>
+ <div class="lesson-body">
+ <h4>Cash Flow & Budget</h4>
+ <p>Reports → Statement of Cash Flows (3 sections: Operating, Investing, Financing). Reports → Budget Overview if budget set up (Settings → Budgeting). Budgets in QBO Plus+ allow Actual vs Budget comparison. Pro tip: enter monthly budgets per account, copy prior year + 10% growth as starting point, then refine.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">05</div>
+ <div class="lesson-body">
+ <h4>Custom Report Groups</h4>
+ <p>Reports → Custom Reports. Save customized reports here. Group into Report Groups (e.g., 'Monthly Owner Pack' = P&L + Balance Sheet + Cash Flow + AR Aging). Schedule the whole group via email to the client on the 5th of each month. Massive time-saver.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">06</div>
+ <div class="lesson-body">
+ <h4>Classes & Locations (Plus+)</h4>
+ <p>Settings → Advanced → Categories. Turn on Classes (functions: department, product line) and Locations (regions, branches). Tag every transaction. Run P&L by Class for segment performance. Don't enable both unless you really need both — adds friction to every entry.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">07</div>
+ <div class="lesson-body">
+ <h4>QBO Advanced — Workflows & Custom Reports</h4>
+ <p>Workflows automate: 'send reminder when invoice is X days overdue', 'notify accountant when expense > $5,000'. Custom Fields on transactions and contacts. Custom Roles for granular permissions. Worth the upgrade only for clients with > 15 employees or > $5m revenue.</p>
+ </div>
+ </div>
+ 
+ </div>
+ </section>
+ 
+
+ <section class="module" id="module-08">
+ <div class="module-head" style="background:linear-gradient(135deg,#0288D1 0%,#015887 100%);">
+ <div class="module-icon">++</div>
+ <div>
+ <div class="module-tag">Module 08 · Universal</div>
+ <h2 class="module-title">Apps & Integrations</h2>
+ <p class="module-summary">QBO has 600+ apps. Here's the stack actually used by working US/CAN/PH bookkeepers — and what to recommend per client type.</p>
+ </div>
+ </div>
+ 
+ <!-- ═══ VIDEO WALKTHROUGH (Module 08) ═══ -->
+ <!-- TO ADD YOUR OWN VIDEO: replace the iframe src with: -->
+ <!-- https://www.youtube-nocookie.com/embed/YOUR_VIDEO_ID (single video) -->
+ <!-- OR https://www.youtube-nocookie.com/embed/videoseries?list=YOUR_PLAYLIST_ID (playlist) -->
+ <div class="video-walkthrough">
+ <div class="video-walkthrough-head">
+ <span class="video-tag">🎥 Video Walkthrough</span>
+ <span class="video-note">Curated tutorials · replace with your own when ready</span>
+ </div>
+ <a href="https://www.youtube.com/results?search_query=QuickBooks+Online+apps+integrations+Hubdoc+Bill.com+tutorial" target="_blank" rel="noopener" class="video-player video-hero" style="position:relative;display:block;width:100%;padding-top:56.25%;background:linear-gradient(135deg,#0F1B2F 0%,#2D3A52 100%);border-radius:10px;overflow:hidden;margin-bottom:14px;text-decoration:none;cursor:pointer">
+ <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center">
+ <div style="background:#E8765E;color:#fff;width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:18px;box-shadow:0 10px 30px rgba(232,118,94,.5)">▶</div>
+ <div style="color:#E89B2D;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">▶ Watch on YouTube</div>
+ <div style="color:#fff;font-family:Georgia,serif;font-size:20px;font-weight:700;line-height:1.3;max-width:480px;margin-bottom:10px">QuickBooks Online apps integrations Hubdoc Bill.com tutorial</div>
+ <div style="color:rgba(255,255,255,.65);font-size:12px">Curated tutorials · opens in new tab</div>
+ </div>
+ <div style="position:absolute;bottom:14px;right:18px;background:rgba(255,255,255,.10);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;backdrop-filter:blur(8px)">YouTube ↗</div>
+ </a>
+ <div class="video-recs">
+ <a href="https://www.youtube.com/results?search_query=Hubdoc+QBO+integration" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">Hubdoc QBO integration</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=Bill.com+QBO+tutorial" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">Bill.com QBO tutorial</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QuickBooks+Time+tutorial" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QuickBooks Time tutorial</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ </div>
+ </div>
+ 
+ <div class="lessons">
+ 
+ <div class="lesson">
+ <div class="lesson-num">01</div>
+ <div class="lesson-body">
+ <h4>Receipt & Bill Automation</h4>
+ <p>Hubdoc ( with subscription on some plans). Dext (formerly Receipt Bank) — premium OCR. Bill.com — full AP workflow with approvals. AutoEntry. Most US bookkeepers use Hubdoc OR Dext. For clients with approval flows or > $50k/mo in bills: Bill.com.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">02</div>
+ <div class="lesson-body">
+ <h4>Payments & Invoicing</h4>
+ <p>QBO Payments (US/CAN — credit card 2.9% + 25¢; ACH 1% capped). Stripe (alternative, often cheaper for online businesses). Square (POS-heavy). PayPal (consumer-friendly). For B2B services: ACH via QBO Payments wins.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">03</div>
+ <div class="lesson-body">
+ <h4>E-commerce</h4>
+ <p>Shopify + A2X (gold standard). Amazon + A2X. Stripe + A2X. eBay + A2X. WooCommerce + Webgility. NEVER pull individual transactions from a high-volume store — use a settlement-based connector and reconcile to the daily/weekly payout.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">04</div>
+ <div class="lesson-body">
+ <h4>Inventory Management</h4>
+ <p>Built-in QBO inventory (basic, FIFO only). For more: SOS Inventory, Cin7 Core (DEAR), Fishbowl, SkuVault. Pick based on units sold and SKU count. Most small clients can live with built-in. Mid-market and up needs a dedicated inventory app.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">05</div>
+ <div class="lesson-body">
+ <h4>Time Tracking & Payroll</h4>
+ <p>QuickBooks Time (formerly TSheets) — integrates seamlessly with QBO Payroll. Gusto — alternative payroll provider, popular for tech companies, integrates with QBO. Hubstaff — basic time tracking for remote teams. Deputy — scheduling-heavy.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">06</div>
+ <div class="lesson-body">
+ <h4>CRM & Sales</h4>
+ <p>HubSpot ( CRM tier, integrates with QBO). Salesforce (enterprise, complex). Method:CRM (built ON TOP of QBO). For service businesses with < 20 staff: HubSpot + QBO works great.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">07</div>
+ <div class="lesson-body">
+ <h4>The Recommended Stack by Client Type</h4>
+ <p>Service business < 5 staff: QBO Essentials + Hubdoc + QBO Payments + QBO Payroll. E-commerce: QBO Plus + A2X + Dext + Stripe. Construction: QBO Plus + Knowify + QuickBooks Time. Real estate (US): QBO Plus + Stessa or AppFolio.</p>
+ </div>
+ </div>
+ 
+ </div>
+ </section>
+ 
+
+ <section class="module" id="module-09">
+ <div class="module-head" style="background:linear-gradient(135deg,#C2185B 0%,#7E0F3B 100%);">
+ <div class="module-icon">**</div>
+ <div>
+ <div class="module-tag">Module 09 · Pro</div>
+ <h2 class="module-title">Cleanup & Year-End</h2>
+ <p class="module-summary">Most new clients arrive with a mess. The cleanup playbook. Plus the standard year-end close every QBO bookkeeper runs.</p>
+ </div>
+ </div>
+ 
+ <!-- ═══ VIDEO WALKTHROUGH (Module 09) ═══ -->
+ <!-- TO ADD YOUR OWN VIDEO: replace the iframe src with: -->
+ <!-- https://www.youtube-nocookie.com/embed/YOUR_VIDEO_ID (single video) -->
+ <!-- OR https://www.youtube-nocookie.com/embed/videoseries?list=YOUR_PLAYLIST_ID (playlist) -->
+ <div class="video-walkthrough">
+ <div class="video-walkthrough-head">
+ <span class="video-tag">🎥 Video Walkthrough</span>
+ <span class="video-note">Curated tutorials · replace with your own when ready</span>
+ </div>
+ <a href="https://www.youtube.com/results?search_query=QuickBooks+Online+cleanup+year+end+close+tutorial" target="_blank" rel="noopener" class="video-player video-hero" style="position:relative;display:block;width:100%;padding-top:56.25%;background:linear-gradient(135deg,#0F1B2F 0%,#2D3A52 100%);border-radius:10px;overflow:hidden;margin-bottom:14px;text-decoration:none;cursor:pointer">
+ <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center">
+ <div style="background:#E8765E;color:#fff;width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:18px;box-shadow:0 10px 30px rgba(232,118,94,.5)">▶</div>
+ <div style="color:#E89B2D;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">▶ Watch on YouTube</div>
+ <div style="color:#fff;font-family:Georgia,serif;font-size:20px;font-weight:700;line-height:1.3;max-width:480px;margin-bottom:10px">QuickBooks Online cleanup year end close tutorial</div>
+ <div style="color:rgba(255,255,255,.65);font-size:12px">Curated tutorials · opens in new tab</div>
+ </div>
+ <div style="position:absolute;bottom:14px;right:18px;background:rgba(255,255,255,.10);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;backdrop-filter:blur(8px)">YouTube ↗</div>
+ </a>
+ <div class="video-recs">
+ <a href="https://www.youtube.com/results?search_query=QBO+cleanup+workflow" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO cleanup workflow</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QBO+reclassify+transactions+tool" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO reclassify transactions tool</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QBO+year+end+close" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO year end close</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ </div>
+ </div>
+ 
+ <div class="lessons">
+ 
+ <div class="lesson">
+ <div class="lesson-num">01</div>
+ <div class="lesson-body">
+ <h4>The Cleanup Diagnostic</h4>
+ <p>Step 1: Run Reconciliation Discrepancy report — flags every period where ending balance doesn't match. Step 2: Run Audit Log — see who changed what. Step 3: Run Trial Balance — look for negative balances, suspense accounts, unusual entries. Step 4: Run AR + AP Aging — look for stale invoices/bills > 1 year. Step 5: Run Opening Balance Equity report — should be zero. If not, someone messed up setup.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">02</div>
+ <div class="lesson-body">
+ <h4>The Cleanup Workflow</h4>
+ <p>(1) Get bank statements for the full period; (2) Reconcile each month sequentially — DO NOT skip; (3) Fix duplicate transactions; (4) Re-categorize misclassified items in batches via Banking → For Review or in Chart of Accounts → Register; (5) Close Undeposited Funds; (6) Resolve Opening Balance Equity; (7) Run final reports and document changes in Audit Log.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">03</div>
+ <div class="lesson-body">
+ <h4>Reclassify Transactions Tool (QBOA only)</h4>
+ <p>Accountant Tools → Reclassify Transactions. Bulk-change account, class, or location on multiple transactions at once. Massive cleanup time-saver. Only available in QBO Accountant — get the Accountant subscription if you don't have it.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">04</div>
+ <div class="lesson-body">
+ <h4>Year-End Close Checklist</h4>
+ <p>(1) Final reconciliation of all bank and credit card accounts; (2) Send all customer statements; (3) Process final payroll, file Q4 941; (4) Issue 1099s (US) / T4s (CAN) by Jan 31 / Feb 28; (5) File final sales tax returns; (6) Adjust journal entries for depreciation, accruals, deferred revenue; (7) Close the books — Settings → Advanced → Accounting → Close the books; (8) Send year-end financials to the CPA.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">05</div>
+ <div class="lesson-body">
+ <h4>Closing the Books</h4>
+ <p>Setting a close date prevents retroactive edits to prior periods. Set close date password. Adviser/Accountant can override with password to fix errors; immediately re-close after. NEVER skip this step — it's how you keep prior-year reports stable for tax filing.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">06</div>
+ <div class="lesson-body">
+ <h4>Working With the CPA</h4>
+ <p>QBO has an 'Accountant's Copy' feature — send a snapshot to the CPA who works in it while you continue in the live file. CPA returns 'accountant's changes' which merge in. Alternative: invite CPA as Accountant User. Most CPAs prefer Accountant User access. Always provide: trial balance, all bank statements, full reconciliation reports, AR/AP aging, depreciation schedule, payroll summary.</p>
+ </div>
+ </div>
+ 
+ </div>
+ </section>
+ 
+
+ <section class="module" id="module-10">
+ <div class="module-head" style="background:linear-gradient(135deg,#5E35B1 0%,#3D2273 100%);">
+ <div class="module-icon">[]</div>
+ <div>
+ <div class="module-tag">Module 10 · Hands-on</div>
+ <h2 class="module-title">Real Client Practice</h2>
+ <p class="module-summary">Three real US/CAN client scenarios — a Texas e-commerce store, a Toronto consulting firm, a Florida construction sub. Plus pricing.</p>
+ </div>
+ </div>
+ 
+ <!-- ═══ VIDEO WALKTHROUGH (Module 10) ═══ -->
+ <!-- TO ADD YOUR OWN VIDEO: replace the iframe src with: -->
+ <!-- https://www.youtube-nocookie.com/embed/YOUR_VIDEO_ID (single video) -->
+ <!-- OR https://www.youtube-nocookie.com/embed/videoseries?list=YOUR_PLAYLIST_ID (playlist) -->
+ <div class="video-walkthrough">
+ <div class="video-walkthrough-head">
+ <span class="video-tag">🎥 Video Walkthrough</span>
+ <span class="video-note">Curated tutorials · replace with your own when ready</span>
+ </div>
+ <a href="https://www.youtube.com/results?search_query=QuickBooks+Online+month+end+close+client+workflow+tutorial" target="_blank" rel="noopener" class="video-player video-hero" style="position:relative;display:block;width:100%;padding-top:56.25%;background:linear-gradient(135deg,#0F1B2F 0%,#2D3A52 100%);border-radius:10px;overflow:hidden;margin-bottom:14px;text-decoration:none;cursor:pointer">
+ <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center">
+ <div style="background:#E8765E;color:#fff;width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:18px;box-shadow:0 10px 30px rgba(232,118,94,.5)">▶</div>
+ <div style="color:#E89B2D;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">▶ Watch on YouTube</div>
+ <div style="color:#fff;font-family:Georgia,serif;font-size:20px;font-weight:700;line-height:1.3;max-width:480px;margin-bottom:10px">QuickBooks Online month end close client workflow tutorial</div>
+ <div style="color:rgba(255,255,255,.65);font-size:12px">Curated tutorials · opens in new tab</div>
+ </div>
+ <div style="position:absolute;bottom:14px;right:18px;background:rgba(255,255,255,.10);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;backdrop-filter:blur(8px)">YouTube ↗</div>
+ </a>
+ <div class="video-recs">
+ <a href="https://www.youtube.com/results?search_query=QBO+ProAdvisor+certification" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO ProAdvisor certification</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QBO+month+end+checklist" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO month end checklist</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ <a href="https://www.youtube.com/results?search_query=QBO+client+onboarding" target="_blank" rel="noopener" class="video-card">
+ <div class="video-card-thumb">▶</div>
+ <div class="video-card-title">QBO client onboarding</div>
+ <div class="video-card-sub">Open YouTube →</div>
+ </a>
+ </div>
+ </div>
+ 
+ <div class="lessons">
+ 
+ <div class="lesson">
+ <div class="lesson-num">01</div>
+ <div class="lesson-body">
+ <h4>US Case 1 — 'Lone Star Apparel' (Texas E-commerce LLC)</h4>
+ <p>Setup: QBO Plus, Shopify + A2X, Stripe, QBO Payments, QBO Payroll Core (3 part-time employees). Monthly tasks: (1) A2X-Shopify reconciliation; (2) Stripe reconciliation; (3) US sales tax (TX + 4 nexus states tracked via TaxJar); (4) reconcile owner's distribution (sole-member LLC tax election); (5) payroll runs bi-weekly; (6) issue 1099s annually for graphic-design contractor. Pricing: $750/mo bookkeeping + $200/mo sales tax.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">02</div>
+ <div class="lesson-body">
+ <h4>US Case 2 — 'Florida Build Co' (S-Corp Contractor)</h4>
+ <p>Setup: QBO Plus + QuickBooks Time, 8 W-2 employees + 6 1099 subs, QBO Payroll Premium. Monthly tasks: (1) job costing by project (using Classes for projects); (2) reconcile separate operating + tax savings accounts; (3) reconcile owner's reasonable salary calculation; (4) 1099 tracking for subs ($600 threshold per sub per year); (5) FL reemployment tax filings; (6) Schedule K-1 prep at year end. Pricing: $950/mo.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">03</div>
+ <div class="lesson-body">
+ <h4>CAN Case — 'Toronto Consulting Inc' (Ontario CCPC)</h4>
+ <p>Setup: QBO Essentials + Wagepoint payroll (2 employees), HST quarterly filer. Monthly tasks: (1) reconcile CIBC bank + Visa card; (2) review WIP and unbilled hours; (3) Wagepoint payroll runs; (4) HST quarterly return prep; (5) shareholder loan account reconciliation (very common in Canadian CCPCs); (6) year-end T4 + T2 prep handoff. Pricing: CAD $700/mo.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">04</div>
+ <div class="lesson-body">
+ <h4>Standard Cleanup Engagement Scope</h4>
+ <p>Most new clients arrive 6-12 months behind. Scope of cleanup: agreed period (e.g., last 12 months), all bank/credit card accounts reconciled, AR/AP corrected, COA cleaned, sales tax returns reviewed, payroll reconciled to filings. Quote SEPARATELY from ongoing bookkeeping. Typical cleanup price: US $50-150/hr × estimated hours, OR flat $1,500-$5,000 depending on volume and mess level.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">05</div>
+ <div class="lesson-body">
+ <h4>Pricing Your QBO Services (USD)</h4>
+ <p>Setup fee: $400-1,500 (one-time). Monthly bookkeeping: $300-1,500 based on transaction count + complexity. Sales tax filing: $100-300 per state per period. Payroll: $100-500/mo (depending on # employees). 1099 issuance: $25-50 per 1099. Always quote a setup fee AND monthly retainer — never just hourly. Hourly traps you in trading hours for dollars; flat-fee scales.</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">06</div>
+ <div class="lesson-body">
+ <h4>Landing Your First QBO Client</h4>
+ <p>(1) Become QuickBooks ProAdvisor (💎 INCLUDED — quickbooks.intuit.com/learn-support/en-us/proadvisor). Take the Certification exam — pass and get listed in Intuit's Find-a-ProAdvisor directory; (2) Post in US-based bookkeeper Facebook groups offering overflow work; (3) Reach out to local CPAs offering bookkeeping support; (4) LinkedIn: optimize headline as 'Remote Bookkeeper specializing in QBO + US tax compliance'; (5) Upwork / OLJ: build profile with 3-5 sample workbooks; (6) Always send an engagement letter (template in Academy).</p>
+ </div>
+ </div>
+ 
+ <div class="lesson">
+ <div class="lesson-num">07</div>
+ <div class="lesson-body">
+ <h4>The QuickBooks ProAdvisor Path</h4>
+ <p> Intuit Academy program. Two main certifications: QBO Certification (foundational) and QBO Advanced Certification (advanced features, workflows, custom reports). Both are 💎 INCLUDED. Each requires passing an online exam. After certifying, you appear in Intuit's Find-a-ProAdvisor directory — real US business owners search there for bookkeepers. This is the single highest-ROI thing a Filipino bookkeeper targeting US clients can do.</p>
+ </div>
+ </div>
+ 
+ </div>
+ </section>
+ </div>
+
+<section class="cta-block">
+ <h2>Ready to land your first US QBO client?</h2>
+ <p>The ProAdvisor certification is. The clients aren't waiting. Start with Module 1.</p>
+ <a class="cta-btn" href="#module-01">Start Module 1 →</a>
+</section>
+
+<footer>
+ © 2025 Mary Grace Solayao · <a href="academy.html">Back to Academy</a> · <a href="index.html">Linktree</a> · <a href="xero-course.html">Xero Course</a> · <a href="https://www.youtube.com/@mgsolayao0198" target="_blank">YouTube</a>
+</footer>
+
+
+
+
+
+
+</body>
+</html>
