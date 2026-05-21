@@ -1,0 +1,93 @@
+================================================================
+ATS-FRIENDLY RESUME TEMPLATE — THE COMPLETE BEGINNER
+For: fresh grads / no accounting experience yet
+================================================================
+
+INSTRUCTIONS:
+1. Replace EVERY [BRACKET] with your actual info.
+2. Keep this as a single-column layout. No tables. No graphics.
+3. Save as PDF and DOCX. Use the PDF first unless the ATS specifies docx.
+4. Run it through resumeworded.com and jobscan.co before applying.
+
+================================================================
+
+[YOUR FULL NAME]
+Remote Bookkeeper · QuickBooks ProAdvisor · Xero Advisor
+[City, Province, Philippines] · [+63 9XX XXX XXXX] · [your.email@gmail.com]
+LinkedIn: linkedin.com/in/[your-handle]
+Portfolio: [your-portfolio-link]
+
+----------------------------------------------------------------
+PROFESSIONAL SUMMARY
+----------------------------------------------------------------
+Detail-oriented and recently certified remote bookkeeper trained in
+QuickBooks Online and Xero. Strong foundation in double-entry
+accounting, bank reconciliation, accounts payable and accounts
+receivable, and monthly financial reporting. Eager to support
+US, Australian, UK, and New Zealand small-business clients with
+accurate books, clean reconciliations, and proactive communication.
+Available full-time with [time-zone overlap detail].
+
+----------------------------------------------------------------
+CERTIFICATIONS
+----------------------------------------------------------------
+- QuickBooks Online ProAdvisor — Intuit · [Year]
+- Xero Advisor Certified — Xero · [Year]
+- HubSpot Academy — Bookkeeping & Finance Fundamentals · [Year]
+- AccountingCoach — Accounting Basics · [Year]
+- The Ultimate Bookkeeper Academy by @mgsolayao — Certificate · [Year]
+
+----------------------------------------------------------------
+CORE COMPETENCIES
+----------------------------------------------------------------
+Bank Reconciliation | Accounts Receivable | Accounts Payable
+Chart of Accounts Setup | Cash & Accrual Accounting | Month-End Close
+Financial Statements (P&L, Balance Sheet, Cash Flow) | Bank Feeds & Rules
+Payroll Journal Entries | Invoicing | Bill Pay | 1099 Preparation
+QuickBooks Online | Xero | MYOB (basic) | MS Excel | Google Sheets
+Hubdoc | Dext | Loom | Slack
+
+----------------------------------------------------------------
+PRACTICAL EXPERIENCE
+----------------------------------------------------------------
+Self-Directed Practice Engagements · [Month Year] – Present
+- Built a fictional service company in QuickBooks Online and recorded 3 months of transactions including invoicing, bill pay, payroll journals, and bank reconciliation to zero variance.
+- Set up a parallel company in Xero with bank feeds, automated bank rules, and Hubdoc receipt capture.
+- Produced monthly P&L, Balance Sheet, and Cash Flow statements; documented end-to-end month-end close checklist.
+- Practiced multi-currency reconciliation (USD, AUD, GBP, NZD).
+
+[OPTIONAL — only if you have it]
+Volunteer Bookkeeper · [Friend's / Relative's Small Business] · [Year]
+- Set up Chart of Accounts and digitized 6 months of paper receipts in QuickBooks Online.
+- Delivered first-ever monthly P&L statement; identified roughly [N] dollars in uncategorized expenses.
+- Trained owner on monthly receipt capture using Hubdoc.
+
+----------------------------------------------------------------
+EDUCATION
+----------------------------------------------------------------
+[Degree, Major if applicable] · [School Name] · [Year]
+[Relevant coursework if accounting/business-related]
+
+----------------------------------------------------------------
+TECHNICAL TOOLBOX
+----------------------------------------------------------------
+QuickBooks Online | Xero | MYOB | MS Excel | Google Workspace
+Slack | Loom | Zoom | Calendly | Wise | Payoneer | LastPass
+Hubdoc | Dext | A2X | Bill.com | Gusto (basic)
+
+----------------------------------------------------------------
+LANGUAGES
+----------------------------------------------------------------
+English (professional fluency)
+Filipino / Tagalog (native)
+[other dialect if applicable]
+
+----------------------------------------------------------------
+REFERENCES
+----------------------------------------------------------------
+[Name] · [Title] · [Email] · [Phone]
+[Name] · [Title] · [Email] · [Phone]
+
+================================================================
+END OF RESUME — DELETE THIS LINE BEFORE SUBMITTING
+================================================================
