@@ -108,7 +108,7 @@ body{font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--te
 .video-thumb.play-btn{position:absolute;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--navy)}
 .video-thumb.qb-bg{background:linear-gradient(135deg,#1A4731 0%,#2CA01C 100%)}
 .video-thumb.xero-bg{background:linear-gradient(135deg,#0D3B52 0%,#13B5EA 100%)}
-.video-thumb.dark-bg{background:linear-gradient(135deg,#1A1A2E 0%,#3A3A6E 100%)}
+.video-thumb.dark-bg{background:linear-gradient(135deg,#FFF8F0 0%,#FCE8F3 100%);border:1.5px solid #E5DDD0;color:#0F1B2F}
 .video-thumb.blue-bg{background:linear-gradient(135deg,#0D47A1 0%,#1976D2 100%)}
 .video-thumb.teal-bg{background:linear-gradient(135deg,#004D40 0%,#00838F 100%)}
 .video-thumb.pink-bg{background:linear-gradient(135deg,#8B004E 0%,#C4006E 100%)}
@@ -119,16 +119,16 @@ body{font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--te
 .video-link{font-size:11px;font-weight:700;color:var(--pink);text-decoration:none;display:inline-flex;align-items:center;gap:4px;margin-top:auto}
 .shortcut-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0}
 .shortcut-row{display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--border);border-radius:6px;padding:7px 12px}
-.shortcut-key{background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;font-family:monospace;white-space:nowrap}
-.shortcut-desc{font-size:12px;color:var(--subtext)}
+.shortcut-key{background:#C4006E;color:#fff;font-size:12px;font-weight:800;padding:4px 10px;border-radius:6px;font-family:monospace;white-space:nowrap;letter-spacing:.3px}
+.shortcut-desc{font-size:14px;color:#0F1B2F;font-weight:600}
 .badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap}
 .badge-teal{background:var(--teal-lt);color:var(--teal-dark)}
 .badge-pink{background:var(--pink-lt);color:var(--pink)}
 .badge-qb{background:var(--qb-lt);color:var(--qb)}
 .badge-xero{background:var(--xero-lt);color:var(--xero-dark)}
-.section-hero{background:linear-gradient(135deg,var(--navy) 0%,#2D2D5E 100%);border-radius:12px;padding:28px 32px;margin-bottom:28px;color:#fff}
-.section-hero h2{font-size:20px;font-weight:700;margin-bottom:8px}
-.section-hero p{font-size:13px;opacity:.85;line-height:1.6}
+.section-hero{background:linear-gradient(135deg,#FFF8F0 0%,#FCE8F3 100%);border:1.5px solid #E89B2D;border-radius:14px;padding:28px 32px;margin-bottom:28px;color:#0F1B2F}
+.section-hero h2{font-size:22px;font-weight:800;margin-bottom:8px;color:#0F1B2F}
+.section-hero p{font-size:14px;color:#1A1A2E;line-height:1.65;font-weight:500}
 .tool-divider{text-align:center;padding:20px 0;margin:10px 0;font-size:22px;color:var(--border);border-top:2px dashed var(--border)}
 /* ── QUIZ STYLES ────────────── */
 .quiz-box{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin:16px 0}
@@ -588,10 +588,12 @@ body{font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--te
  border-radius: 14px !important;
  }
 .story-quote{
- background: var(--m-ink) !important;
- color: var(--m-cream) !important;
- border-left: none !important;
+ background: linear-gradient(135deg,#FFF8F0,#FCE8F3) !important;
+ color: #0F1B2F !important;
+ border: 2px solid #C4006E !important;
+ border-left: 6px solid #C4006E !important;
  }
+.story-quote p{ color: #0F1B2F !important; opacity: 1 !important; }
 
  /* Quiz feedback panels */
 .quiz-feedback{background: var(--m-cream-warm) !important;}
@@ -797,8 +799,13 @@ function logoutAcademy(){localStorage.removeItem('academy_access');localStorage.
  <a class="sidebar-link" href="#community"><span class="si">🤝</span> Community</a>
  <a class="sidebar-link" href="#milestones"><span class="si">🎁</span> Income Milestones</a>
  <a class="sidebar-link" href="#certificate"><span class="si">🏅</span> Your Certificate</a>
- <a class="sidebar-link" href="#faq"><span class="si">❓</span> FAQ</a>
  <div class="sidebar-divider"></div>
+ <div class="sidebar-label" style="color:#C4006E !important;font-weight:800">🆕 Just Added</div>
+ <a class="sidebar-link" href="#more-resources" style="background:#FFF8F0;border-left:3px solid #E89B2D"><span class="si">📚</span> More Free Resources</a>
+ <a class="sidebar-link" href="#software-stack" style="background:#FCE8F3;border-left:3px solid #C4006E"><span class="si">🧰</span> AP / AR / Payroll Software</a>
+ <a class="sidebar-link" href="#whats-next" style="background:#E6F4F5;border-left:3px solid #00838F"><span class="si">🚀</span> What's Coming Next</a>
+ <div class="sidebar-divider"></div>
+ <a class="sidebar-link" href="#faq"><span class="si">❓</span> FAQ</a>
  <a class="sidebar-link" href="#tech-stack"><span class="si">🖥️</span> Tech Stack</a>
  <a class="sidebar-link" href="#salary"><span class="si">💵</span> Income Estimates</a>
  <a class="sidebar-link" href="#videos"><span class="si">🎬</span> Videos & Certs</a>
@@ -953,7 +960,7 @@ function logoutAcademy(){localStorage.removeItem('academy_access');localStorage.
 .polaroid.caption small{display:block;font-family:"Segoe UI",sans-serif;font-size:10px;color:#888;margin-top:3px;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
 .story-card{background:linear-gradient(135deg,#FCE8F3 0%,#FFF 60%,#E6F4F5 100%);border:1px solid var(--pink);border-left:6px solid var(--pink);border-radius:14px;padding:30px 32px;margin:14px 0 18px;box-shadow:0 6px 24px rgba(196,0,110,.10);position:relative;overflow:hidden}
 .story-card::before{content:"💗";position:absolute;top:-10px;right:-10px;font-size:120px;opacity:.05;transform:rotate(15deg);pointer-events:none}
-.story-quote{background:linear-gradient(135deg,var(--pink) 0%,#8B004E 100%);border-radius:12px;padding:22px 26px;color:#fff;margin-top:14px;position:relative}
+.story-quote{background:linear-gradient(135deg,#FFF8F0,#FCE8F3);border-radius:12px;padding:22px 26px;color:#0F1B2F;border:2px solid #C4006E;border-left:6px solid #C4006E;margin-top:14px;position:relative}
 .story-quote::before{content:'"';position:absolute;top:-10px;left:14px;font-size:80px;color:rgba(255,255,255,.25);font-family:Georgia,serif;line-height:1;font-weight:800}
 .achievement-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
  @media(max-width:600px){.achievement-grid{grid-template-columns:1fr}}
@@ -5360,6 +5367,148 @@ function printCert(){
  <p style="font-size:13px;color:var(--m-ink-mid);line-height:1.55">#1 platform for Filipino remote workers. Build your profile early.</p>
  </a>
 
+ </div>
+</section>
+
+
+<!-- ═══ WHAT'S COMING NEXT — IDEAS FOR THE ACADEMY ═══ -->
+<!-- ═══ AP / AR / PAYROLL / RECEIPT SOFTWARE STACK ═══ -->
+<section id="software-stack" style="background:#FCFAF5;border:1.5px solid #E5DDD0;border-radius:24px;padding:44px 36px;margin:32px 0;color:#0F1B2F;box-shadow:0 8px 28px rgba(15,27,47,.06)">
+ <div style="text-align:center;margin-bottom:36px">
+   <div style="display:inline-block;font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#C4006E;margin-bottom:10px">🧰 The Specialty Stack</div>
+   <h2 style="font-family:Georgia,serif;font-size:32px;color:#0F1B2F;font-weight:800;letter-spacing:-0.015em;margin-bottom:8px">AP, AR &amp; Payroll Software</h2>
+   <p style="font-size:15px;color:#1A1A2E;max-width:600px;margin:0 auto;line-height:1.6;font-weight:500">Every category has 3–5 popular tools. Learn at least one per category. Being fluent in even one can be your foot in the door.</p>
+ </div>
+
+ <div style="margin-bottom:32px">
+   <h3 style="font-family:Georgia,serif;font-size:22px;color:#0F1B2F;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span style="background:#FCE8F3;color:#C4006E;font-size:14px;padding:4px 12px;border-radius:8px">💳 AP &amp; EXPENSE</span> Accounts Payable</h3>
+   <p style="font-size:13.5px;color:#4A5468;margin-bottom:14px;line-height:1.55">Bills, vendor payments, corporate cards, receipts.</p>
+   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">💼 Bill.com</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Gold standard for AP automation. Approval workflows, ACH, vendor portal.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">⚡ Ramp</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Corporate cards + expense management + bill pay. Free. Booming with US startups.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">📋 Expensify</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Expense reports + reimbursements. SmartScan OCR. Very common.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">💎 Brex</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Corporate cards + cash management for startups. Big in tech.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">🏦 BILL Spend &amp; Expense (Divvy)</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Free corporate cards with built-in budgeting. Real-time spend visibility.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">🛫 Tipalti</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Global mass-payments. International vendors, multi-currency, 1099 / W-9.</p></div>
+   </div>
+ </div>
+
+ <div style="margin-bottom:32px">
+   <h3 style="font-family:Georgia,serif;font-size:22px;color:#0F1B2F;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span style="background:#E8F5E3;color:#2CA01C;font-size:14px;padding:4px 12px;border-radius:8px">💰 AR &amp; PAYMENTS</span> Accounts Receivable</h3>
+   <p style="font-size:13.5px;color:#4A5468;margin-bottom:14px;line-height:1.55">Invoices, customer payments, subscription billing.</p>
+   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">💳 Stripe</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">The #1 online payment processor. Every digital-first client uses it.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">📗 QuickBooks Payments</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Native to QBO. Card &amp; ACH on invoices. Faster reconciliation.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">🟦 Square</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">POS + payments for retail/restaurants. Daily payout reconciliation.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">🔁 Chargebee</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Subscription billing for SaaS. Dunning, proration, revenue recognition.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">🌀 Recurly</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Subscription billing alternative. Strong for B2C brands.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">🌐 Wise</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Receive payments in USD/AUD/GBP at real rates. Crucial for PH bookkeepers.</p></div>
+   </div>
+ </div>
+
+ <div style="margin-bottom:32px">
+   <h3 style="font-family:Georgia,serif;font-size:22px;color:#0F1B2F;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span style="background:#E3F6FD;color:#0288D1;font-size:14px;padding:4px 12px;border-radius:8px">👥 PAYROLL</span> Pay the People</h3>
+   <p style="font-size:13.5px;color:#4A5468;margin-bottom:14px;line-height:1.55"><strong>Gusto + QBO</strong> is the most common US combo. Master it first.</p>
+   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+     <div style="background:#fff;border:2px solid #FF8800;border-radius:12px;padding:16px;position:relative"><span style="position:absolute;top:8px;right:10px;background:#FF8800;color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:5px;letter-spacing:.5px">★ LEARN FIRST</span><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">🟠 Gusto</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Most-used payroll for US small businesses. Auto-syncs to QBO/Xero.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">🔴 ADP</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Enterprise &amp; mid-market US. Common for 50+ employees.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">🔵 Paychex</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">ADP's main competitor. Common with established small businesses.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">🟢 Rippling</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Modern HRIS + payroll. International payroll, IT, devices.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">📗 QuickBooks Payroll</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Native QBO payroll. Tightest integration.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">🌟 OnPay</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Cheaper Gusto alternative. Strong restaurant + farm vertical.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">🇨🇦 Wagepoint</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Canadian payroll specialist. Auto-files with CRA.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">🇦🇺 Xero Payroll</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">AU STP Phase 2, NZ payday, UK RTI. Default for AU/NZ/UK.</p></div>
+   </div>
+ </div>
+
+ <div style="margin-bottom:24px">
+   <h3 style="font-family:Georgia,serif;font-size:22px;color:#0F1B2F;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span style="background:#FFF3D6;color:#A66108;font-size:14px;padding:4px 12px;border-radius:8px">📸 RECEIPT CAPTURE</span> Auto-Bookkeeping</h3>
+   <p style="font-size:13.5px;color:#4A5468;margin-bottom:14px;line-height:1.55">Snap a receipt → OCR pulls vendor/amount/date → auto-posts to QBO/Xero.</p>
+   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">📂 Hubdoc</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Free with most Xero plans. Photo/email receipts → OCR → bill draft.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">🧾 Dext (Receipt Bank)</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Premium OCR. Better line-item extraction, supplier rules.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">📎 AutoEntry</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Sage-owned alternative. Strong with construction / restaurants.</p></div>
+     <div style="background:#fff;border:1px solid #E5DDD0;border-radius:12px;padding:16px"><div style="font-weight:800;color:#0F1B2F;margin-bottom:4px;font-size:15px">🤖 Veryfi</div><p style="font-size:12.5px;color:#1A1A2E;line-height:1.5;margin:0;font-weight:500">Newer OCR with better mobile UX.</p></div>
+   </div>
+ </div>
+
+ <div style="margin-top:32px;padding:24px;background:linear-gradient(135deg,#FFF8F0,#FCE8F3);border-left:4px solid #C4006E;border-radius:14px">
+   <h3 style="font-family:Georgia,serif;font-size:18px;font-weight:800;color:#0F1B2F;margin-bottom:10px">💡 Mary's tip — what to learn first</h3>
+   <p style="font-size:14px;color:#1A1A2E;line-height:1.65;margin-bottom:8px;font-weight:500">Pick <strong>one per category</strong> and get fluent. You don't need to master all of them.</p>
+   <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;font-size:14px;color:#1A1A2E;font-weight:500">
+     <li>✓ <strong>AP:</strong> Bill.com (QBO firms) OR Ramp (tech startups)</li>
+     <li>✓ <strong>AR:</strong> Stripe + A2X — the de-facto modern stack</li>
+     <li>✓ <strong>Payroll:</strong> Gusto for US clients — learn this first</li>
+     <li>✓ <strong>Receipts:</strong> Hubdoc OR Dext — whichever the client pays for</li>
+   </ul>
+ </div>
+</section>
+
+<section id="whats-next" style="background:linear-gradient(135deg,#FFF8F0 0%,#E6F4F5 100%);border:2px solid #00838F;border-radius:24px;padding:44px 36px;margin:32px 0;color:#0F1B2F;box-shadow:0 12px 36px rgba(0,131,143,.10)">
+ <div style="text-align:center;margin-bottom:32px">
+   <div style="display:inline-block;font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:#00838F;margin-bottom:10px">🚀 In Development</div>
+   <h2 style="font-family:Georgia,serif;font-size:32px;color:#0F1B2F;font-weight:700;letter-spacing:-0.015em;margin-bottom:8px">What's coming next to the Academy</h2>
+   <p style="font-size:15px;color:#1A1A2E;max-width:580px;margin:0 auto;line-height:1.6;font-weight:500">Real upgrades I'm building based on what students ask for. Want to vote for what comes first? Email me at <a href="mailto:marygrace.solayao01@gmail.com" style="color:#C4006E;font-weight:700">marygrace.solayao01@gmail.com</a>.</p>
+ </div>
+
+ <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px">
+   <div style="background:#fff;border:1.5px solid #E5DDD0;border-radius:16px;padding:22px;color:#0F1B2F">
+     <div style="font-size:32px;margin-bottom:10px">🎥</div>
+     <h3 style="font-family:Georgia,serif;font-size:18px;font-weight:700;margin-bottom:6px">Mary's Own Video Walkthroughs</h3>
+     <p style="font-size:13.5px;color:#2D3A52;line-height:1.55;font-weight:500">Replace the curated YouTube embeds with my own screen-recorded tutorials for each module — done in my voice, with my real client examples.</p>
+   </div>
+
+   <div style="background:#fff;border:1.5px solid #E5DDD0;border-radius:16px;padding:22px;color:#0F1B2F">
+     <div style="font-size:32px;margin-bottom:10px">📞</div>
+     <h3 style="font-family:Georgia,serif;font-size:18px;font-weight:700;margin-bottom:6px">Monthly Group Coaching Call</h3>
+     <p style="font-size:13.5px;color:#2D3A52;line-height:1.55;font-weight:500">A live Zoom call every month — open Q&amp;A, real-client scenarios, application reviews, troubleshooting tough reconciliations together.</p>
+   </div>
+
+   <div style="background:#fff;border:1.5px solid #E5DDD0;border-radius:16px;padding:22px;color:#0F1B2F">
+     <div style="font-size:32px;margin-bottom:10px">💬</div>
+     <h3 style="font-family:Georgia,serif;font-size:18px;font-weight:700;margin-bottom:6px">Private Community (Discord/Slack)</h3>
+     <p style="font-size:13.5px;color:#2D3A52;line-height:1.55;font-weight:500">A safe, supportive group chat — students helping students, share wins, ask the dumb question without judgement, find study buddies.</p>
+   </div>
+
+   <div style="background:#fff;border:1.5px solid #E5DDD0;border-radius:16px;padding:22px;color:#0F1B2F">
+     <div style="font-size:32px;margin-bottom:10px">📂</div>
+     <h3 style="font-family:Georgia,serif;font-size:18px;font-weight:700;margin-bottom:6px">Real Client File Library</h3>
+     <p style="font-size:13.5px;color:#2D3A52;line-height:1.55;font-weight:500">Sanitized actual client files (P&amp;L, BS, AR aging, bank statements) so you can practice on real messy data, not toy examples.</p>
+   </div>
+
+   <div style="background:#fff;border:1.5px solid #E5DDD0;border-radius:16px;padding:22px;color:#0F1B2F">
+     <div style="font-size:32px;margin-bottom:10px">🤝</div>
+     <h3 style="font-family:Georgia,serif;font-size:18px;font-weight:700;margin-bottom:6px">1-on-1 Mentoring Slots</h3>
+     <p style="font-size:13.5px;color:#2D3A52;line-height:1.55;font-weight:500">Limited monthly 30-min slots — bring your portfolio, your proposals, your first-client struggle. I'll help you debug and unblock.</p>
+   </div>
+
+   <div style="background:#fff;border:1.5px solid #E5DDD0;border-radius:16px;padding:22px;color:#0F1B2F">
+     <div style="font-size:32px;margin-bottom:10px">💼</div>
+     <h3 style="font-family:Georgia,serif;font-size:18px;font-weight:700;margin-bottom:6px">Job Board</h3>
+     <p style="font-size:13.5px;color:#2D3A52;line-height:1.55;font-weight:500">Curated remote bookkeeping leads from US/AU/UK clients. Vetted, scam-free. Posted weekly.</p>
+   </div>
+
+   <div style="background:#fff;border:1.5px solid #E5DDD0;border-radius:16px;padding:22px;color:#0F1B2F">
+     <div style="font-size:32px;margin-bottom:10px">💸</div>
+     <h3 style="font-family:Georgia,serif;font-size:18px;font-weight:700;margin-bottom:6px">Pricing &amp; Contracts Toolkit</h3>
+     <p style="font-size:13.5px;color:#2D3A52;line-height:1.55;font-weight:500">Engagement letter templates, scope-of-work docs, monthly retainer agreements — already-vetted, ready to send.</p>
+   </div>
+
+   <div style="background:#fff;border:1.5px solid #E5DDD0;border-radius:16px;padding:22px;color:#0F1B2F">
+     <div style="font-size:32px;margin-bottom:10px">🇵🇭</div>
+     <h3 style="font-family:Georgia,serif;font-size:18px;font-weight:700;margin-bottom:6px">PH Tax &amp; BIR Module</h3>
+     <p style="font-size:13.5px;color:#2D3A52;line-height:1.55;font-weight:500">For students who want to register as freelancers in PH — BIR setup, ITR filing, OR receipts, official receipts, the whole deal.</p>
+   </div>
+
+   <div style="background:#fff;border:1.5px solid #E5DDD0;border-radius:16px;padding:22px;color:#0F1B2F">
+     <div style="font-size:32px;margin-bottom:10px">📱</div>
+     <h3 style="font-family:Georgia,serif;font-size:18px;font-weight:700;margin-bottom:6px">Mobile App</h3>
+     <p style="font-size:13.5px;color:#2D3A52;line-height:1.55;font-weight:500">Listen to lessons on the commute, mark progress, save your favorites. Coming when there's demand.</p>
+   </div>
+ </div>
+
+ <div style="margin-top:28px;padding:18px;background:#fff;border-left:4px solid #C4006E;border-radius:10px;text-align:center">
+   <p style="font-size:14px;color:#0F1B2F;line-height:1.55;margin:0"><strong>Tell me what to build next.</strong> Email <a href="mailto:marygrace.solayao01@gmail.com?subject=Academy feature request" style="color:#C4006E;font-weight:700">marygrace.solayao01@gmail.com</a> with subject "Feature request" + your top 3 picks. The most-requested ones go to the top of the build list.</p>
  </div>
 </section>
 
