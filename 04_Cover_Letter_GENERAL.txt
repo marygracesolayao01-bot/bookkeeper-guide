@@ -1,0 +1,69 @@
+================================================================
+COVER LETTER TEMPLATE — REMOTE BOOKKEEPER
+General-purpose · Customize for each job application
+================================================================
+
+INSTRUCTIONS:
+- Replace EVERY [bracket] with the real info.
+- Keep it to 4 short paragraphs. One page max.
+- Mention the company name and one specific detail you saw on the
+  job post — that single detail beats a generic cover letter every time.
+
+================================================================
+
+[Your Full Name]
+[your.email@gmail.com] · [+63 9XX XXX XXXX]
+[linkedin.com/in/your-handle]
+[Today's Date]
+
+[Hiring Manager's Name OR "Hiring Team at [Company]"]
+[Company Name]
+[Company Address — leave blank if remote-first]
+
+Dear [Hiring Manager / Team],
+
+PARAGRAPH 1 — THE HOOK
+I am applying for the [Job Title] role at [Company Name] that you
+posted on [LinkedIn / Indeed / OLJ / Upwork]. I was drawn to the role
+because [one specific detail from the job post — e.g., "you mentioned
+needing a bookkeeper who is fluent in both QuickBooks Online and Xero,"
+or "your focus on serving Shopify-based small businesses"]. That is
+exactly the kind of work I do every day.
+
+PARAGRAPH 2 — WHY I AM A FIT
+I am a certified QuickBooks Online ProAdvisor and Xero Advisor based
+in the Philippines. I have [X] years of experience managing the full
+bookkeeping cycle — bank reconciliation, AR/AP, monthly close, and
+financial reporting — for [type of clients]. My time zone overlaps
+with your [US Pacific / Eastern / AEST / GMT] business hours from
+[time range], so we can collaborate live when needed and work async
+the rest of the time. I take data security seriously: 2FA on every
+account, a password manager for every login, and an NDA signed before
+any access is granted.
+
+PARAGRAPH 3 — A SPECIFIC RESULT
+One example of my work: at a [type of business] client, [describe
+a real or sample situation in 2 sentences — backlog, cleanup,
+multi-currency reconciliation, etc.]. The result was [specific
+outcome: caught up X months of books in Y weeks, reduced uncategorized
+expenses by Z dollars, delivered the first clean year-end financials
+for tax prep, etc.]. I would love to bring that same discipline to
+[Company Name].
+
+PARAGRAPH 4 — POLITE CTA
+My resume and portfolio are attached / linked above. Would you be open
+to a quick 15-minute call this week or next? I would love to learn more
+about the role and how I can support your team.
+
+Thank you for your time.
+
+Warm regards,
+[Your Full Name]
+QB ProAdvisor · Xero Advisor Certified
+
+================================================================
+P.S. - OPTIONAL POWER MOVE
+Add a P.S. that links to a 90-second Loom video where you, on camera,
+say hi by name to the company and walk through one screenshot of your
+sample books. This converts at 3-4x the rate of a plain cover letter.
+================================================================
